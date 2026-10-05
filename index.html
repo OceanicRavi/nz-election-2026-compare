@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NZ Election 2026 — Compare the Parties</title>
+  <meta name="description" content="Compare all registered parties contesting the 2026 New Zealand general election across 14 policy domains. Simplified, educational, non-partisan." />
+  <meta name="theme-color" content="#111318" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <meta property="og:title" content="NZ Election 2026 — Compare the Parties" />
+  <meta property="og:description" content="Know the parties. Understand the plan. Vote with confidence." />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="NZ Election 2026 Compare, home">
+        <span class="brand-mark" aria-hidden="true">🥝</span>
+        <span class="brand-text">NZ Compare<span class="brand-year">2026</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#matrix-anchor">Compare</a>
+        <a href="#leaders-anchor">Leaders</a>
+        <a href="#news-anchor">News</a>
+        <a href="#also-anchor">All Parties</a>
+        <a href="#suggest-anchor">Suggest</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+      <a href="#matrix-anchor">Compare Now</a>
+      <a href="#leaders-anchor">Leaders</a>
+      <a href="#news-anchor">News</a>
+      <a href="#also-anchor">All Parties</a>
+      <a href="#suggest-anchor">Suggest a row</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">NZ Election 2026 &middot; Compare</p>
+        <h1>Know the parties.<br />Understand the plan.<br /><span class="accent">Vote with confidence.</span></h1>
+        <p class="hero-sub">A side-by-side look at where every major party stands across 14 policy domains — built for comparison, not persuasion.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#matrix-anchor">Compare all 7 parties →</a>
+          <a class="btn btn-ghost" href="#suggest-anchor">Suggest a row</a>
+        </div>
+
+        <p class="hero-hint">↔ Scroll sideways for all seven parties &middot; ↓ scroll down for 14 policy domains</p>
+      </div>
+
+      <div class="hero-leaders" id="leaders-anchor" aria-label="Current leaders">
+        <article class="leader-card">
+          <div class="leader-avatar" style="--ac:#00529F">CL</div>
+          <div class="leader-info">
+            <h3>Christopher Luxon</h3>
+            <p>Prime Minister &middot; National</p>
+          </div>
+        </article>
+        <article class="leader-card">
+          <div class="leader-avatar" style="--ac:#D01C2A">CH</div>
+          <div class="leader-info">
+            <h3>Chris Hipkins</h3>
+            <p>Leader of the Opposition &middot; Labour</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COMPARISON MATRIX -->
+    <section class="matrix-section" id="matrix-anchor">
+      <div class="section-head">
+        <h2>Compare the parties</h2>
+        <p>Toggle parties on or off, then scroll to browse all 14 policy domains. Summaries are simplified for comparison — always check the party's own manifesto.</p>
+      </div>
+
+      <div class="matrix-controls" id="partyToggles" role="group" aria-label="Toggle parties shown in the comparison"></div>
+
+      <div class="matrix-scroll-wrap">
+        <div class="matrix-scroll" id="matrixScroll" tabindex="0" role="region" aria-label="Policy comparison table, scrollable">
+          <table class="matrix-table" id="matrixTable">
+            <thead id="matrixHead"></thead>
+            <tbody id="matrixBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALSO ON THE BALLOT -->
+    <section class="also-section" id="also-anchor">
+      <div class="section-head">
+        <h2>Also on the ballot</h2>
+        <p>17 parties are registered with the Electoral Commission for 2026. Beyond the seven above, these are also contesting — most haven't published detailed policy across every domain, so here's the headline pitch for each.</p>
+      </div>
+      <div class="also-grid" id="alsoGrid"></div>
+    </section>
+
+    <!-- DEVELOPING MOVEMENTS -->
+    <section class="news-section" id="news-anchor">
+      <div class="section-head">
+        <h2>Developing movements</h2>
+        <p>A snapshot of recent campaign news, current as of late September 2026. This page can't pull a live feed directly from X/Twitter or news outlets — use the links below to follow real-time updates yourself.</p>
+      </div>
+
+      <ol class="news-list" id="newsList"></ol>
+
+      <div class="news-links">
+        <a href="https://twitter.com/search?q=nz%20election%202026" target="_blank" rel="noopener noreferrer">Live: X/Twitter search →</a>
+        <a href="https://www.rnz.co.nz/news/politics_election-2026" target="_blank" rel="noopener noreferrer">RNZ Election 2026 →</a>
+        <a href="https://partymap.co.nz/compare/" target="_blank" rel="noopener noreferrer">PartyMap policy comparison →</a>
+        <a href="https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_New_Zealand_general_election" target="_blank" rel="noopener noreferrer">Latest polling →</a>
+      </div>
+    </section>
+
+    <!-- SUGGEST -->
+    <section class="suggest-section" id="suggest-anchor">
+      <div class="section-head">
+        <h2>Suggest an improvement</h2>
+        <p>Spot something missing, outdated, or want another policy row added? Let us know.</p>
+      </div>
+
+      <form class="suggest-form" id="suggestForm" name="suggestion" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="suggestion" />
+        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+        <div class="form-row">
+          <label for="s-name">Name</label>
+          <input id="s-name" name="name" type="text" autocomplete="name" placeholder="Jane Doe" />
+        </div>
+        <div class="form-row">
+          <label for="s-email">Email</label>
+          <input id="s-email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" />
+        </div>
+        <div class="form-row">
+          <label for="s-suggestion">Your suggestion</label>
+          <textarea id="s-suggestion" name="suggestion" rows="4" required placeholder="e.g. Add a 'Disability Support' policy row..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Send suggestion</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Leader avatars are illustrated, not photos — policy summaries are simplified for comparison and education. Always check each party's official manifesto before voting. Not affiliated with the Electoral Commission.</p>
+    <p class="footer-meta">&copy; 2026 NZ Compare &middot; Built for civic education, not persuasion.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

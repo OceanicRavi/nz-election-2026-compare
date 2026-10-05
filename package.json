@@ -1,0 +1,10 @@
+{
+  "name": "nz-election-2026-compare",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NZ Election 2026 - Compare the Parties. Static, zero-build site.",
+  "scripts": {
+    "start": "npx --yes serve . -p 5173",
+    "dev": "npx --yes serve . -p 5173"
+  }
+}
