@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NZ Election 2026 — Compare the Parties Side by Side</title>
-<meta name="description" content="Compare all 7 major parties contesting the 2026 New Zealand general election across 14 policy domains — tax, housing, health, climate and more — explained simply, with live news, real polls, and manifesto-change tracking.">
+<meta name="description" content="Compare all 7 major parties contesting the 2026 New Zealand general election across 18 policy domains — tax, housing, health, climate and more — explained simply, with live news, real polls, and manifesto-change tracking.">
 <link rel="canonical" href="https://nz-election-2026-compare.vercel.app/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#16202b">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NZ Compare 2026">
 <meta property="og:title" content="NZ Election 2026 — Compare the Parties Side by Side">
-<meta property="og:description" content="Know the parties. Understand the plan. Vote with confidence. Compare all 7 major NZ parties across 14 policy domains, explained simply.">
+<meta property="og:description" content="Know the parties. Understand the plan. Vote with confidence. Compare all 7 major NZ parties across 18 policy domains, explained simply.">
 <meta property="og:url" content="https://nz-election-2026-compare.vercel.app/">
 <meta property="og:image" content="https://nz-election-2026-compare.vercel.app/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,6 +33,33 @@
   "url": "https://nz-election-2026-compare.vercel.app/",
   "description": "A non-partisan, educational comparison of the parties contesting the 2026 New Zealand general election.",
   "inLanguage": "en-NZ"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "2026 New Zealand General Election",
+  "startDate": "2026-11-07",
+  "endDate": "2026-11-07",
+  "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": { "@type": "Country", "name": "New Zealand" },
+  "description": "The 2026 New Zealand general election, in which voters elect members of the House of Representatives.",
+  "organizer": { "@type": "Organization", "name": "New Zealand Electoral Commission", "url": "https://vote.nz" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "When is the 2026 New Zealand general election?", "acceptedAnswer": { "@type": "Answer", "text": "The 2026 New Zealand general election is scheduled for Saturday 7 November 2026." } },
+    { "@type": "Question", "name": "Which parties are contesting the 2026 election?", "acceptedAnswer": { "@type": "Answer", "text": "Seven parties are compared in detail: National, Labour, the Green Party, ACT, NZ First, Te Pati Maori, and The Opportunity Party (TOP). In total, 17 parties are registered with the Electoral Commission for 2026." } },
+    { "@type": "Question", "name": "How do I find out which electorate I'm in, and who's standing?", "acceptedAnswer": { "@type": "Answer", "text": "Use this site's electorate candidate lookup, or check the Electoral Commission's own tool at vote.nz for the definitive, address-based result." } },
+    { "@type": "Question", "name": "Is this website affiliated with the Electoral Commission or any political party?", "acceptedAnswer": { "@type": "Answer", "text": "No. This is an independent, non-partisan educational project, not affiliated with the New Zealand Electoral Commission or any political party." } },
+    { "@type": "Question", "name": "How often is the information on this site updated?", "acceptedAnswer": { "@type": "Answer", "text": "A bot checks party policy pages and pulls fresh election news automatically every 2 hours. Published opinion polls are refreshed periodically by hand." } }
+  ]
 }
 </script>
 </head>
@@ -93,43 +120,22 @@
 
 <main id="main">
 
-  <section class="block match-block" id="match-anchor" style="margin-top:2.2rem;">
-    <div class="section-head">
-      <p class="kicker">Personalised in 2 clicks</p>
-      <h2>Find your match</h2>
-      <p>Tell us who you are and what matters most — we'll line up what every party proposes, explained simply.</p>
-    </div>
-
-    <div class="match-grid">
-      <div class="card match-step">
-        <h3><span class="step-num">1</span> I am a...</h3>
-        <div class="match-options" id="profileOptions"></div>
-      </div>
-
-      <div class="card match-step" id="concernStep" style="display:none;">
-        <h3><span class="step-num">2</span> My biggest concern is...</h3>
-        <div class="match-options" id="concernOptions"></div>
-      </div>
-    </div>
-
-    <div class="match-result" id="matchResult"></div>
-  </section>
-
   <section class="block" id="matrix-anchor">
     <div class="section-head">
       <p class="kicker">The full comparison</p>
       <h2>Compare the parties</h2>
-      <p>Toggle parties, scroll for all 14 policy domains, and tap "Explain simply" on any row for a plain-English analogy.</p>
+      <p>Toggle parties, scroll for all 18 policy domains, and tap "Explain simply" on any row for a plain-English analogy.</p>
     </div>
 
     <div class="matrix-controls" id="partyToggles" role="group" aria-label="Toggle parties shown in the comparison"></div>
 
-    <div class="table-scroll">
+    <div class="table-scroll" id="matrixScroll">
       <table class="matrix-table" id="matrixTable">
         <thead id="matrixHead"></thead>
         <tbody id="matrixBody"></tbody>
       </table>
     </div>
+    <p class="scroll-hint" id="matrixScrollHint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg> Swipe to see all parties</p>
 
     <noscript>
       <div class="card" style="padding:1.2rem 1.4rem;margin-top:1rem;">
@@ -153,7 +159,10 @@
       <p>The latest published opinion polls from New Zealand media and research firms — not our own straw poll below, the actual professional surveys.</p>
     </div>
     <div class="card trend-chart-card" id="pollsChart"></div>
-    <div class="polls-scroll" id="pollsGrid"></div>
+    <div class="polls-scroll-wrap" id="pollsScrollWrap">
+      <div class="polls-scroll" id="pollsGrid"></div>
+    </div>
+    <p class="scroll-hint" id="pollsScrollHint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg> Swipe for more polls</p>
     <p class="polls-note" id="pollsMeta"></p>
   </section>
 
@@ -164,6 +173,28 @@
       <p>We can't pull a live tweet feed (no free, reliable API exists) — so instead, here are real recent campaign moments, decoded in plain English.</p>
     </div>
     <div class="decoded-grid" id="decodedGrid"></div>
+  </section>
+
+  <section class="block match-block" id="match-anchor">
+    <div class="section-head">
+      <p class="kicker">Personalised in 2 clicks</p>
+      <h2>Find your match</h2>
+      <p>Tell us who you are, then what matters most — we'll line up what every party proposes, explained simply.</p>
+    </div>
+
+    <div class="match-flow">
+      <div class="card match-step" id="profileStep">
+        <h3><span class="step-num">1</span> I am a...</h3>
+        <div class="match-options" id="profileOptions"></div>
+      </div>
+
+      <div class="card match-step" id="concernStep" style="display:none;">
+        <h3><span class="step-num">2</span> My biggest concern is...</h3>
+        <div class="match-options" id="concernOptions"></div>
+      </div>
+
+      <div class="match-result" id="matchResult"></div>
+    </div>
   </section>
 
   <section class="block" id="manifesto-anchor">
@@ -215,6 +246,39 @@
     </div>
   </section>
 
+  <section class="block" id="faq-anchor">
+    <div class="section-head">
+      <p class="kicker">Common questions</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>When is the 2026 New Zealand general election?</summary>
+        <p>The 2026 New Zealand general election is scheduled for <strong>Saturday 7 November 2026</strong>. Advance voting typically opens around two weeks before election day.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which parties are contesting the 2026 election?</summary>
+        <p>Seven parties are compared in full detail on this page: National, Labour, the Green Party, ACT, NZ First, Te Pāti Māori, and The Opportunity Party (TOP). In total, <strong>17 parties</strong> are registered with the Electoral Commission for 2026 — see "Also on the ballot" above for the other ten.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I find out which electorate I'm in, and who's standing?</summary>
+        <p>Use our <a href="constituency">electorate candidate lookup</a> for a quick answer, or check the Electoral Commission's own tool at <a href="https://vote.nz/enrol-and-check-my-enrolment/check-or-update-enrolment/" target="_blank" rel="noopener">vote.nz</a> for the definitive, address-based result.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this website affiliated with the Electoral Commission or any political party?</summary>
+        <p>No. This is an independent, non-partisan educational project. It is not affiliated with the New Zealand Electoral Commission or any political party, and policy summaries here are simplified for comparison — always verify against each party's official manifesto before voting.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How often is the information on this site updated?</summary>
+        <p>A bot checks party policy pages and pulls fresh election news automatically every 2 hours (see "Manifesto watch" and "Developing movements" above). Published opinion polls are refreshed periodically by hand, not scraped live — each section states when it was last updated.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where do the "Explain simply" analogies come from?</summary>
+        <p>They're hand-written, plain-English analogies meant to make each policy understandable at a glance — written for this site, not quoted from any party. They're a starting point for understanding, not a substitute for reading the actual policy.</p>
+      </details>
+    </div>
+  </section>
+
   <section class="block" id="suggest-anchor">
     <div class="section-head">
       <p class="kicker">Help us improve</p>
@@ -236,7 +300,7 @@
 <footer>
   <div class="wrap">
     <p>Leader avatars are illustrated, not photos — policy summaries are simplified for comparison and education. Always check each party's official manifesto before voting. Not affiliated with the Electoral Commission.</p>
-    <p><a href="find-your-match">Find your match →</a> &nbsp;·&nbsp; <a href="constituency">Find your electorate's candidates →</a></p>
+    <p><a href="find-your-match">Find your match →</a> &nbsp;·&nbsp; <a href="constituency">Find your electorate's candidates →</a> &nbsp;·&nbsp; <a href="#faq-anchor">FAQ →</a></p>
   </div>
 </footer>
 

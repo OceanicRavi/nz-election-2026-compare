@@ -1,5 +1,5 @@
-/* Find Your Match — pick a profile, pick a concern, see every party's
-   position on that one domain, side by side, explained simply. */
+/* Find Your Match — pick a profile, then a concern, one step revealed
+   at a time, then see every party's position side by side. */
 
 (function () {
   "use strict";
@@ -18,6 +18,7 @@
     }
   }
 
+  const profileStep = document.getElementById("profileStep");
   const profileOptions = document.getElementById("profileOptions");
   const concernStep = document.getElementById("concernStep");
   const concernOptions = document.getElementById("concernOptions");
@@ -25,6 +26,10 @@
 
   let selectedProfile = null;
   let selectedConcern = null;
+
+  function scrollTo(el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   function renderProfiles() {
     profileOptions.innerHTML = "";
@@ -35,11 +40,10 @@
       btn.innerHTML = `<span class="icon">${p.icon}</span>${p.label}`;
       btn.addEventListener("click", () => {
         selectedProfile = p;
-        [...profileOptions.children].forEach((c) => c.classList.remove("selected"));
-        btn.classList.add("selected");
+        profileStep.style.display = "none";
         concernStep.style.display = "block";
         renderConcerns();
-        concernStep.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollTo(concernStep);
       });
       profileOptions.appendChild(btn);
     });
@@ -54,18 +58,26 @@
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "match-option";
-      if (selectedConcern && selectedConcern.id === d.id) btn.classList.add("selected");
       btn.innerHTML = `${suggested.has(d.id) ? '<span class="icon">★</span>' : ""}${d.name}`;
       btn.title = suggested.has(d.id) ? "Often relevant to your profile" : "";
       btn.addEventListener("click", () => {
         selectedConcern = d;
-        [...concernOptions.children].forEach((c) => c.classList.remove("selected"));
-        btn.classList.add("selected");
+        concernStep.style.display = "none";
         renderResult();
-        matchResult.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollTo(matchResult);
       });
       concernOptions.appendChild(btn);
     });
+  }
+
+  function redo() {
+    selectedProfile = null;
+    selectedConcern = null;
+    matchResult.innerHTML = "";
+    concernStep.style.display = "none";
+    profileStep.style.display = "block";
+    [...profileOptions.children].forEach((c) => c.classList.remove("selected"));
+    scrollTo(profileStep);
   }
 
   function renderResult() {
@@ -89,14 +101,22 @@
     }).join("");
 
     matchResult.innerHTML = `
-      <div class="section-head" style="margin-top:2rem;">
-        <p class="kicker">${selectedProfile ? selectedProfile.label : "Your"} &middot; ${domain.name}</p>
+      <div class="match-breadcrumb">
+        <span>${selectedProfile.icon} ${selectedProfile.label}</span>
+        <span class="sep">→</span>
+        <span>${domain.name}</span>
+      </div>
+      <div class="section-head" style="margin-top:.8rem;">
         <h2>What each party proposes</h2>
         <p>${domain.desc} Every party's position on this, explained like you're 15.</p>
       </div>
       <div class="minor-grid">${cards}</div>
-      <p class="feed-meta" style="margin-top:1rem;"><a href="/#matrix-anchor" style="color:var(--jade);font-weight:700;text-decoration:none;">See the full 14-domain comparison →</a></p>
+      <div class="match-result-actions">
+        <button type="button" class="btn btn-dark" id="matchRedoBtn">↺ Start over</button>
+        <a class="btn btn-ghost-light" href="/#matrix-anchor">See the full comparison →</a>
+      </div>
     `;
+    document.getElementById("matchRedoBtn").addEventListener("click", redo);
   }
 
   renderProfiles();

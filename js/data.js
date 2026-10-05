@@ -100,7 +100,7 @@ const PARTIES = [
   },
 ];
 
-/* 14 policy domains. "desc" is the short sub-label shown under the name. */
+/* 18 policy domains. "desc" is the short sub-label shown under the name. */
 const DOMAINS = [
   { id: "economy", name: "Economy & Tax", desc: "Tax, spending, trade." },
   { id: "housing", name: "Housing", desc: "Supply, rent, ownership." },

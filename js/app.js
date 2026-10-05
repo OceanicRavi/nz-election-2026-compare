@@ -439,12 +439,49 @@
     });
   }
 
+  /* ---------- Scroll-fade affordances for horizontally-scrollable areas ---------- */
+  function wireScrollFade(scrollEl, fadeTargetEl, hintEl) {
+    if (!scrollEl) return;
+    const target = fadeTargetEl || scrollEl;
+    function update() {
+      const canRight = scrollEl.scrollWidth - scrollEl.clientWidth - scrollEl.scrollLeft > 4;
+      const canLeft = scrollEl.scrollLeft > 4;
+      target.classList.toggle("can-scroll-right", canRight);
+      target.classList.toggle("can-scroll-left", canLeft);
+      if (hintEl) hintEl.classList.toggle("show", canRight);
+    }
+    scrollEl.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    // content (table columns, poll cards) can resize after this runs — recheck shortly after
+    setTimeout(update, 50);
+    setTimeout(update, 400);
+    update();
+    return update;
+  }
+
+  const matrixScrollEl = document.getElementById("matrixScroll");
+  const matrixScrollHint = document.getElementById("matrixScrollHint");
+  const updateMatrixFade = wireScrollFade(matrixScrollEl, matrixScrollEl, matrixScrollHint);
+
   renderToggles();
   renderMatrix();
   renderMinor();
   renderNews();
   renderManifestoWatch();
-  renderPolls();
+  renderPolls().then(() => {
+    const pollsScrollEl = document.getElementById("pollsGrid");
+    const pollsWrapEl = document.getElementById("pollsScrollWrap");
+    const pollsScrollHint = document.getElementById("pollsScrollHint");
+    wireScrollFade(pollsScrollEl, pollsWrapEl, pollsScrollHint);
+  });
   renderDecoded();
   renderPoll();
+
+  if (updateMatrixFade) {
+    const origRenderMatrix = renderMatrix;
+    renderMatrix = function () {
+      origRenderMatrix();
+      setTimeout(updateMatrixFade, 30);
+    };
+  }
 })();
