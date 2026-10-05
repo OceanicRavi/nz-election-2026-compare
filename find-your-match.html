@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Find Your Electorate's Candidates — NZ Election 2026</title>
-<meta name="description" content="Look up which candidates are standing for each party in your New Zealand electorate for the 2026 general election.">
-<link rel="canonical" href="https://nz-election-2026-compare.vercel.app/constituency">
+<title>Find Your Match — NZ Election 2026</title>
+<meta name="description" content="Tell us who you are and what you care about most, and see what each of the 7 main NZ parties proposes on that issue, side by side, explained simply.">
+<link rel="canonical" href="https://nz-election-2026-compare.vercel.app/find-your-match">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#9a4f7a">
+<meta name="theme-color" content="#16202b">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<meta property="og:title" content="Find Your Electorate's Candidates — NZ Election 2026">
-<meta property="og:description" content="Look up which candidates are standing for each party in your electorate.">
+<meta property="og:title" content="Find Your Match — NZ Election 2026">
+<meta property="og:description" content="Tell us who you are and what you care about most, and compare what each party proposes.">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -28,9 +28,10 @@
       <span>NZ Compare<span class="year">26</span></span>
     </a>
     <nav class="main-nav" aria-label="Primary">
-      <a href="/#matrix-anchor">Compare parties</a>
+      <a href="/#matrix-anchor">Full comparison</a>
+      <a href="/#polls-anchor">Polls</a>
       <a href="/#news-anchor">News</a>
-      <a href="find-your-match">Find Your Match</a>
+      <a href="constituency">My Electorate</a>
     </nav>
     <a class="header-cta" href="/">Home</a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
@@ -38,47 +39,43 @@
     </button>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-    <a href="/#matrix-anchor">Compare parties</a>
+    <a href="/#matrix-anchor">Full comparison</a>
+    <a href="/#polls-anchor">Polls</a>
     <a href="/#news-anchor">News</a>
-    <a href="find-your-match">Find Your Match</a>
-    <a href="/#suggest-anchor">Suggest</a>
+    <a href="constituency">My Electorate</a>
   </nav>
 </header>
 
 <section class="hero" style="padding-bottom:0;">
   <div class="hero-bg" aria-hidden="true"><img src="assets/hero-bg.svg" alt="" width="1600" height="760"></div>
   <div class="hero-inner" style="padding-bottom:3.5rem;">
-    <p class="hero-eyebrow">My Electorate</p>
-    <h1>Who's standing <em>where you live?</em></h1>
-    <p class="hero-sub">Pick your electorate to see which candidates are contesting it for each of the 7 main parties.</p>
+    <p class="hero-eyebrow">Personalised comparison</p>
+    <h1>Find your <em>match</em></h1>
+    <p class="hero-sub">Tell us who you are and what matters most — we'll line up what every party proposes, explained simply.</p>
   </div>
 </section>
 
 <main id="main">
   <section class="block" style="margin-top:-2rem;">
-    <div class="card lookup-card">
-      <label for="electorateSelect" style="display:block;font-weight:700;margin-bottom:.6rem;">Choose your electorate</label>
-      <select id="electorateSelect">
-        <option value="">— Select an electorate —</option>
-      </select>
-
-      <div id="candidateResult"></div>
-      <p class="lookup-source" id="lookupSource"></p>
+    <div class="card match-step">
+      <h3>Step 1 — I am a...</h3>
+      <div class="match-options" id="profileOptions"></div>
     </div>
-  </section>
 
-  <section class="block">
-    <div class="section-head">
-      <h2>Not sure which electorate you're in?</h2>
-      <p>The Electoral Commission's own tool gives the definitive, up-to-date answer by address.</p>
+    <div class="card match-step" id="concernStep" style="display:none;">
+      <h3>Step 2 — My biggest concern is...</h3>
+      <div class="match-options" id="concernOptions"></div>
     </div>
-    <a class="btn btn-dark" href="https://vote.nz/enrol-and-check-my-enrolment/check-or-update-enrolment/" target="_blank" rel="noopener">Check my enrolment at vote.nz →</a>
+
+    <div class="match-result" id="matchResult"></div>
   </section>
 </main>
 
 <footer>
-  <p>Candidate data sourced from Wikipedia's "Candidates in the 2026 New Zealand general election by electorate" and cross-checked where possible. Candidate lists can change until nominations close — always confirm at vote.nz before voting.</p>
-  <p><a href="/">← Back to the full party comparison</a></p>
+  <div class="wrap">
+    <p>Policy summaries are simplified for comparison and education — always check each party's official manifesto before voting.</p>
+    <p><a href="/">← Back to the full party comparison</a></p>
+  </div>
 </footer>
 
 <script>
@@ -86,6 +83,6 @@
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script src="js/data.js"></script>
-<script src="js/constituency.js"></script>
+<script src="js/match.js"></script>
 </body>
 </html>

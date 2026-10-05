@@ -55,7 +55,7 @@
         const name = val.replace("__unverified__", "");
         result.innerHTML = `
           <p class="lookup-empty">We don't have verified candidate data for <strong>${name}</strong> yet.</p>
-          <a href="${data.officialLookupUrl}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:#fff;color:#a3441f;font-weight:700;font-size:13px;padding:9px 16px;border-radius:20px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.15);">Check official candidates →</a>
+          <a class="btn btn-dark" href="${data.officialLookupUrl}" target="_blank" rel="noopener" style="margin-top:10px;">Check official candidates →</a>
         `;
         return;
       }

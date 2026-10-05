@@ -1,11 +1,16 @@
 /* NZ Election 2026 — Compare the Parties
-   Renders data.js content into the DOM, fetches the live bot feeds,
+   Renders data.js content into the DOM, fetches live bot feeds,
    and wires up the poll + suggestion form. Plain DOM APIs, no build step. */
 
 (function () {
   "use strict";
 
   const state = { visible: new Set(PARTIES.map((p) => p.id)) };
+
+  function formatDate(iso) {
+    try { return new Date(iso).toLocaleDateString("en-NZ", { day: "numeric", month: "short", year: "numeric" }); }
+    catch { return iso; }
+  }
 
   /* ---------- Mobile nav ---------- */
   const navToggle = document.getElementById("navToggle");
@@ -26,7 +31,7 @@
     PARTIES.forEach((p) => {
       const c = document.createElement("div");
       c.className = "lchip";
-      c.innerHTML = `<div class="av" style="background:${p.color}">${p.initials}</div><span>${p.leader}</span>`;
+      c.innerHTML = `<div class="av" style="background:${p.color}">${p.initials}</div><div class="meta"><b>${p.leader}</b><span>${p.role} &middot; ${p.name}</span></div>`;
       stripEl.appendChild(c);
     });
   }
@@ -58,55 +63,59 @@
     });
   }
 
-  /* ---------- Comparison matrix ---------- */
-  const matrixEl = document.getElementById("matrix");
+  /* ---------- Comparison matrix (real table) ---------- */
+  const headEl = document.getElementById("matrixHead");
+  const bodyEl = document.getElementById("matrixBody");
+
   function renderMatrix() {
-    if (!matrixEl) return;
+    if (!headEl || !bodyEl) return;
     const activeParties = PARTIES.filter((p) => state.visible.has(p.id));
-    matrixEl.innerHTML = "";
-    matrixEl.style.gridTemplateColumns = `150px repeat(${activeParties.length}, minmax(195px, 1fr))`;
-    matrixEl.style.minWidth = `${150 + activeParties.length * 205}px`;
 
-    const corner = document.createElement("div");
-    corner.className = "hcell corner";
-    corner.innerHTML = "<span>Domain</span>";
-    matrixEl.appendChild(corner);
+    headEl.innerHTML = "";
+    const headRow = document.createElement("tr");
+    const corner = document.createElement("th");
+    corner.className = "corner";
+    corner.scope = "col";
+    corner.textContent = "Policy domain";
+    headRow.appendChild(corner);
 
-    activeParties.forEach((p) => {
-      const h = document.createElement("div");
-      h.className = "hcell";
-      h.innerHTML = `<div class="avatar" style="background:${p.color}">${p.initials}</div><h3>${p.name}</h3><div class="leader">${p.leader}</div>`;
-      matrixEl.appendChild(h);
+    activeParties.forEach((party) => {
+      const th = document.createElement("th");
+      th.className = "party-head";
+      th.scope = "col";
+      th.innerHTML = `
+        <div class="party-head-row"><span class="dot" style="background:${party.color}"></span><span class="party-head-name">${party.name}</span></div>
+        <div class="party-head-leader">${party.leader}</div>
+      `;
+      headRow.appendChild(th);
     });
+    headEl.appendChild(headRow);
 
-    const rowTints = ["#f6e7d8", "#e4efe0", "#e8eef5", "#f5e6ea", "#eee6f3", "#f9efe0", "#e2eeee", "#f2e6e0", "#eaeff0", "#f0e9e2", "#e6f0e9", "#f3ece0", "#e0e9f2", "#efe4ea"];
-
-    DOMAINS.forEach((dom, i) => {
-      const tint = rowTints[i % rowTints.length];
-      const label = document.createElement("div");
-      label.className = "rowlabel";
-      label.style.background = tint;
-      label.innerHTML = `<div>${dom.name}<span class="d">${dom.desc}</span></div>`;
-      matrixEl.appendChild(label);
+    bodyEl.innerHTML = "";
+    DOMAINS.forEach((domain) => {
+      const row = document.createElement("tr");
+      const th = document.createElement("th");
+      th.scope = "row";
+      th.innerHTML = `${domain.name}<span class="domain-desc">${domain.desc}</span>`;
+      row.appendChild(th);
 
       activeParties.forEach((party) => {
-        const entry = (POLICIES[party.id] && POLICIES[party.id][dom.id]) || { p: "No published position yet.", a: "Not yet available for this party." };
-        const cell = document.createElement("div");
-        cell.className = "cell";
-        cell.style.borderLeft = `4px solid ${tint}`;
-        cell.innerHTML = `
-          <div class="policy">${entry.p}</div>
-          <button class="explain-btn" type="button">Explain simply →</button>
-          <div class="analogy">${entry.a}</div>
+        const entry = (POLICIES[party.id] && POLICIES[party.id][domain.id]) || { p: "No published position yet.", a: "Not yet available for this party." };
+        const td = document.createElement("td");
+        td.innerHTML = `
+          <div class="policy-text">${entry.p}</div>
+          <button class="explain-toggle" type="button">Explain simply →</button>
+          <div class="analogy-box">${entry.a}</div>
         `;
-        const btn = cell.querySelector(".explain-btn");
-        const an = cell.querySelector(".analogy");
+        const btn = td.querySelector(".explain-toggle");
+        const box = td.querySelector(".analogy-box");
         btn.addEventListener("click", () => {
-          const show = an.classList.toggle("show");
+          const show = box.classList.toggle("show");
           btn.textContent = show ? "Hide ↑" : "Explain simply →";
         });
-        matrixEl.appendChild(cell);
+        row.appendChild(td);
       });
+      bodyEl.appendChild(row);
     });
   }
 
@@ -117,7 +126,7 @@
     minorEl.innerHTML = "";
     OTHER_PARTIES.forEach((m) => {
       const c = document.createElement("div");
-      c.className = "minor-card";
+      c.className = "card minor-card";
       c.innerHTML = `<b>${m.name}</b>${m.pitch}`;
       minorEl.appendChild(c);
     });
@@ -127,18 +136,13 @@
   const newsList = document.getElementById("newsList");
   const newsMeta = document.getElementById("newsMeta");
 
-  function formatDate(iso) {
-    try { return new Date(iso).toLocaleDateString("en-NZ", { day: "numeric", month: "short", year: "numeric" }); }
-    catch { return iso; }
-  }
-
   function renderNewsItems(items, { date, text, link, source }) {
     if (!newsList) return;
     newsList.innerHTML = "";
     items.forEach((raw) => {
       const li = document.createElement("li");
       const label = date(raw), body = text(raw), href = link(raw), src = source(raw);
-      li.innerHTML = `<span class="date">${label}</span>${src ? `<span class="news-source">${src}</span> &middot; ` : ""}${href ? `<a href="${href}" target="_blank" rel="noopener noreferrer">${body}</a>` : body}`;
+      li.innerHTML = `<time>${label}</time>${src ? `<span class="news-source">${src}</span> &middot; ` : ""}${href ? `<a href="${href}" target="_blank" rel="noopener noreferrer">${body}</a>` : body}`;
       newsList.appendChild(li);
     });
   }
@@ -165,7 +169,7 @@
 
   function manifestoCard(name, url, status, lastChecked, lastChanged) {
     const card = document.createElement("article");
-    card.className = `manifesto-card status-${status}`;
+    card.className = `card manifesto-card status-${status}`;
     card.innerHTML = `
       <h4>${name}</h4>
       <p class="manifesto-status">${STATUS_LABEL[status] || "Unknown"}</p>
@@ -191,7 +195,69 @@
     }
   }
 
-  /* ---------- Poll ---------- */
+  /* ---------- Real published polls ---------- */
+  const pollsGrid = document.getElementById("pollsGrid");
+  const pollsMeta = document.getElementById("pollsMeta");
+  const partyById = Object.fromEntries(PARTIES.map((p) => [p.id, p]));
+
+  function pollCard(poll) {
+    const card = document.createElement("div");
+    card.className = "poll-card2";
+    const rows = Object.entries(poll.results)
+      .sort((a, b) => b[1] - a[1])
+      .map(([id, pct]) => {
+        const party = partyById[id];
+        if (!party) return "";
+        return `
+          <div class="poll-bar-row">
+            <span class="label">${party.short}</span>
+            <span class="poll-track"><span class="poll-fill" style="width:${Math.min(pct * 2.4, 100)}%;--pc:${party.color}"></span></span>
+            <span class="poll-pct">${pct}%</span>
+          </div>
+        `;
+      })
+      .join("");
+    card.innerHTML = `
+      <div class="poll-head"><span class="poll-firm">${poll.firm}</span><span class="poll-date">${poll.dates}</span></div>
+      <div class="poll-bars">${rows}</div>
+    `;
+    return card;
+  }
+
+  async function renderPolls() {
+    if (!pollsGrid) return;
+    pollsGrid.innerHTML = "";
+    try {
+      const res = await fetch("data/polls.json", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data.polls || !data.polls.length) throw new Error("empty");
+      data.polls.forEach((poll) => pollsGrid.appendChild(pollCard(poll)));
+      if (pollsMeta) pollsMeta.innerHTML = `Updated ${data.updatedAt} from <a href="${data.sourceUrl}" target="_blank" rel="noopener">${data.source}</a>. ${data.note}`;
+    } catch {
+      if (pollsMeta) pollsMeta.textContent = "Poll data unavailable right now.";
+    }
+  }
+
+  /* ---------- Tweets / social moments decoded ---------- */
+  const decodedGrid = document.getElementById("decodedGrid");
+  function renderDecoded() {
+    if (!decodedGrid) return;
+    decodedGrid.innerHTML = "";
+    TWEETS_DECODED.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "card decoded-card";
+      card.innerHTML = `
+        <div class="decoded-who">${item.who}</div>
+        <p class="decoded-quote">"${item.quote}"</p>
+        <p class="decoded-explain"><b>What's actually going on:</b> ${item.explain}</p>
+        <a class="decoded-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Read more →</a>
+      `;
+      decodedGrid.appendChild(card);
+    });
+  }
+
+  /* ---------- Leaning poll (anonymous, our own) ---------- */
   const pollOptions = document.getElementById("pollOptions");
   const pollResults = document.getElementById("pollResults");
   const pollMeta = document.getElementById("pollMeta");
@@ -269,7 +335,7 @@
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (document.getElementById("botcheck").value) return; // honeypot
+      if (document.getElementById("botcheck").value) return;
 
       const name = document.getElementById("fname").value.trim();
       const email = document.getElementById("femail").value.trim();
@@ -315,5 +381,7 @@
   renderMinor();
   renderNews();
   renderManifestoWatch();
+  renderPolls();
+  renderDecoded();
   renderPoll();
 })();

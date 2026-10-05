@@ -243,6 +243,58 @@ const OTHER_PARTIES = [
   { name: "Women's Rights Party", pitch: "Single-issue focus on sex-based rights and protections." },
 ];
 
+/* "Tweets decoded" — we can't pull a live tweet feed (no free, ToS-
+   compliant API exists), so instead these are real, recent campaign
+   social-media moments, explained in plain English. Hand-curated and
+   periodically refreshed — update this array as new moments come up. */
+const TWEETS_DECODED = [
+  {
+    who: "Carlos Cheung — National candidate, Mt Roskill",
+    quote: "Our democracy is not a target — there is no place for this dangerous behaviour.",
+    context: "Posted after his campaign election hoarding (sign) was deliberately set on fire.",
+    explain: "Someone set fire to his campaign sign, which is actually dangerous (fire can spread) as well as illegal. He's saying: however strongly you disagree with a candidate, burning their stuff crosses a line — disagree by voting, not vandalism.",
+    link: "https://www.stuff.co.nz/nz-news/361042185/election-2026-catches-fire-candidate-says-vandalism-dangerous-completely-unacceptable",
+  },
+  {
+    who: "National Party social media team vs. Chöe Swarbrick (Green co-leader)",
+    quote: "[Swarbrick] called it an inaccurate misrepresentation of her party's tax policy and asked for it to be taken down.",
+    context: "National posted a video about the Greens' wealth tax; the Green Party said it misrepresented their actual policy. National declined to remove it.",
+    explain: "This is a classic 'attack ad' fight: one party makes a short, punchy video about a rival's policy, the rival says 'that's not actually what we're proposing, you're exaggerating it to scare people.' When you see a scary clip about another party's policy online, it's worth checking that party's own website before believing it.",
+    link: "https://www.stuff.co.nz/politics",
+  },
+  {
+    who: "Christopher Luxon (National) — under-16s social media ban",
+    quote: "Seymour and Peters hit back as Luxon moves on under-16s social media ban.",
+    context: "National campaigned on banning social media for under-16s; coalition partners ACT and NZ First publicly pushed back on the detail.",
+    explain: "Even parties that work together in government don't always agree on everything. National wants a hard age limit (like how you can't buy alcohol under 18); ACT and NZ First have pushed back on the idea, favouring rules of their own instead. It's a preview of what they'd each push for if they win seats together again.",
+    link: "https://www.1news.co.nz/2026/08/24/seymour-and-peters-hit-back-as-luxon-moves-on-under-16s-social-media-ban/",
+  },
+  {
+    who: "Leaders' Debate — Luxon vs Hipkins",
+    quote: "Neither had opened a convincing lead over the other, with most polls showing Labour and National effectively deadlocked.",
+    context: "The first head-to-head TV debate aired 6 October 2026 on TVNZ, moderated by Jack Tame.",
+    explain: "Think of this like a job interview watched by the whole country: the two people most likely to be Prime Minister stand on stage and take questions live, with no script. Because the polls have National and Labour almost tied, this debate matters more than usual — a strong or weak performance can actually shift votes.",
+    link: "https://www.1news.co.nz/2026/10/06/leaders-debate-luxon-hipkins-square-off-a-month-out-from-election/",
+  },
+];
+
+/* "I am a..." profiles for the Find Your Match page. `suggested` lists
+   domain ids (from DOMAINS above) pre-highlighted as likely relevant —
+   it's a starting point, not a restriction; every profile can still
+   pick any concern. */
+const PROFILES = [
+  { id: "student", label: "Student", icon: "🎓", suggested: ["education", "welfare", "employment"] },
+  { id: "renter", label: "Renter", icon: "🏠", suggested: ["housing", "welfare", "employment"] },
+  { id: "homeowner", label: "Homeowner", icon: "🏡", suggested: ["housing", "economy", "climate"] },
+  { id: "immigrant", label: "Immigrant / Visa holder", icon: "🌏", suggested: ["immigration", "employment", "housing"] },
+  { id: "business", label: "Business owner", icon: "💼", suggested: ["economy", "employment", "energy"] },
+  { id: "parent", label: "Parent", icon: "👨‍👩‍👧", suggested: ["education", "health", "welfare"] },
+  { id: "retiree", label: "Retiree", icon: "👵", suggested: ["welfare", "health", "economy"] },
+  { id: "farmer", label: "Farmer / Rural", icon: "🚜", suggested: ["economy", "climate", "energy"] },
+  { id: "jobseeker", label: "Jobseeker", icon: "🔍", suggested: ["welfare", "employment", "economy"] },
+  { id: "other", label: "Just curious", icon: "🧭", suggested: [] },
+];
+
 /* Developing movements / news ticker fallback — used only if the live
    data/news.json fetch fails (see js/app.js). */
 const NEWS_ITEMS = [

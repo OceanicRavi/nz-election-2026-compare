@@ -1,0 +1,38 @@
+{
+  "source": "Wikipedia: Opinion polling for the 2026 New Zealand general election",
+  "sourceUrl": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_New_Zealand_general_election",
+  "note": "Manually refreshed periodically from published polls (not a live scrape) — check the source link for the complete, up-to-date history.",
+  "updatedAt": "2026-10-06",
+  "polls": [
+    {
+      "firm": "RNZ–Reid Research",
+      "dates": "24 Sep – 1 Oct 2026",
+      "results": { "national": 25.9, "labour": 30.8, "green": 14.8, "act": 9, "nzfirst": 10.6, "maori": 2, "top": 5.5 }
+    },
+    {
+      "firm": "1News–Verian",
+      "dates": "23–27 Sep 2026",
+      "results": { "national": 28, "labour": 28, "green": 16, "act": 11, "nzfirst": 9, "maori": 1.2, "top": 6 }
+    },
+    {
+      "firm": "The Post / Freshwater Strategy",
+      "dates": "4–11 Sep 2026",
+      "results": { "national": 27, "labour": 28, "green": 14, "act": 9, "nzfirst": 13, "maori": 2, "top": 6 }
+    },
+    {
+      "firm": "Anacta",
+      "dates": "4–10 Sep 2026",
+      "results": { "national": 30, "labour": 31, "green": 12, "act": 8, "nzfirst": 10, "maori": 2, "top": 7 }
+    },
+    {
+      "firm": "Taxpayers' Union–Curia",
+      "dates": "1–3 Sep 2026",
+      "results": { "national": 29, "labour": 25.9, "green": 13.9, "act": 10.5, "nzfirst": 8.4, "maori": 2, "top": 4.5 }
+    },
+    {
+      "firm": "Roy Morgan",
+      "dates": "27 Jul – 23 Aug 2026",
+      "results": { "national": 31, "labour": 24, "green": 15.5, "act": 10.5, "nzfirst": 7.5, "maori": 1.5, "top": 9.5 }
+    }
+  ]
+}
