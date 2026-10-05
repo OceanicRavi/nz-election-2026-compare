@@ -4,56 +4,832 @@
   "officialLookupUrl": "https://vote.nz/democracy-in-nz/elections-and-referenda/general-elections/electorates/",
   "note": "Candidate lists can change until nominations close. Always confirm with the official source before voting.",
   "electorates": [
-    { "name": "Auckland Central", "candidates": { "national": "Candace Kinser", "labour": "Naisi Chen", "green": "Chlöe Swarbrick", "act": "Antonia Modkova", "nzfirst": null, "maori": null, "top": "Johan Chang" } },
-    { "name": "Banks Peninsula", "candidates": { "national": "Vanessa Weenink", "labour": "Tracey McLellan", "green": "Craig Pauling", "act": "Zachary Wellman", "nzfirst": "Lindsay Kerslake", "maori": null, "top": null } },
-    { "name": "Botany", "candidates": { "national": "Christopher Luxon", "labour": "Neru Leavasa", "green": null, "act": "Ali Dahche", "nzfirst": "Craig Stobo", "maori": null, "top": null } },
-    { "name": "Christchurch Central", "candidates": { "national": "Dale Stephens", "labour": "George Hampton", "green": "Kahurangi Carter", "act": "Christian van der Pump", "nzfirst": "Mark Arneil", "maori": null, "top": "Eden Skipper" } },
-    { "name": "Christchurch East", "candidates": { "national": "Alexandra Davids", "labour": "Reuben Davidson", "green": "Teresa Butler", "act": "Toni Severin", "nzfirst": "Shane Wiremu", "maori": null, "top": null } },
-    { "name": "Coromandel", "candidates": { "national": "Scott Simpson", "labour": "Glen Bennett", "green": "Pamela Grealey", "act": "Mike McCormick", "nzfirst": "Vincent Anderson", "maori": null, "top": null } },
-    { "name": "Dunedin", "candidates": { "national": "Kristine Asuncion", "labour": "Rachel Brooking", "green": "Francisco Hernandez", "act": null, "nzfirst": "Kym McDonald-King", "maori": null, "top": "David Bainbridge-Zafar" } },
-    { "name": "East Cape", "candidates": { "national": "Dana Kirkpatrick", "labour": "Jo Luxton", "green": "Jordan Walker", "act": "Darrin Hawkes", "nzfirst": "Te Kira Lawrence", "maori": null, "top": "Cail Smith" } },
-    { "name": "East Coast Bays", "candidates": { "national": "Erica Stanford", "labour": "Brendan McEnroe", "green": "Abe McKee", "act": "Sam Mills", "nzfirst": "Vaughan Taylor", "maori": null, "top": null } },
-    { "name": "Epsom", "candidates": { "national": "Paul Goldsmith", "labour": "Camilla Belich", "green": "Lawrence Xu-Nan", "act": "David Seymour", "nzfirst": "Martin Gummer", "maori": null, "top": "Paul Jackson" } },
-    { "name": "Glendene", "candidates": { "national": "Sunil Kumar", "labour": "Carmel Sepuloni", "green": "Yasmine Serhan", "act": "Amanda Roberts", "nzfirst": "Alfred Ngaro", "maori": null, "top": "Evan French" } },
-    { "name": "Hamilton East", "candidates": { "national": "Ryan Hamilton", "labour": "Georgie Dansey", "green": null, "act": null, "nzfirst": "Nicola Laboyrie", "maori": null, "top": "Naomi Pocock" } },
-    { "name": "Hamilton West", "candidates": { "national": "Tama Potaka", "labour": "Myra Williamson", "green": "Louise Hutt", "act": null, "nzfirst": "Kevin Stone", "maori": null, "top": "Blair Smith" } },
-    { "name": "Henderson", "candidates": { "national": "Angee Nicholas", "labour": "Phil Twyford", "green": "Alika Wells", "act": "Nick Peirce", "nzfirst": "David Wilson", "maori": null, "top": "Almo Wong" } },
-    { "name": "Hutt South", "candidates": { "national": "Chris Bishop", "labour": "Ginny Andersen", "green": "Courtney White", "act": null, "nzfirst": "Alistair Boyce", "maori": null, "top": "Benjamin Wylie-van Eerd" } },
-    { "name": "Ilam", "candidates": { "national": "Hamish Campbell", "labour": "Rata Jamieson", "green": "Mike Davidson", "act": "Ken Harpur", "nzfirst": "Nathan Walton", "maori": null, "top": null } },
-    { "name": "Invercargill", "candidates": { "national": "Penny Simmonds", "labour": "Janice Lee", "green": "Dave Kennedy", "act": null, "nzfirst": null, "maori": null, "top": null } },
-    { "name": "Kaikōura", "candidates": { "national": "Stuart Smith", "labour": "Matthew Flight", "green": null, "act": "Tom Spooner", "nzfirst": "Jamie Arbuckle", "maori": null, "top": null } },
-    { "name": "Kaipara ki Mahurangi", "candidates": { "national": "Jessica Rowe", "labour": "Jo Swinburn", "green": "Zephyr Brown", "act": "Simon Court", "nzfirst": "Jenny Marcroft", "maori": null, "top": "Daniel Eb" } },
-    { "name": "Kapiti", "candidates": { "national": "Tim Costley", "labour": "Sophie Handford", "green": "Melody Willis", "act": null, "nzfirst": "Penny Gaylor", "maori": null, "top": "Chee-Khiang Sng" } },
-    { "name": "Kenepuru", "candidates": { "national": "Matthew Evetts", "labour": "Barbara Edmonds", "green": "Lan Pham", "act": null, "nzfirst": "Jon Blackshaw", "maori": null, "top": "Robert Mason" } },
-    { "name": "Māngere", "candidates": { "national": "Rosemary Bourke", "labour": "Lemauga Lydia Sosene", "green": "Michel Mulipola", "act": "Manu Singh", "nzfirst": "Vicky Hau", "maori": null, "top": "Ben Lane" } },
-    { "name": "Manurewa", "candidates": { "national": "Ghouse Majeed", "labour": "Arena Williams", "green": null, "act": null, "nzfirst": "Esther Tofilau-Tevaga", "maori": null, "top": null } },
-    { "name": "Maungakiekie", "candidates": { "national": "Greg Fleming", "labour": "Priyanca Radhakrishnan", "green": "Adam Powell", "act": "Juan Alvarez de Lugo", "nzfirst": "Keegan Langeveld", "maori": null, "top": "Derrick Paull" } },
-    { "name": "Mount Albert", "candidates": { "national": "Melissa Lee", "labour": "Helen White", "green": "Ricardo Menéndez March", "act": "Alex Price", "nzfirst": "Sheldon Eden-Whaitiri", "maori": null, "top": "Qiulae Wong" } },
-    { "name": "Mount Maunganui", "candidates": { "national": "Tom Rutherford", "labour": "Rhieve Grey", "green": "Pualele Westhead", "act": "Cameron Luxton", "nzfirst": "Tracey Coxhead", "maori": null, "top": null } },
-    { "name": "Mount Roskill", "candidates": { "national": "Carlos Cheung", "labour": "Michael Wood", "green": null, "act": "Yang Qu", "nzfirst": null, "maori": null, "top": "Jamie Attenborough" } },
-    { "name": "Napier", "candidates": { "national": "Katie Nimon", "labour": "Alex Hedley", "green": "Roy Boonen", "act": "John Ormond", "nzfirst": "Te Kira Lawrence", "maori": null, "top": null } },
-    { "name": "Nelson", "candidates": { "national": "Blair Cameron", "labour": "Rachel Boyack", "green": "Rohan O'Neill-Stevens", "act": "Chris Baillie", "nzfirst": null, "maori": null, "top": "Jodie Kuntzsch" } },
-    { "name": "New Plymouth", "candidates": { "national": "David MacLeod", "labour": "Amanda Clinton-Gohdes", "green": null, "act": null, "nzfirst": "Murray Chong", "maori": null, "top": "Sarah Lucas" } },
-    { "name": "North Shore", "candidates": { "national": "Simon Watts", "labour": "Sam Collins", "green": "Josh Jacobsen", "act": "Karen Chhour", "nzfirst": null, "maori": null, "top": "Holly Knill" } },
-    { "name": "Northcote", "candidates": { "national": "Dan Bidois", "labour": "Shanan Halbert", "green": "Bhen Goodsir", "act": "Martin Lundqvist", "nzfirst": "Daryl Habraken", "maori": null, "top": "Cody Marsh" } },
-    { "name": "Northland", "candidates": { "national": "Grant McCallum", "labour": "Ashleigh Latimer", "green": "Mike Finlayson", "act": "Mark Cameron", "nzfirst": null, "maori": null, "top": null } },
-    { "name": "Ōtāhuhu", "candidates": { "national": "Lalit Arya", "labour": "Jenny Salesa", "green": "Te Whatanui Skipwith", "act": "Henrietta Devoe", "nzfirst": null, "maori": null, "top": "Adam MacRae-Martin" } },
-    { "name": "Pakuranga", "candidates": { "national": "Simeon Brown", "labour": "Campbell Matthews", "green": null, "act": "Parmjeet Parmar", "nzfirst": null, "maori": null, "top": "Kevin Huang" } },
-    { "name": "Palmerston North", "candidates": { "national": "Ankit Bansal", "labour": "Tangi Utikere", "green": "Teanau Tuiono", "act": null, "nzfirst": null, "maori": null, "top": "Netra Ghimire" } },
-    { "name": "Papakura", "candidates": { "national": "Emma Chatterton", "labour": "Anahila Kanongata'a", "green": "Angela Dalton", "act": "Malkiat Singh", "nzfirst": "George Ngatai", "maori": null, "top": null } },
-    { "name": "Port Waikato", "candidates": { "national": "Matthew Paul", "labour": "Matt Brachi", "green": "Carl Morgan", "act": "Sarah Jane Lochead-Macmillan", "nzfirst": "Casey Costello", "maori": null, "top": null } },
-    { "name": "Rangitata", "candidates": { "national": "James Meager", "labour": "Sange Malama", "green": "Dave Richards", "act": "Aaron Allred", "nzfirst": "Isaac Nicholson", "maori": null, "top": "Matt Harris" } },
-    { "name": "Rangitīkei", "candidates": { "national": "Suze Redmayne", "labour": "Karl Severinsen", "green": "Bernard Long", "act": "Andrew Hoggard", "nzfirst": "Steve Gibson", "maori": null, "top": null } },
-    { "name": "Remutaka", "candidates": { "national": "Zabeen Lateef", "labour": "Chris Hipkins", "green": "Chris Norton", "act": "Nigel Elder", "nzfirst": "Andy Foster", "maori": null, "top": "Luke Ross" } },
-    { "name": "Rotorua", "candidates": { "national": "Todd McClay", "labour": "Fisher Wang", "green": null, "act": null, "nzfirst": "Billy Brown", "maori": null, "top": "Finn Liley" } },
-    { "name": "Selwyn", "candidates": { "national": "Nicola Grigg", "labour": "Sunita Gautam", "green": "Alma de Anda", "act": null, "nzfirst": null, "maori": null, "top": null } }
+    {
+      "name": "Auckland Central",
+      "candidates": {
+        "national": "Candace Kinser",
+        "labour": "Naisi Chen",
+        "green": "Chlöe Swarbrick",
+        "act": "Antonia Modkova",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Johan Chang"
+      }
+    },
+    {
+      "name": "Banks Peninsula",
+      "candidates": {
+        "national": "Vanessa Weenink",
+        "labour": "Tracey McLellan",
+        "green": "Craig Pauling",
+        "act": "Zachary Wellman",
+        "nzfirst": "Lindsay Kerslake",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Botany",
+      "candidates": {
+        "national": "Christopher Luxon",
+        "labour": "Neru Leavasa",
+        "green": null,
+        "act": "Ali Dahche",
+        "nzfirst": "Craig Stobo",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Christchurch Central",
+      "candidates": {
+        "national": "Dale Stephens",
+        "labour": "George Hampton",
+        "green": "Kahurangi Carter",
+        "act": "Christian van der Pump",
+        "nzfirst": "Mark Arneil",
+        "maori": null,
+        "top": "Eden Skipper"
+      }
+    },
+    {
+      "name": "Christchurch East",
+      "candidates": {
+        "national": "Alexandra Davids",
+        "labour": "Reuben Davidson",
+        "green": "Teresa Butler",
+        "act": "Toni Severin",
+        "nzfirst": "Shane Wiremu",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Coromandel",
+      "candidates": {
+        "national": "Scott Simpson",
+        "labour": "Glen Bennett",
+        "green": "Pamela Grealey",
+        "act": "Mike McCormick",
+        "nzfirst": "Vincent Anderson",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Dunedin",
+      "candidates": {
+        "national": "Kristine Asuncion",
+        "labour": "Rachel Brooking",
+        "green": "Francisco Hernandez",
+        "act": null,
+        "nzfirst": "Kym McDonald-King",
+        "maori": null,
+        "top": "David Bainbridge-Zafar"
+      }
+    },
+    {
+      "name": "East Cape",
+      "candidates": {
+        "national": "Dana Kirkpatrick",
+        "labour": "Jo Luxton",
+        "green": "Jordan Walker",
+        "act": "Darrin Hawkes",
+        "nzfirst": "Te Kira Lawrence",
+        "maori": null,
+        "top": "Cail Smith"
+      }
+    },
+    {
+      "name": "East Coast Bays",
+      "candidates": {
+        "national": "Erica Stanford",
+        "labour": "Brendan McEnroe",
+        "green": "Abe McKee",
+        "act": "Sam Mills",
+        "nzfirst": "Vaughan Taylor",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Epsom",
+      "candidates": {
+        "national": "Paul Goldsmith",
+        "labour": "Camilla Belich",
+        "green": "Lawrence Xu-Nan",
+        "act": "David Seymour",
+        "nzfirst": "Martin Gummer",
+        "maori": null,
+        "top": "Paul Jackson"
+      }
+    },
+    {
+      "name": "Glendene",
+      "candidates": {
+        "national": "Sunil Kumar",
+        "labour": "Carmel Sepuloni",
+        "green": "Yasmine Serhan",
+        "act": "Amanda Roberts",
+        "nzfirst": "Alfred Ngaro",
+        "maori": null,
+        "top": "Evan French"
+      }
+    },
+    {
+      "name": "Hamilton East",
+      "candidates": {
+        "national": "Ryan Hamilton",
+        "labour": "Georgie Dansey",
+        "green": null,
+        "act": null,
+        "nzfirst": "Nicola Laboyrie",
+        "maori": null,
+        "top": "Naomi Pocock"
+      }
+    },
+    {
+      "name": "Hamilton West",
+      "candidates": {
+        "national": "Tama Potaka",
+        "labour": "Myra Williamson",
+        "green": "Louise Hutt",
+        "act": null,
+        "nzfirst": "Kevin Stone",
+        "maori": null,
+        "top": "Blair Smith"
+      }
+    },
+    {
+      "name": "Henderson",
+      "candidates": {
+        "national": "Angee Nicholas",
+        "labour": "Phil Twyford",
+        "green": "Alika Wells",
+        "act": "Nick Peirce",
+        "nzfirst": "David Wilson",
+        "maori": null,
+        "top": "Almo Wong"
+      }
+    },
+    {
+      "name": "Hutt South",
+      "candidates": {
+        "national": "Chris Bishop",
+        "labour": "Ginny Andersen",
+        "green": "Courtney White",
+        "act": null,
+        "nzfirst": "Alistair Boyce",
+        "maori": null,
+        "top": "Benjamin Wylie-van Eerd"
+      }
+    },
+    {
+      "name": "Ilam",
+      "candidates": {
+        "national": "Hamish Campbell",
+        "labour": "Rata Jamieson",
+        "green": "Mike Davidson",
+        "act": "Ken Harpur",
+        "nzfirst": "Nathan Walton",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Invercargill",
+      "candidates": {
+        "national": "Penny Simmonds",
+        "labour": "Janice Lee",
+        "green": "Dave Kennedy",
+        "act": null,
+        "nzfirst": null,
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Kaikōura",
+      "candidates": {
+        "national": "Stuart Smith",
+        "labour": "Matthew Flight",
+        "green": null,
+        "act": "Tom Spooner",
+        "nzfirst": "Jamie Arbuckle",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Kaipara ki Mahurangi",
+      "candidates": {
+        "national": "Jessica Rowe",
+        "labour": "Jo Swinburn",
+        "green": "Zephyr Brown",
+        "act": "Simon Court",
+        "nzfirst": "Jenny Marcroft",
+        "maori": null,
+        "top": "Daniel Eb"
+      }
+    },
+    {
+      "name": "Kapiti",
+      "candidates": {
+        "national": "Tim Costley",
+        "labour": "Sophie Handford",
+        "green": "Melody Willis",
+        "act": null,
+        "nzfirst": "Penny Gaylor",
+        "maori": null,
+        "top": "Chee-Khiang Sng"
+      }
+    },
+    {
+      "name": "Kenepuru",
+      "candidates": {
+        "national": "Matthew Evetts",
+        "labour": "Barbara Edmonds",
+        "green": "Lan Pham",
+        "act": null,
+        "nzfirst": "Jon Blackshaw",
+        "maori": null,
+        "top": "Robert Mason"
+      }
+    },
+    {
+      "name": "Māngere",
+      "candidates": {
+        "national": "Rosemary Bourke",
+        "labour": "Lemauga Lydia Sosene",
+        "green": "Michel Mulipola",
+        "act": "Manu Singh",
+        "nzfirst": "Vicky Hau",
+        "maori": null,
+        "top": "Ben Lane"
+      }
+    },
+    {
+      "name": "Manurewa",
+      "candidates": {
+        "national": "Ghouse Majeed",
+        "labour": "Arena Williams",
+        "green": null,
+        "act": null,
+        "nzfirst": "Esther Tofilau-Tevaga",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Maungakiekie",
+      "candidates": {
+        "national": "Greg Fleming",
+        "labour": "Priyanca Radhakrishnan",
+        "green": "Adam Powell",
+        "act": "Juan Alvarez de Lugo",
+        "nzfirst": "Keegan Langeveld",
+        "maori": null,
+        "top": "Derrick Paull"
+      }
+    },
+    {
+      "name": "Mt Albert",
+      "candidates": {
+        "national": "Melissa Lee",
+        "labour": "Helen White",
+        "green": "Ricardo Menéndez March",
+        "act": "Alex Price",
+        "nzfirst": "Sheldon Eden-Whaitiri",
+        "maori": null,
+        "top": "Qiulae Wong"
+      }
+    },
+    {
+      "name": "Mt Maunganui",
+      "candidates": {
+        "national": "Tom Rutherford",
+        "labour": "Rhieve Grey",
+        "green": "Pualele Westhead",
+        "act": "Cameron Luxton",
+        "nzfirst": "Tracey Coxhead",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Mt Roskill",
+      "candidates": {
+        "national": "Carlos Cheung",
+        "labour": "Michael Wood",
+        "green": null,
+        "act": "Yang Qu",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Jamie Attenborough"
+      }
+    },
+    {
+      "name": "Napier",
+      "candidates": {
+        "national": "Katie Nimon",
+        "labour": "Alex Hedley",
+        "green": "Roy Boonen",
+        "act": "John Ormond",
+        "nzfirst": "Te Kira Lawrence",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Nelson",
+      "candidates": {
+        "national": "Blair Cameron",
+        "labour": "Rachel Boyack",
+        "green": "Rohan O'Neill-Stevens",
+        "act": "Chris Baillie",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Jodie Kuntzsch"
+      }
+    },
+    {
+      "name": "New Plymouth",
+      "candidates": {
+        "national": "David MacLeod",
+        "labour": "Amanda Clinton-Gohdes",
+        "green": null,
+        "act": null,
+        "nzfirst": "Murray Chong",
+        "maori": null,
+        "top": "Sarah Lucas"
+      }
+    },
+    {
+      "name": "North Shore",
+      "candidates": {
+        "national": "Simon Watts",
+        "labour": "Sam Collins",
+        "green": "Josh Jacobsen",
+        "act": "Karen Chhour",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Holly Knill"
+      }
+    },
+    {
+      "name": "Northcote",
+      "candidates": {
+        "national": "Dan Bidois",
+        "labour": "Shanan Halbert",
+        "green": "Bhen Goodsir",
+        "act": "Martin Lundqvist",
+        "nzfirst": "Daryl Habraken",
+        "maori": null,
+        "top": "Cody Marsh"
+      }
+    },
+    {
+      "name": "Northland",
+      "candidates": {
+        "national": "Grant McCallum",
+        "labour": "Ashleigh Latimer",
+        "green": "Mike Finlayson",
+        "act": "Mark Cameron",
+        "nzfirst": null,
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Ōtāhuhu",
+      "candidates": {
+        "national": "Lalit Arya",
+        "labour": "Jenny Salesa",
+        "green": "Te Whatanui Skipwith",
+        "act": "Henrietta Devoe",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Adam MacRae-Martin"
+      }
+    },
+    {
+      "name": "Pakuranga",
+      "candidates": {
+        "national": "Simeon Brown",
+        "labour": "Campbell Matthews",
+        "green": null,
+        "act": "Parmjeet Parmar",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Kevin Huang"
+      }
+    },
+    {
+      "name": "Palmerston North",
+      "candidates": {
+        "national": "Ankit Bansal",
+        "labour": "Tangi Utikere",
+        "green": "Teanau Tuiono",
+        "act": null,
+        "nzfirst": null,
+        "maori": null,
+        "top": "Netra Ghimire"
+      }
+    },
+    {
+      "name": "Papakura",
+      "candidates": {
+        "national": "Emma Chatterton",
+        "labour": "Anahila Kanongata'a",
+        "green": "Angela Dalton",
+        "act": "Malkiat Singh",
+        "nzfirst": "George Ngatai",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Port Waikato",
+      "candidates": {
+        "national": "Matthew Paul",
+        "labour": "Matt Brachi",
+        "green": "Carl Morgan",
+        "act": "Sarah Jane Lochead-Macmillan",
+        "nzfirst": "Casey Costello",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Rangitata",
+      "candidates": {
+        "national": "James Meager",
+        "labour": "Sange Malama",
+        "green": "Dave Richards",
+        "act": "Aaron Allred",
+        "nzfirst": "Isaac Nicholson",
+        "maori": null,
+        "top": "Matt Harris"
+      }
+    },
+    {
+      "name": "Rangitīkei",
+      "candidates": {
+        "national": "Suze Redmayne",
+        "labour": "Karl Severinsen",
+        "green": "Bernard Long",
+        "act": "Andrew Hoggard",
+        "nzfirst": "Steve Gibson",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Remutaka",
+      "candidates": {
+        "national": "Zabeen Lateef",
+        "labour": "Chris Hipkins",
+        "green": "Chris Norton",
+        "act": "Nigel Elder",
+        "nzfirst": "Andy Foster",
+        "maori": null,
+        "top": "Luke Ross"
+      }
+    },
+    {
+      "name": "Rotorua",
+      "candidates": {
+        "national": "Todd McClay",
+        "labour": "Fisher Wang",
+        "green": null,
+        "act": null,
+        "nzfirst": "Billy Brown",
+        "maori": null,
+        "top": "Finn Liley"
+      }
+    },
+    {
+      "name": "Selwyn",
+      "candidates": {
+        "national": "Nicola Grigg",
+        "labour": "Sunita Gautam",
+        "green": "Alma de Anda",
+        "act": null,
+        "nzfirst": null,
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Southland",
+      "candidates": {
+        "national": "Joseph Mooney",
+        "labour": "Peter McDonald",
+        "green": null,
+        "act": "Todd Stephenson",
+        "nzfirst": "Jason Herrick",
+        "maori": null,
+        "top": "Bianca Beebe"
+      }
+    },
+    {
+      "name": "Taieri",
+      "candidates": {
+        "national": "Matthew French",
+        "labour": "Ingrid Leary",
+        "green": "Scott Willis",
+        "act": "Robbie Byars",
+        "nzfirst": "Mark Patterson",
+        "maori": null,
+        "top": "Mathew Phillips"
+      }
+    },
+    {
+      "name": "Takanini",
+      "candidates": {
+        "national": "Rima Nakhle",
+        "labour": "Kharag Singh",
+        "green": null,
+        "act": null,
+        "nzfirst": "Elliot Ikilei",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Tāmaki",
+      "candidates": {
+        "national": "Mahesh Muralidhar",
+        "labour": "Max Harris",
+        "green": "Donald Mackenzie-Mayo",
+        "act": "James Christmas",
+        "nzfirst": "John Ryan",
+        "maori": null,
+        "top": "Sacha Haskell"
+      }
+    },
+    {
+      "name": "Taranaki-King Country",
+      "candidates": {
+        "national": "Barbara Kuriger",
+        "labour": "David Pattemore",
+        "green": "Phil McCabe",
+        "act": "Ivana Jovicic",
+        "nzfirst": "Lee Smith",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Taupō",
+      "candidates": {
+        "national": "Louise Upston",
+        "labour": "Chris Flatt",
+        "green": "Celine Kearney",
+        "act": null,
+        "nzfirst": null,
+        "maori": null,
+        "top": "Sam Plummer"
+      }
+    },
+    {
+      "name": "Tauranga",
+      "candidates": {
+        "national": "Sam Uffindell",
+        "labour": "Jan Tinetti",
+        "green": "Daniël Oosthuizen",
+        "act": "Bryan Norton",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Michael Carter"
+      }
+    },
+    {
+      "name": "Tukituki",
+      "candidates": {
+        "national": "Catherine Wedd",
+        "labour": "Dan Scott",
+        "green": "Mark Longworth",
+        "act": "Rob Douglas",
+        "nzfirst": "Taine Randell",
+        "maori": null,
+        "top": "Rachel Ward"
+      }
+    },
+    {
+      "name": "Upper Harbour",
+      "candidates": {
+        "national": "Cameron Brewer",
+        "labour": "Hannah Pia Baral",
+        "green": "Ryan Richards",
+        "act": "Panos Patros",
+        "nzfirst": "Bernadette Soares",
+        "maori": null,
+        "top": "Romeo Tevaga"
+      }
+    },
+    {
+      "name": "Waikato",
+      "candidates": {
+        "national": "Tim van de Molen",
+        "labour": "Jamie Toko",
+        "green": null,
+        "act": "Ash Parmar",
+        "nzfirst": "Robbie Cookson",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Waimakariri",
+      "candidates": {
+        "national": "Matt Doocey",
+        "labour": "Dan Rosewarne",
+        "green": "Richard Wesley",
+        "act": "Ashley Bettridge",
+        "nzfirst": "Jackie Farrelly",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Wairarapa",
+      "candidates": {
+        "national": "Mike Butterick",
+        "labour": "Kieran McAnulty",
+        "green": "Lauren Craig",
+        "act": null,
+        "nzfirst": "Ron Mark",
+        "maori": null,
+        "top": "Matt Shepherd"
+      }
+    },
+    {
+      "name": "Waitākere",
+      "candidates": {
+        "national": "Agnes Loheni",
+        "labour": "Vanushi Walters",
+        "green": "Steve Abel",
+        "act": "Callum Sheridan",
+        "nzfirst": null,
+        "maori": null,
+        "top": "Mark Roach"
+      }
+    },
+    {
+      "name": "Waitaki",
+      "candidates": {
+        "national": "Miles Anderson",
+        "labour": "Damien O'Connor",
+        "green": null,
+        "act": "Sean Beamish",
+        "nzfirst": "Michael Laws",
+        "maori": null,
+        "top": "Helen Tait"
+      }
+    },
+    {
+      "name": "Wellington Bays",
+      "candidates": {
+        "national": "Karunā Muthu",
+        "labour": "Craig Renney",
+        "green": "Julie Anne Genter",
+        "act": "Nicole McKee",
+        "nzfirst": "Gerald Warner",
+        "maori": null,
+        "top": "Kayla Kingdon-Bebb"
+      }
+    },
+    {
+      "name": "Wellington North",
+      "candidates": {
+        "national": "Jonathan Pitts",
+        "labour": "Ayesha Verrall",
+        "green": "Tamatha Paul",
+        "act": "Matthew Hague",
+        "nzfirst": "Taylor Arneil",
+        "maori": null,
+        "top": "Jessica Hammond"
+      }
+    },
+    {
+      "name": "West Coast-Tasman",
+      "candidates": {
+        "national": "Katie Milne",
+        "labour": "Rory Paterson",
+        "green": "Andrew Beaumont",
+        "act": "Janelle Hocking",
+        "nzfirst": "Jamie Cleine",
+        "maori": null,
+        "top": "Cindie Uddstrom"
+      }
+    },
+    {
+      "name": "Whanganui",
+      "candidates": {
+        "national": "Carl Bates",
+        "labour": "Angela Roberts",
+        "green": "Awhi Haenga",
+        "act": null,
+        "nzfirst": "Harete Hipango-Brownlie",
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Whangaparāoa",
+      "candidates": {
+        "national": "Mark Mitchell",
+        "labour": "Estefania Muller-Pallarès",
+        "green": null,
+        "act": "Helena Roza",
+        "nzfirst": null,
+        "maori": null,
+        "top": null
+      }
+    },
+    {
+      "name": "Whangārei",
+      "candidates": {
+        "national": "Lloyd Budd",
+        "labour": "Gary Payinda",
+        "green": null,
+        "act": "Doug Graham",
+        "nzfirst": "Vince Cocurullo",
+        "maori": null,
+        "top": "Simon DellaBarca"
+      }
+    },
+    {
+      "name": "Wigram",
+      "candidates": {
+        "national": "Tracy Summerfield",
+        "labour": "Dominik Yanzick",
+        "green": "Shreejan Pandey",
+        "act": "Laura McClure",
+        "nzfirst": "Bryce Park",
+        "maori": null,
+        "top": null
+      }
+    }
   ],
-  "unverifiedElectorates": [
-    "Southland", "Taieri", "Takanini", "Tāmaki", "Taranaki-King Country", "Taupō",
-    "Tauranga", "Tukituki", "Upper Harbour", "Waikato", "Waimakariri", "Wairarapa",
-    "Waitakere", "Waitaki", "Wellington Bays", "Wellington North", "West Coast-Tasman",
-    "Whanganui", "Whangaparaōa", "Whangārei", "Wigram",
-    "Hauraki-Waikato (Māori)", "Ikaroa-Rāwhiti (Māori)", "Tāmaki Makaurau (Māori)",
-    "Te Tai Hauaūru (Māori)", "Te Tai Tokerau (Māori)", "Te Tai Tonga (Māori)", "Waiariki (Māori)"
+  "unverifiedElectorates": [],
+  "maoriElectorates": [
+    {
+      "name": "Hauraki-Waikato",
+      "candidates": {
+        "labour": "Kingi Kiriona",
+        "maori": "Hana-Rawhiti Maipi-Clarke"
+      }
+    },
+    {
+      "name": "Ikaroa-Rāwhiti",
+      "candidates": {
+        "labour": "Cushla Tangaere-Manuel",
+        "green": "Heather Te Au-Skipworth",
+        "maori": "Haley Maxwell"
+      }
+    },
+    {
+      "name": "Tāmaki Makaurau",
+      "candidates": {
+        "labour": "Kerrin Leoni",
+        "green": "Florence Te Ohaere",
+        "maori": "Oriini Kaipara"
+      }
+    },
+    {
+      "name": "Te Tai Hauāuru",
+      "candidates": {
+        "national": "Coral Raukawa",
+        "labour": "Te Pūoho Kātene",
+        "maori": "Debbie Ngarewa-Packer"
+      }
+    },
+    {
+      "name": "Te Tai Tokerau",
+      "candidates": {
+        "labour": "Willow-Jean Prime",
+        "green": "Hūhana Lyndon",
+        "maori": "Aperahama Edwards"
+      }
+    },
+    {
+      "name": "Te Tai Tonga",
+      "candidates": {
+        "labour": "Mananui Ramsden",
+        "green": "Lisa Te Morenga",
+        "maori": "Lisa Marie Murch"
+      }
+    },
+    {
+      "name": "Waiariki",
+      "candidates": {
+        "labour": "Toni Boynton",
+        "green": "Tania Waikato",
+        "maori": "Rawiri Waititi",
+        "top": "Pāpā Wharewera"
+      }
+    }
   ]
 }

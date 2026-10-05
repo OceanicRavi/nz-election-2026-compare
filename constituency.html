@@ -73,9 +73,21 @@
 </section>
 
 <main id="main">
-  <section class="block" style="margin-top:-2rem;">
+  <section class="block constituency-layout" style="margin-top:-2rem;">
+
+    <div class="card map-card">
+      <div class="map-card-head">
+        <h3>Click your electorate</h3>
+        <p id="mapHoverLabel" class="map-hover-label">Hover or tap a region</p>
+      </div>
+      <div class="nz-map-wrap" id="nzMapWrap">
+        <p class="map-loading">Loading map…</p>
+      </div>
+      <p class="map-note">64 general electorates shown. Māori electorates and a few small urban seats are easier to pick from the dropdown.</p>
+    </div>
+
     <div class="card lookup-card">
-      <label for="electorateSelect" style="display:block;font-weight:700;margin-bottom:.6rem;">Choose your electorate</label>
+      <label for="electorateSelect">Or choose from the list</label>
       <select id="electorateSelect">
         <option value="">— Select an electorate —</option>
       </select>
@@ -83,6 +95,7 @@
       <div id="candidateResult"></div>
       <p class="lookup-source" id="lookupSource"></p>
     </div>
+
   </section>
 
   <section class="block">
@@ -95,8 +108,10 @@
 </main>
 
 <footer>
-  <p>Candidate data sourced from Wikipedia's "Candidates in the 2026 New Zealand general election by electorate" and cross-checked where possible. Candidate lists can change until nominations close — always confirm at vote.nz before voting.</p>
-  <p><a href="/">← Back to the full party comparison</a></p>
+  <div class="wrap">
+    <p>Candidate data sourced from Wikipedia's "Candidates in the 2026 New Zealand general election by electorate", cross-checked against the official Electoral Commission register where possible. Electorate boundaries from Stats NZ's official "General Electorates 2025" dataset. Candidate lists can change until nominations close — always confirm at vote.nz before voting.</p>
+    <p><a href="/">← Back to the full party comparison</a></p>
+  </div>
 </footer>
 
 <script>

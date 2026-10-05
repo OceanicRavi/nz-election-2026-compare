@@ -308,15 +308,38 @@ section.block{margin-top:4rem;}
 /* ============================================
    Constituency lookup
    ============================================ */
-.lookup-card{padding:1.6rem;max-width:760px;}
+.constituency-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:1.4rem;align-items:start;}
+@media (max-width:900px){ .constituency-layout{grid-template-columns:1fr;} }
+
+.map-card{padding:1.4rem;position:sticky;top:90px;}
+@media (max-width:900px){ .map-card{position:static;} }
+.map-card-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.4rem .8rem;margin-bottom:.9rem;}
+.map-card-head h3{font-size:1.05rem;font-family:var(--font-body);font-weight:700;}
+.map-hover-label{font-size:.82rem;font-weight:700;color:var(--accent);min-height:1.2em;}
+.nz-map-wrap{width:100%;}
+.nz-map-wrap svg{width:100%;height:auto;display:block;}
+.map-loading{font-size:.86rem;color:var(--ink-soft);text-align:center;padding:3rem 0;}
+.map-note{font-size:.76rem;color:var(--ink-soft);margin-top:.9rem;}
+
+.electorate{fill:#cfe3d6;stroke:#8fae9b;stroke-width:.6;cursor:pointer;transition:fill .12s ease;}
+.electorate:hover{fill:#ffc98c;stroke:#c97f2e;}
+.electorate.selected{fill:var(--accent);stroke:var(--accent-deep);}
+:root[data-theme="dark"] .electorate{fill:#223229;stroke:#3d5648;}
+:root[data-theme="dark"] .electorate:hover{fill:#6b4420;stroke:#a86b35;}
+
+.lookup-card{padding:1.6rem;}
+.lookup-card label{display:block;font-weight:700;font-size:.86rem;margin-bottom:.6rem;}
 .lookup-card select{font-size:1rem;width:100%;padding:.7rem .9rem;border:1.5px solid var(--border-strong);border-radius:10px;background:var(--surface);color:var(--ink);font-family:inherit;}
-.candidate-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.7rem;margin-top:1.2rem;}
-.candidate-card{background:var(--surface-sunken);border-radius:12px;padding:.8rem 1rem;border-left:4px solid var(--pc,#999);}
-.candidate-card .party{font-size:.68rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
-.candidate-card .name{font-size:.88rem;font-weight:700;margin-top:.2rem;}
+
+.candidate-grid{display:flex;flex-direction:column;gap:.6rem;margin-top:1.3rem;}
+.candidate-card{display:flex;align-items:center;gap:.9rem;background:var(--surface-sunken);border-radius:12px;padding:.85rem 1.1rem;border-left:4px solid var(--pc,#999);}
+.candidate-card .candidate-logo{flex-shrink:0;width:56px;height:34px;object-fit:contain;}
+.candidate-card .candidate-info{min-width:0;}
+.candidate-card .name{font-size:.94rem;font-weight:700;line-height:1.3;}
 .candidate-card .name.none{color:var(--ink-soft);font-weight:500;font-style:italic;}
+.candidate-card .party-label{font-size:.72rem;color:var(--ink-soft);margin-top:.1rem;}
 .lookup-empty{font-size:.86rem;color:var(--ink-soft);margin-top:1rem;}
-.lookup-source{font-size:.76rem;color:var(--ink-soft);margin-top:1.2rem;}
+.lookup-source{font-size:.76rem;color:var(--ink-soft);margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--border);}
 
 /* ============================================
    Forms

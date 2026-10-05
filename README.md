@@ -27,19 +27,21 @@ css/styles.css                         All styling (editorial theme, responsive)
 js/data.js                             Parties, 18 domains, policies+analogies, leaders, profiles, SITE_CONFIG
 js/app.js                              Renders the matrix, polls, decoder, manifesto watch, leaning poll, form
 js/match.js                            Renders the Find Your Match profile/concern picker (used on both pages)
-js/constituency.js                     Renders the electorate lookup page
+js/constituency.js                     Renders the electorate lookup page + interactive map
 api/poll.js                            Vercel serverless function: anonymous poll (GET/POST)
-data/electorates.json                  Candidate-by-electorate data (43 verified + list of unverified)
+data/electorates.json                  Candidate data for all 64 general + 7 Māori electorates
 data/news.json                         Bot-generated — latest filtered election news (RSS)
 data/polls.json                        Manually-refreshed real published opinion polls
 data/manifesto-watch.json              Bot-generated — per-party change-detection status
 data/manifesto-hashes.json             Bot-internal — content hashes used to detect changes
 scripts/fetch-updates.mjs              The news/manifesto bot (runs on a schedule)
 scripts/make-og-image.py               Regenerates assets/og-image.png if you change the branding
+scripts/build-electorate-map.mjs       Builds assets/nz-electorates.svg from Stats NZ boundary data
 .github/workflows/update-content.yml   Cron job: runs the bot every 2h, commits changes
 assets/hero-photo*.jpg                 Hero background (real photo, see credits)
 assets/leaders/*.jpg                   Leader photos (real photos, see credits)
 assets/logos/*                         Party logos (official party assets)
+assets/nz-electorates.svg              Interactive electorate map (built, see below)
 assets/favicon.svg, og-image.png       Tab icon + social preview
 robots.txt / sitemap.xml               SEO
 netlify.toml / vercel.json             Deploy configs (+ security headers)
@@ -109,19 +111,39 @@ rigorous, swap the storage for a proper KV/DB with atomic increments.
 
 ## Electorate candidate lookup (`constituency.html`)
 
-Sourced from Wikipedia's "Candidates in the 2026 New Zealand general
-election by electorate" page. **43 electorates** have verified
-candidate data in `data/electorates.json`; the rest (~28, including all
-7 Māori electorates) are listed but marked unverified — the page links
-straight to the official [vote.nz](https://vote.nz/enrol-and-check-my-enrolment/check-or-update-enrolment/)
-lookup for those. Candidate lists can change until nominations close,
-so treat this as a starting point, not the final word — same goes for
-the verified ones.
+All **64 general electorates** and all **7 Māori electorates** have
+verified candidate data in `data/electorates.json`, sourced from
+Wikipedia's "Candidates in the 2026 New Zealand general election by
+electorate" page (fetched section-by-section via the MediaWiki API —
+`action=parse&section=N` — since the page is too long to fetch in one
+shot without truncation). Candidate lists can change until nominations
+close, so treat this as a strong starting point, not the final word —
+the page links to the official [vote.nz](https://vote.nz/enrol-and-check-my-enrolment/check-or-update-enrolment/)
+lookup throughout.
 
-To fill in the remaining electorates: re-run the same Wikipedia lookup
-(the page is long enough that fetching it in 2–3 chunks works better
-than one shot) and extend the `electorates` array in
-`data/electorates.json` following the existing shape.
+To refresh: get the section index list from
+`https://en.wikipedia.org/w/api.php?action=parse&page=Candidates_in_the_2026_New_Zealand_general_election_by_electorate&prop=sections&format=json`,
+then fetch each electorate's section individually and update the
+`electorates` / `maoriElectorates` arrays in `data/electorates.json`.
+
+### Interactive map
+
+The electorate map (`assets/nz-electorates.svg`) is built from Stats
+NZ's official **"General Electorates 2025"** boundaries — the actual 64
+electorates used for the 2026 election — via their public ArcGIS
+FeatureServer, simplified with [mapshaper](https://github.com/mapshaper/mapshaper)
+(0.7% Visvalingam simplification; full-resolution boundaries are
+~11MB, this is ~65KB) and projected to SVG with a small equirectangular
+projection (`scripts/build-electorate-map.mjs` — no mapping library
+needed at that scale). Electorate names in the SVG's `data-name`
+attributes match `data/electorates.json` exactly; `constituency.js`
+keeps the map and the dropdown in sync in both directions.
+
+To rebuild the map (e.g. after a boundary change): re-run the ArcGIS
+query in that script's comment, then
+`node scripts/build-electorate-map.mjs <input.geojson> assets/nz-electorates.svg`.
+Chatham Islands and other outliers are intentionally outside the fixed
+mainland viewBox and simply don't render — pick them from the dropdown.
 
 ## The automated content bot (news + manifesto watch)
 
