@@ -4,6 +4,7 @@
 
 (function () {
   "use strict";
+  window.__nzAppLoaded = true;
 
   const state = { visible: new Set(PARTIES.map((p) => p.id)) };
 
@@ -25,13 +26,17 @@
     );
   }
 
-  /* ---------- Leaders strip ---------- */
+  /* ---------- Leaders strip (real photos) ---------- */
   const stripEl = document.getElementById("leadersStrip");
+  const partyColor = Object.fromEntries(PARTIES.map((p) => [p.id, p.color]));
   if (stripEl) {
-    PARTIES.forEach((p) => {
+    LEADER_PROFILES.forEach((l) => {
       const c = document.createElement("div");
       c.className = "lchip";
-      c.innerHTML = `<div class="av" style="background:${p.color}">${p.initials}</div><div class="meta"><b>${p.leader}</b><span>${p.role} &middot; ${p.name}</span></div>`;
+      c.innerHTML = `
+        <img class="av-photo" style="--pc:${partyColor[l.partyId]}" src="assets/leaders/${l.photo}.jpg" alt="${l.name}" loading="lazy" width="44" height="44">
+        <div class="meta"><b>${l.name}</b><span>${l.role}</span></div>
+      `;
       stripEl.appendChild(c);
     });
   }
@@ -84,7 +89,7 @@
       th.className = "party-head";
       th.scope = "col";
       th.innerHTML = `
-        <div class="party-head-row"><span class="dot" style="background:${party.color}"></span><span class="party-head-name">${party.name}</span></div>
+        <div class="party-head-row"><img class="party-logo" src="${party.logo}" alt="${party.name} logo"></div>
         <div class="party-head-leader">${party.leader}</div>
       `;
       headRow.appendChild(th);
@@ -200,9 +205,9 @@
   const pollsMeta = document.getElementById("pollsMeta");
   const partyById = Object.fromEntries(PARTIES.map((p) => [p.id, p]));
 
-  function pollCard(poll) {
+  function pollCard(poll, isLatest) {
     const card = document.createElement("div");
-    card.className = "poll-card2";
+    card.className = "poll-card2" + (isLatest ? " latest" : "");
     const rows = Object.entries(poll.results)
       .sort((a, b) => b[1] - a[1])
       .map(([id, pct]) => {
@@ -218,29 +223,77 @@
       })
       .join("");
     card.innerHTML = `
+      ${isLatest ? '<span class="poll-latest-badge">Latest</span>' : ""}
       <div class="poll-head"><span class="poll-firm">${poll.firm}</span><span class="poll-date">${poll.dates}</span></div>
       <div class="poll-bars">${rows}</div>
     `;
     return card;
   }
 
+  function buildTrendChart(polls) {
+    // polls is newest-first; flip to chronological order for the chart
+    const chrono = [...polls].reverse();
+    const W = 720, H = 280, padL = 34, padR = 16, padT = 16, padB = 34;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const maxPct = 35;
+    const n = chrono.length;
+    const xAt = (i) => padL + (n === 1 ? plotW / 2 : (i / (n - 1)) * plotW);
+    const yAt = (pct) => padT + plotH - (pct / maxPct) * plotH;
+
+    const gridLines = [0, 10, 20, 30].map((v) => `
+      <line x1="${padL}" y1="${yAt(v)}" x2="${W - padR}" y2="${yAt(v)}" stroke="currentColor" stroke-opacity=".12" stroke-width="1"/>
+      <text x="${padL - 8}" y="${yAt(v) + 4}" text-anchor="end" font-size="10" fill="currentColor" fill-opacity=".55">${v}%</text>
+    `).join("");
+
+    const xLabels = chrono.map((p, i) => `<text x="${xAt(i)}" y="${H - 8}" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".55">${(p.dates.match(/\d{1,2}\s\w{3}/g) || [p.dates]).pop()}</text>`).join("");
+
+    const lines = PARTIES.map((party) => {
+      const pts = chrono.map((p, i) => {
+        const v = p.results[party.id];
+        return v == null ? null : [xAt(i), yAt(v)];
+      }).filter(Boolean);
+      if (pts.length < 2) return "";
+      const d = pts.map((pt, i) => `${i === 0 ? "M" : "L"}${pt[0].toFixed(1)},${pt[1].toFixed(1)}`).join(" ");
+      const dots = pts.map((pt) => `<circle cx="${pt[0].toFixed(1)}" cy="${pt[1].toFixed(1)}" r="3.2" fill="${party.color}"/>`).join("");
+      return `<path d="${d}" fill="none" stroke="${party.color}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>${dots}`;
+    }).join("");
+
+    const legend = PARTIES.map((p) => `<span class="chart-legend-item"><span class="dot" style="background:${p.color}"></span>${p.short}</span>`).join("");
+
+    return `
+      <svg viewBox="0 0 ${W} ${H}" class="trend-svg" role="img" aria-label="Poll trend over time by party">
+        ${gridLines}
+        ${lines}
+        ${xLabels}
+      </svg>
+      <div class="chart-legend">${legend}</div>
+    `;
+  }
+
   async function renderPolls() {
     if (!pollsGrid) return;
     pollsGrid.innerHTML = "";
+    const chartEl = document.getElementById("pollsChart");
     try {
       const res = await fetch("data/polls.json", { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (!data.polls || !data.polls.length) throw new Error("empty");
-      data.polls.forEach((poll) => pollsGrid.appendChild(pollCard(poll)));
+
+      if (chartEl) chartEl.innerHTML = buildTrendChart(data.polls);
+
+      data.polls.forEach((poll, i) => pollsGrid.appendChild(pollCard(poll, i === 0)));
       if (pollsMeta) pollsMeta.innerHTML = `Updated ${data.updatedAt} from <a href="${data.sourceUrl}" target="_blank" rel="noopener">${data.source}</a>. ${data.note}`;
     } catch {
+      if (chartEl) chartEl.innerHTML = "";
       if (pollsMeta) pollsMeta.textContent = "Poll data unavailable right now.";
     }
   }
 
   /* ---------- Tweets / social moments decoded ---------- */
   const decodedGrid = document.getElementById("decodedGrid");
+  const X_LOGO_SVG = `<svg class="x-logo" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
+
   function renderDecoded() {
     if (!decodedGrid) return;
     decodedGrid.innerHTML = "";
@@ -248,10 +301,20 @@
       const card = document.createElement("article");
       card.className = "card decoded-card";
       card.innerHTML = `
-        <div class="decoded-who">${item.who}</div>
-        <p class="decoded-quote">"${item.quote}"</p>
-        <p class="decoded-explain"><b>What's actually going on:</b> ${item.explain}</p>
-        <a class="decoded-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Read more →</a>
+        <div class="x-post">
+          <div class="x-post-head">
+            ${X_LOGO_SVG}
+            <div class="x-post-who">
+              <div class="x-post-name">${item.who}</div>
+              <div class="x-post-context">${item.context}</div>
+            </div>
+          </div>
+          <p class="x-post-quote">“${item.quote}”</p>
+        </div>
+        <div class="decoded-body">
+          <p class="decoded-explain"><b>What's actually going on:</b> ${item.explain}</p>
+          <a class="decoded-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Read more →</a>
+        </div>
       `;
       decodedGrid.appendChild(card);
     });

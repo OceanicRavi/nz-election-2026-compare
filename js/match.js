@@ -4,13 +4,18 @@
 (function () {
   "use strict";
 
-  const navToggle = document.getElementById("navToggle");
-  const mobileNav = document.getElementById("mobileNav");
-  if (navToggle && mobileNav) {
-    navToggle.addEventListener("click", () => {
-      const open = mobileNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(open));
-    });
+  // app.js (on index.html) already wires up the mobile nav toggle — only
+  // bind it here when this script is the one running the page (e.g. the
+  // standalone find-your-match page, which doesn't load app.js).
+  if (!window.__nzAppLoaded) {
+    const navToggle = document.getElementById("navToggle");
+    const mobileNav = document.getElementById("mobileNav");
+    if (navToggle && mobileNav) {
+      navToggle.addEventListener("click", () => {
+        const open = mobileNav.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(open));
+      });
+    }
   }
 
   const profileOptions = document.getElementById("profileOptions");
@@ -73,13 +78,10 @@
       const entry = (POLICIES[party.id] && POLICIES[party.id][domain.id]) || { p: "No published position yet.", a: "Not yet available for this party." };
       return `
         <div class="card" style="padding:1.1rem 1.3rem;border-top:4px solid ${party.color};">
-          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;">
-            <div style="width:30px;height:30px;border-radius:50%;background:${party.color};display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.68rem;flex-shrink:0;">${party.initials}</div>
-            <div>
-              <div style="font-weight:700;font-size:.95rem;">${party.name}</div>
-              <div style="font-size:.74rem;color:var(--ink-soft);">${party.leader}</div>
-            </div>
+          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;">
+            <img src="${party.logo}" alt="${party.name} logo" style="max-height:26px;max-width:120px;width:auto;object-fit:contain;">
           </div>
+          <div style="font-size:.74rem;color:var(--ink-soft);margin-bottom:.5rem;">${party.leader}</div>
           <p style="font-size:.92rem;margin-bottom:.6rem;">${entry.p}</p>
           <div class="analogy-box show" style="margin-top:0;">${entry.a}</div>
         </div>

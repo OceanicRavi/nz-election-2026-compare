@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-10-05T21:27:46.700Z",
+  "generatedAt": "2026-10-05T22:11:38.944Z",
   "parties": [
     {
       "id": "national",
       "name": "National",
       "url": "https://www.national.org.nz/plan",
-      "status": "unchanged",
-      "lastChecked": "2026-10-05T21:27:43.715Z",
-      "lastChanged": "2026-10-05T03:00:35.930Z"
+      "status": "changed",
+      "lastChecked": "2026-10-05T22:11:28.729Z",
+      "lastChanged": "2026-10-05T22:11:28.729Z"
     },
     {
       "id": "labour",
       "name": "Labour",
       "url": "https://www.labour.org.nz/our-policies/",
       "status": "unchanged",
-      "lastChecked": "2026-10-05T21:27:43.715Z",
+      "lastChecked": "2026-10-05T22:11:28.729Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
       "id": "green",
       "name": "Green",
       "url": "https://2026-nzgreens.nationbuilder.com/policy",
-      "status": "error",
-      "lastChecked": "2026-10-05T21:27:43.715Z",
+      "status": "unchanged",
+      "lastChecked": "2026-10-05T22:11:28.729Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
@@ -30,31 +30,31 @@
       "name": "ACT",
       "url": "https://www.act.org.nz/policies",
       "status": "unchanged",
-      "lastChecked": "2026-10-05T21:27:43.715Z",
+      "lastChecked": "2026-10-05T22:11:28.729Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
       "id": "nzfirst",
       "name": "NZ First",
       "url": "https://www.nzfirst.nz/news",
-      "status": "error",
-      "lastChecked": "2026-10-05T21:27:43.715Z",
+      "status": "unchanged",
+      "lastChecked": "2026-10-05T22:11:28.729Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
       "id": "maori",
       "name": "Te Pāti Māori",
       "url": "https://www.maoriparty.org.nz/policy",
-      "status": "error",
-      "lastChecked": "2026-10-05T21:27:43.715Z",
+      "status": "unchanged",
+      "lastChecked": "2026-10-05T22:11:28.729Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
       "id": "top",
       "name": "The Opportunity Party",
       "url": "https://www.opportunity.org.nz/policy",
-      "status": "error",
-      "lastChecked": "2026-10-05T21:27:43.715Z",
+      "status": "unchanged",
+      "lastChecked": "2026-10-05T22:11:28.729Z",
       "lastChanged": "2026-10-05T21:16:50.551Z"
     }
   ]

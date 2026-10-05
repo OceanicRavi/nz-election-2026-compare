@@ -43,7 +43,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#top">
-      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2c6 4 2 10 6 12-4 1-6-1-7-4 0 5 3 7 1 12-1-4-3-5-3-9-2 3-1 6-4 8 1-5 2-7 0-11-3 2-3 5-6 6 2-4 4-5 5-9-3 1-4 3-7 3 3-3 5-3 7-6-2 0-4 1-6 0 3-1 4-3 7-3-1-2-3-2-4-4 3 0 4 1 6 3 0-3-1-4 0-7 1 3 2 4 2 7 2-1 3-3 3-5 1 2 0 4-1 6 3 0 5-1 7-3-1 3-3 4-6 4z" fill="#8fd3b0"/></svg>
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2c6 4 2 10 6 12-4 1-6-1-7-4 0 5 3 7 1 12-1-4-3-5-3-9-2 3-1 6-4 8 1-5 2-7 0-11-3 2-3 5-6 6 2-4 4-5 5-9-3 1-4 3-7 3 3-3 5-3 7-6-2 0-4 1-6 0 3-1 4-3 7-3-1-2-3-2-4-4 3 0 4 1 6 3 0-3-1-4 0-7 1 3 2 4 2 7 2-1 3-3 3-5 1 2 0 4-1 6 3 0 5-1 7-3-1 3-3 4-6 4z" fill="#ffb067"/></svg>
       <span>NZ Compare<span class="year">26</span></span>
     </a>
 
@@ -52,7 +52,7 @@
       <a href="#polls-anchor">Polls</a>
       <a href="#news-anchor">News</a>
       <a href="#manifesto-anchor">Manifesto Watch</a>
-      <a href="find-your-match">Find Your Match</a>
+      <a href="#match-anchor">Find Your Match</a>
       <a href="constituency">My Electorate</a>
     </nav>
 
@@ -66,28 +66,54 @@
     <a href="#polls-anchor">Polls</a>
     <a href="#news-anchor">News</a>
     <a href="#manifesto-anchor">Manifesto Watch</a>
-    <a href="find-your-match">Find Your Match</a>
+    <a href="#match-anchor">Find Your Match</a>
     <a href="constituency">My Electorate</a>
     <a href="#suggest-anchor">Suggest a row</a>
   </nav>
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"><img src="assets/hero-bg.svg" alt="" width="1600" height="760"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/hero-photo.jpg" srcset="assets/hero-photo-sm.jpg 1280w, assets/hero-photo.jpg 2560w" sizes="100vw" alt="" width="2560" height="621">
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
     <p class="hero-eyebrow">NZ Election 2026 · Non-partisan comparison</p>
     <h1>Know the parties. Understand the plan.<br><em>Vote with confidence.</em></h1>
     <p class="hero-sub">Every policy explained like you're 15 — then the real detail underneath. Live news, real polls, and manifesto-change tracking, updated automatically.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#matrix-anchor">Compare all 7 parties →</a>
-      <a class="btn btn-ghost" href="find-your-match">Find your match</a>
+      <a class="btn btn-ghost" href="#match-anchor">Find your match</a>
     </div>
   </div>
+  <p class="hero-credit">Aoraki/Mt Cook sunrise — <a href="https://commons.wikimedia.org/wiki/File:Mueller_Hut_with_Mt_Sefton_and_Aoraki_(Mt_Cook)_during_the_sunrise.jpg" target="_blank" rel="noopener">Michal Klajban</a>, CC BY-SA 4.0</p>
 </section>
 
 <div class="leaders-strip" id="leadersStrip"></div>
 
 <main id="main">
+
+  <section class="block match-block" id="match-anchor" style="margin-top:2.2rem;">
+    <div class="section-head">
+      <p class="kicker">Personalised in 2 clicks</p>
+      <h2>Find your match</h2>
+      <p>Tell us who you are and what matters most — we'll line up what every party proposes, explained simply.</p>
+    </div>
+
+    <div class="match-grid">
+      <div class="card match-step">
+        <h3><span class="step-num">1</span> I am a...</h3>
+        <div class="match-options" id="profileOptions"></div>
+      </div>
+
+      <div class="card match-step" id="concernStep" style="display:none;">
+        <h3><span class="step-num">2</span> My biggest concern is...</h3>
+        <div class="match-options" id="concernOptions"></div>
+      </div>
+    </div>
+
+    <div class="match-result" id="matchResult"></div>
+  </section>
 
   <section class="block" id="matrix-anchor">
     <div class="section-head">
@@ -126,7 +152,8 @@
       <h2>Real polls, side by side</h2>
       <p>The latest published opinion polls from New Zealand media and research firms — not our own straw poll below, the actual professional surveys.</p>
     </div>
-    <div class="polls-grid card" id="pollsGrid" style="padding:1.2rem;"></div>
+    <div class="card trend-chart-card" id="pollsChart"></div>
+    <div class="polls-scroll" id="pollsGrid"></div>
     <p class="polls-note" id="pollsMeta"></p>
   </section>
 
@@ -219,5 +246,6 @@
 <script defer src="/_vercel/insights/script.js"></script>
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
+<script src="js/match.js"></script>
 </body>
 </html>

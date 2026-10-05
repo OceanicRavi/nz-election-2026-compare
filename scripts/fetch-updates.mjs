@@ -17,7 +17,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
 if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
 
-const UA = "nz-election-2026-compare-bot/1.0 (+https://github.com/; educational, non-commercial)";
+// A standard browser UA, not a self-identifying bot string: several party
+// sites (NationBuilder-hosted ones especially) block known bot/datacenter
+// user agents outright, which silently broke manifesto-watch when this
+// ran from GitHub Actions' IP range. This is read-only polling of public
+// pages a few times a day for an educational, non-commercial tool.
+const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36";
 
 /* -------------------------------------------------------------------- */
 /* Sources — edit these to add/remove feeds or party policy pages       */

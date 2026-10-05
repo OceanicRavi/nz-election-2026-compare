@@ -3,10 +3,15 @@
 **Live:** https://nz-election-2026-compare.vercel.app
 
 A comparison of the 7 main parties contesting the 2026 New Zealand
-general election across 14 policy domains — each policy explained
-simply (ELI15 analogies), plus a bot-updated live news feed, manifesto
-change-tracking, an anonymous leaning poll, and an electorate candidate
-lookup.
+general election across 18 policy domains — each policy explained
+simply (ELI15 analogies), plus a bot-updated live news feed, real
+published opinion polls with a trend chart, campaign social-media
+moments decoded, a personalised "Find Your Match" tool, an anonymous
+leaning poll, and an electorate candidate lookup.
+
+Editorial design system (Fraunces/Inter type, warm sunset-orange accent)
+over a real NZ landscape photo and real leader photos/party logos — all
+properly licensed, see **Photo & logo credits** below.
 
 Pure HTML/CSS/JS on the frontend — no framework, no build step. The
 only "backend" is a GitHub Action (content bot) and two small Vercel
@@ -15,21 +20,27 @@ serverless functions (poll + storage).
 ## Structure
 
 ```
-index.html                             Main comparison page
+index.html                             Main comparison page (includes embedded Find Your Match)
+find-your-match.html                   Standalone deep-link version of the same tool
 constituency.html                      Electorate candidate lookup page
-css/styles.css                         All styling (gradient/glass theme, responsive)
-js/data.js                             Parties, 14 domains, policies+analogies, SITE_CONFIG
-js/app.js                              Renders the matrix, poll, news, manifesto watch, form
+css/styles.css                         All styling (editorial theme, responsive)
+js/data.js                             Parties, 18 domains, policies+analogies, leaders, profiles, SITE_CONFIG
+js/app.js                              Renders the matrix, polls, decoder, manifesto watch, leaning poll, form
+js/match.js                            Renders the Find Your Match profile/concern picker (used on both pages)
 js/constituency.js                     Renders the electorate lookup page
 api/poll.js                            Vercel serverless function: anonymous poll (GET/POST)
 data/electorates.json                  Candidate-by-electorate data (43 verified + list of unverified)
 data/news.json                         Bot-generated — latest filtered election news (RSS)
+data/polls.json                        Manually-refreshed real published opinion polls
 data/manifesto-watch.json              Bot-generated — per-party change-detection status
 data/manifesto-hashes.json             Bot-internal — content hashes used to detect changes
 scripts/fetch-updates.mjs              The news/manifesto bot (runs on a schedule)
 scripts/make-og-image.py               Regenerates assets/og-image.png if you change the branding
 .github/workflows/update-content.yml   Cron job: runs the bot every 2h, commits changes
-assets/                                Favicon + Open Graph social-preview image
+assets/hero-photo*.jpg                 Hero background (real photo, see credits)
+assets/leaders/*.jpg                   Leader photos (real photos, see credits)
+assets/logos/*                         Party logos (official party assets)
+assets/favicon.svg, og-image.png       Tab icon + social preview
 robots.txt / sitemap.xml               SEO
 netlify.toml / vercel.json             Deploy configs (+ security headers)
 package.json                           @vercel/blob dependency + local preview script
@@ -179,6 +190,32 @@ tags (image at `assets/og-image.png`, regenerate with
 parties for non-JS crawlers. `robots.txt` and `sitemap.xml` sit at the
 project root. If you redeploy to a different domain, update the
 canonical/OG URLs in both HTML files, `robots.txt`, and `sitemap.xml`.
+
+## Photo & logo credits
+
+**Hero photo** (`assets/hero-photo*.jpg`): Aoraki/Mt Cook sunrise from
+Mueller Hut, by [Michal Klajban](https://commons.wikimedia.org/wiki/File:Mueller_Hut_with_Mt_Sefton_and_Aoraki_(Mt_Cook)_during_the_sunrise.jpg),
+CC BY-SA 4.0 — cropped/resized, credited in the hero itself.
+
+**Leader photos** (`assets/leaders/*.jpg`), all from Wikimedia Commons,
+cropped to square:
+- Luxon, Seymour: Doug Mountain / Governor-General's Office, CC0
+- Hipkins: NZ Labour Party, CC BY-SA 4.0
+- Davidson, Swarbrick: Green Party of Aotearoa NZ, CC BY-SA 4.0
+- Peters: UK Foreign, Commonwealth & Development Office, CC BY 2.0
+- Ngarewa-Packer, Waititi: Dhantegge & PANG, CC BY-SA 4.0
+- Wong: The Opportunity Party, CC BY 4.0
+
+**Party logos** (`assets/logos/*`): each party's own official logo,
+pulled from their current website (or Wikimedia Commons for ACT/Green,
+both effectively public domain as simple geometric marks), used here
+for editorial identification only — no endorsement implied. National,
+NZ First and Te Pāti Māori's logos are white-on-transparent in their
+official form, so they're composited onto a rounded tile in that
+party's brand colour for legibility on light backgrounds — if a party
+changes its logo again, re-fetch the source and recomposite the same
+way (trim to bounding box, centre on a rounded rect filled with that
+party's `color` from `js/data.js`).
 
 ## Editing content
 

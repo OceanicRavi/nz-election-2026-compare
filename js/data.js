@@ -22,6 +22,7 @@ const PARTIES = [
     role: "Prime Minister",
     color: "#5a8fb8",
     initials: "CL",
+    logo: "assets/logos/national.png",
     blurb: "Centre-right. Tax relief, fiscal restraint, and getting NZ back on track economically.",
     policyUrl: "https://www.national.org.nz/plan",
   },
@@ -33,6 +34,7 @@ const PARTIES = [
     role: "Leader of the Opposition",
     color: "#c1615a",
     initials: "CH",
+    logo: "assets/logos/labour.png",
     blurb: "Centre-left. Public services, wages and workers rights, targeted cost-of-living support.",
     policyUrl: "https://www.labour.org.nz/our-policies/",
   },
@@ -44,6 +46,7 @@ const PARTIES = [
     role: "Co-leaders",
     color: "#6b9e6e",
     initials: "MD",
+    logo: "assets/logos/green.svg",
     blurb: "Progressive and environmental. Climate action, wealth tax, income guarantee.",
     policyUrl: "https://2026-nzgreens.nationbuilder.com/policy",
   },
@@ -55,6 +58,7 @@ const PARTIES = [
     role: "ACT New Zealand",
     color: "#d1a13a",
     initials: "DS",
+    logo: "assets/logos/act.svg",
     blurb: "Classical liberal. Smaller government, deregulation, personal responsibility.",
     policyUrl: "https://www.act.org.nz/policies",
   },
@@ -66,6 +70,7 @@ const PARTIES = [
     role: "New Zealand First",
     color: "#4a5a68",
     initials: "WP",
+    logo: "assets/logos/nzfirst.png",
     blurb: "Populist and nationalist. Sovereignty, tighter immigration, law and order.",
     policyUrl: "https://www.nzfirst.nz/news",
   },
@@ -77,6 +82,7 @@ const PARTIES = [
     role: "Co-leaders",
     color: "#9c3b40",
     initials: "TPM",
+    logo: "assets/logos/maori.png",
     blurb: "Indigenous rights. Tino rangatiratanga, Treaty-led policy, rangatahi wellbeing.",
     policyUrl: "https://www.maoriparty.org.nz/policy",
   },
@@ -88,6 +94,7 @@ const PARTIES = [
     role: "The Opportunity Party",
     color: "#3aa6a1",
     initials: "QW",
+    logo: "assets/logos/top.svg",
     blurb: "Evidence-based and technocratic. Land value tax, Citizen's Income, 30GW renewables plan.",
     policyUrl: "https://www.opportunity.org.nz/policy",
   },
@@ -109,6 +116,10 @@ const DOMAINS = [
   { id: "transport", name: "Transport & Infrastructure", desc: "Roads, rail, buses." },
   { id: "energy", name: "Energy", desc: "Power generation, grid, prices." },
   { id: "drugs", name: "Drug & Alcohol Law", desc: "Prevention, cannabis, addiction." },
+  { id: "agriculture", name: "Agriculture & Primary Industries", desc: "Farming, emissions, exports." },
+  { id: "localgov", name: "Local Government & Rates", desc: "Councils, rates, water bills." },
+  { id: "mentalhealth", name: "Mental Health & Addiction", desc: "Services, waitlists, prevention." },
+  { id: "childpoverty", name: "Child Poverty & Family Support", desc: "Incomes, ECE, family hardship." },
 ];
 
 /* POLICIES[partyId][domainId] = { p: policy summary, a: explain-it-simply analogy } */
@@ -128,6 +139,10 @@ const POLICIES = {
     transport: { p: "Fast-track consenting for roads/infrastructure, funded via bonds and PPPs.", a: "Like clearing the paperwork queue so new roads get built faster." },
     energy: { p: "Reversing the offshore oil & gas exploration ban to boost domestic supply.", a: "Like reopening a mine, betting the extra supply outweighs the trade-off." },
     drugs: { p: "Generally enforcement-focused, in line with its wider law-and-order platform.", a: "Like treating drug offences the tough way, same as other crimes." },
+    agriculture: { p: "'Tools first, then price' on agricultural emissions; R&D into low-emission breeding and feeds; bottom line of no farm closures.", a: "Like giving farmers better gear before asking them to pay for pollution, promising no one loses their farm." },
+    localgov: { p: "Proposes capping annual rates rises to 2–4%; water infrastructure costs handled separately under 'Local Water Done Well'.", a: "Like putting a speed limit on how fast your council bill can grow — but the water-pipes bill is separate." },
+    mentalhealth: { p: "First government to set formal mental health and addiction targets; faster access, more frontline workers, better crisis response.", a: "Like setting a measurable goal — shorter wait times — and reporting progress against it." },
+    childpoverty: { p: "No new targeted income-support payment; leans on economic growth and jobs as the route out of hardship.", a: "Like betting a stronger economy lifts families up, rather than a new direct payment." },
   },
   labour: {
     economy: { p: "28% tax on investment-property profit from July 2027, ring-fenced for health.", a: "Like asking anyone who sells a second house at a profit to chip in toward healthcare." },
@@ -144,6 +159,10 @@ const POLICIES = {
     transport: { p: "$20/$10 fare caps plus a 2026 Rapid Transit Initiative investment.", a: "Like capping the bus bill while investing in faster, more frequent services." },
     energy: { p: "Low-interest finance for household solar/batteries, subsidies for lower incomes.", a: "Like the government covering the upfront cost so more households go solar." },
     drugs: { p: "Among the stronger backers of evidence-based prevention on tobacco and alcohol.", a: "Like siding with public-health advice over industry lobbying on tighter rules." },
+    agriculture: { p: "Stepped back from pricing agricultural emissions; backs regenerative farming and waterway restoration instead.", a: "Like choosing to help farmers change gradually rather than charging them for emissions first." },
+    localgov: { p: "No detailed 2026 rates/water policy published; previously pursued pooling water infrastructure regionally in government.", a: "Not a headline topic for this party this campaign." },
+    mentalhealth: { p: "Says cost and wait times are the main barriers; wants properly funded, culturally grounded teams with timely access regardless of ability to pay.", a: "Like making sure a full wallet isn't the only way to get seen quickly." },
+    childpoverty: { p: "Set the original Child Poverty Reduction targets in law; 2026 platform leans on its health and transport cost-of-living policies.", a: "Like having already set the finish line in law, and now trying other ways to help families reach it." },
   },
   green: {
     economy: { p: "Wealth tax and bigger state role, funding decarbonisation and public housing.", a: "Like asking whoever has the biggest slice of cake to give a bit more." },
@@ -160,6 +179,10 @@ const POLICIES = {
     transport: { p: "Strongest push for free/low-cost public transport and electrification.", a: "Like making the bus free at the door and going electric fast." },
     energy: { p: "Fastest grid electrification, opposes new fossil fuel projects outright.", a: "Like unplugging from fossil fuels as fast as possible, no new connections." },
     drugs: { p: "Strongest backer of prevention rules; has historically supported cannabis law reform.", a: "Like treating drugs mainly as a health issue to prevent harm from." },
+    agriculture: { p: "Fair, science-based emissions pricing for agriculture; phasing out environmentally degrading practices, more urban/sustainable farming.", a: "Like asking farming to follow the same pollution rules as everyone else, based on the evidence." },
+    localgov: { p: "Not a headline 2026 focus for this party.", a: "Not a headline topic for this party this election." },
+    mentalhealth: { p: "Aims to eliminate therapy waiting lists by training and employing many more therapists and psychologists.", a: "Like hiring enough staff that the waitlist disappears instead of just being managed." },
+    childpoverty: { p: "Pledges to end child poverty; ending public funding for private for-profit ECE centres by 2028, expanding community/non-profit ECE.", a: "Like redirecting childcare funding away from for-profit businesses and into community-run centres." },
   },
   act: {
     economy: { p: "Lower, flatter taxes, smaller state, less business regulation.", a: "Like trimming an overgrown hedge so it takes less space, leaving more yard for you." },
@@ -176,6 +199,10 @@ const POLICIES = {
     transport: { p: "User-pays roading via road-user charges over subsidised public transport.", a: "Like paying for the road you use, rather than everyone chipping in." },
     energy: { p: "Lets energy markets and prices, not mandates, drive the shift.", a: "Like trusting prices to nudge the country toward cleaner power naturally." },
     drugs: { p: "Personal-freedom framing points to lighter regulation of individual choices.", a: "Like preferring adults make their own calls, less government telling them what's healthy." },
+    agriculture: { p: "Would repeal the Zero Carbon Act and permanently keep agriculture out of the ETS; cut red tape; introduce a rural visa.", a: "Like scrapping the climate paperwork for farmers entirely and making it easier to hire rural workers." },
+    localgov: { p: "Backs a rates cap on council spending; favours smaller councils doing less, spending less.", a: "Like putting a strict budget leash on how much councils can charge you." },
+    mentalhealth: { p: "No detailed 2026 mental health policy published; broader platform favours patient choice and private provision.", a: "Like preferring to let people pick their own provider rather than one government-run system." },
+    childpoverty: { p: "Does not propose using tax changes to target poverty directly; favours growth and work incentives over targeted payments.", a: "Like betting that a bigger economy helps families more than a new welfare payment would." },
   },
   nzfirst: {
     economy: { p: "State ownership of banking/energy, protecting domestic industry from overseas buyers.", a: "Like a family keeping the business in-house rather than selling shares to outsiders." },
@@ -192,6 +219,10 @@ const POLICIES = {
     transport: { p: "No detailed 2026 transport policy published yet.", a: "Transport hasn't been a headline topic for this party this campaign." },
     energy: { p: "Backs state/domestic ownership of energy generators, prioritising security.", a: "Like wanting to own and control the power plants at home." },
     drugs: { p: "No detailed 2026 drug and alcohol policy published.", a: "Not a headline topic for this party this campaign." },
+    agriculture: { p: "Strongly opposes pricing farm emissions or forced herd/fertiliser cuts; keeps agriculture out of climate rules entirely.", a: "Like telling farmers none of the new climate rules apply to them." },
+    localgov: { p: "Backs a rates cap on council spending; prioritises ratepayer relief over new council spending.", a: "Like siding with ratepayers whenever councils want to spend or charge more." },
+    mentalhealth: { p: "Backs community-led wellbeing initiatives, suicide-prevention programmes like Gumboot Friday, and new mental health response units.", a: "Like funding local, community-run support groups and dedicated crisis-response teams." },
+    childpoverty: { p: "Tax-free $5,000-a-year 'Kiwi Kids Grant' for a citizen parent's first three children, for their first three years.", a: "Like a no-strings yearly top-up for new parents, as long as both parent and child are citizens." },
   },
   maori: {
     economy: { p: "Taxing wealth, revenue into housing, health, education and whānau support.", a: "Like asking the fullest wallet at the table to cover more of the bill." },
@@ -208,6 +239,10 @@ const POLICIES = {
     transport: { p: "Not a headline focus of its published 2026 platform.", a: "Not a headline topic for this party this election." },
     energy: { p: "Folded into its broader whenua/wai/climate platform, not standalone yet.", a: "One thread in a bigger promise to protect land and water." },
     drugs: { p: "Among the strongest backers of tougher tobacco/alcohol prevention measures.", a: "Like treating addictive products as a health threat to whānau, not just willpower." },
+    agriculture: { p: "$100m for regenerative Māori agriculture (Mātai Ahuwhenua), seed sovereignty, rejects gene editing, Māori-led food systems.", a: "Like funding whānau and hapū to grow kai their own way, without outside seed companies or GE crops." },
+    localgov: { p: "Not a headline 2026 focus for this party.", a: "Not a headline topic for this party this election." },
+    mentalhealth: { p: "Shift toward prevention and whānau wellbeing over crisis response; guarantees kaupapa Māori and gender-affirming mental health care in the public system.", a: "Like treating the whole whānau and culture as part of healing, not just the person in crisis." },
+    childpoverty: { p: "$100m community food fund (home gardens, marae māra kai) and up to 8 weeks free food for low earners.", a: "Like funding community gardens and food banks so no child in a low-income whānau goes hungry." },
   },
   top: {
     economy: { p: "Land value tax (1.75% urban/0.5% rural) funds a flat income tax and Citizen's Income.", a: "Like taxing idle land itself, and mailing everyone a guaranteed weekly allowance instead." },
@@ -224,6 +259,10 @@ const POLICIES = {
     transport: { p: "Earlier platform backed a free youth transport pass; 2026 detail still developing.", a: "A free bus pass for young people, from an earlier platform being updated." },
     energy: { p: "'Abundant Energy': cross-party deal for 30GW renewables by 2050, household electrification loans.", a: "Like all parties agreeing one long-term power plan, then helping homes switch over." },
     drugs: { p: "Not among its released 'finished' policy chapters so far.", a: "Not yet one of TOP's fully 'finished' policy chapters." },
+    agriculture: { p: "Land value tax (1.75% urban/0.5% rural) applies to farmland too; farming groups warn of cost risks.", a: "Like including farmland in the same land-tax rules as city land, which some farmers worry could hit them hard." },
+    localgov: { p: "Not a headline 2026 focus for this party.", a: "Not a headline topic for this party this election." },
+    mentalhealth: { p: "Broadly supportive of the Mental Health Foundation's proposed reforms in its 2026 response.", a: "Backs the expert-recommended fixes rather than proposing its own separate plan." },
+    childpoverty: { p: "Not among its released 'finished' policy chapters yet.", a: "Not yet one of TOP's fully 'finished' policy chapters." },
   },
 };
 
@@ -282,6 +321,22 @@ const TWEETS_DECODED = [
    domain ids (from DOMAINS above) pre-highlighted as likely relevant —
    it's a starting point, not a restriction; every profile can still
    pick any concern. */
+/* Real leader photos for the leaders strip. Separate from PARTIES
+   because co-leader parties (Green, Te Pati Maori) get one chip each.
+   Photo files live in assets/leaders/<photo>.jpg — all from Wikimedia
+   Commons under free licences (credited in the footer). */
+const LEADER_PROFILES = [
+  { name: "Christopher Luxon", role: "Prime Minister", partyId: "national", photo: "luxon" },
+  { name: "Chris Hipkins", role: "Leader of the Opposition", partyId: "labour", photo: "hipkins" },
+  { name: "Marama Davidson", role: "Green co-leader", partyId: "green", photo: "davidson" },
+  { name: "Chöe Swarbrick", role: "Green co-leader", partyId: "green", photo: "swarbrick" },
+  { name: "David Seymour", role: "ACT Leader", partyId: "act", photo: "seymour" },
+  { name: "Winston Peters", role: "NZ First Leader", partyId: "nzfirst", photo: "peters" },
+  { name: "Debbie Ngarewa-Packer", role: "Te Pāti Māori co-leader", partyId: "maori", photo: "ngarewa-packer" },
+  { name: "Rawiri Waititi", role: "Te Pāti Māori co-leader", partyId: "maori", photo: "waititi" },
+  { name: "Qiulae Wong", role: "TOP Leader", partyId: "top", photo: "wong" },
+];
+
 const PROFILES = [
   { id: "student", label: "Student", icon: "🎓", suggested: ["education", "welfare", "employment"] },
   { id: "renter", label: "Renter", icon: "🏠", suggested: ["housing", "welfare", "employment"] },
