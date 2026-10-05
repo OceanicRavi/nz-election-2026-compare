@@ -422,6 +422,48 @@ tbody tr:hover td, tbody tr:hover th { background: var(--bg-sunken); }
 tbody .domain-col { transition: background 0.1s; }
 
 /* ============================================
+   Manifesto watch
+   ============================================ */
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.9rem;
+}
+.manifesto-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.manifesto-card h4 { font-size: 0.98rem; font-weight: 700; font-family: var(--font-body); }
+.manifesto-status { font-size: 0.82rem; font-weight: 700; }
+.manifesto-meta { font-size: 0.78rem; color: var(--text-muted); }
+.manifesto-card a { font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; margin-top: 0.3rem; }
+.manifesto-card a:hover { text-decoration: underline; }
+
+.manifesto-card.status-changed { border-left-color: #1a8a4a; }
+.manifesto-card.status-changed .manifesto-status { color: #1a8a4a; }
+.manifesto-card.status-unchanged { border-left-color: var(--border); }
+.manifesto-card.status-unchanged .manifesto-status { color: var(--text-muted); }
+.manifesto-card.status-baseline { border-left-color: var(--focus); }
+.manifesto-card.status-baseline .manifesto-status { color: var(--focus); }
+.manifesto-card.status-error { border-left-color: var(--accent); }
+.manifesto-card.status-error .manifesto-status { color: var(--accent); }
+
+.feed-meta {
+  margin-top: 0.9rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ============================================
    Also on the ballot
    ============================================ */
 
@@ -469,6 +511,9 @@ tbody .domain-col { transition: background 0.1s; }
   color: var(--text-muted);
 }
 .news-list p { font-size: 0.92rem; }
+.news-list .news-source { font-weight: 700; color: var(--accent); }
+.news-list a { text-decoration: none; }
+.news-list a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
   .news-list li { grid-template-columns: 1fr; gap: 0.3rem; }
 }

@@ -29,6 +29,7 @@ const PARTIES = [
     role: "Prime Minister",
     color: "#00529F",
     blurb: "Centre-right. Tax relief, fiscal restraint, and getting NZ back on track economically.",
+    policyUrl: "https://www.national.org.nz/plan",
   },
   {
     id: "labour",
@@ -38,6 +39,7 @@ const PARTIES = [
     role: "Leader of the Opposition",
     color: "#D01C2A",
     blurb: "Centre-left. Public services, wages and workers rights, targeted cost-of-living support.",
+    policyUrl: "https://www.labour.org.nz/our-policies/",
   },
   {
     id: "green",
@@ -47,6 +49,7 @@ const PARTIES = [
     role: "Green Party",
     color: "#098137",
     blurb: "Progressive and environmental. Climate action, wealth tax, income guarantee.",
+    policyUrl: "https://2026-nzgreens.nationbuilder.com/policy",
   },
   {
     id: "act",
@@ -56,6 +59,7 @@ const PARTIES = [
     role: "ACT New Zealand",
     color: "#FFD100",
     blurb: "Classical liberal. Smaller government, deregulation, personal responsibility.",
+    policyUrl: "https://www.act.org.nz/policies",
   },
   {
     id: "nzfirst",
@@ -65,6 +69,7 @@ const PARTIES = [
     role: "New Zealand First",
     color: "#000000",
     blurb: "Populist and nationalist. Sovereignty, tighter immigration, law and order.",
+    policyUrl: "https://www.nzfirst.nz/news",
   },
   {
     id: "maori",
@@ -74,15 +79,17 @@ const PARTIES = [
     role: "Te Pati Maori",
     color: "#9C1C1C",
     blurb: "Indigenous rights. Tino rangatiratanga, Treaty-led policy, rangatahi wellbeing.",
+    policyUrl: "https://www.maoriparty.org.nz/policy",
   },
   {
     id: "top",
     name: "The Opportunity Party",
     short: "TOP",
-    leader: "Raf Manji",
+    leader: "Qiulae Wong",
     role: "TOP",
     color: "#17A5A0",
     blurb: "Evidence-based and technocratic. Tax reform, Universal Basic Income, polling near the 5% threshold.",
+    policyUrl: "https://www.opportunity.org.nz/policy",
   },
 ];
 

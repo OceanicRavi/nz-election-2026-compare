@@ -1,0 +1,43 @@
+name: Update election content
+
+# Runs on a schedule to pull fresh NZ election news (RSS) and check the
+# seven official party policy pages for changes, then commits the result
+# to data/*.json. Netlify/Vercel are set to auto-deploy on push, so this
+# is effectively "keep the site live-updated" with no server to run.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours
+  workflow_dispatch: {} # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-content
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch latest news & check manifesto pages
+        run: node scripts/fetch-updates.mjs
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "election-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No content changes."
+          else
+            git commit -m "chore: automated content update"
+            git push
+          fi

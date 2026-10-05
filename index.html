@@ -31,6 +31,7 @@
         <a href="#matrix-anchor">Compare</a>
         <a href="#leaders-anchor">Leaders</a>
         <a href="#news-anchor">News</a>
+        <a href="#manifesto-anchor">Manifesto Watch</a>
         <a href="#also-anchor">All Parties</a>
         <a href="#suggest-anchor">Suggest</a>
       </nav>
@@ -44,6 +45,7 @@
       <a href="#matrix-anchor">Compare Now</a>
       <a href="#leaders-anchor">Leaders</a>
       <a href="#news-anchor">News</a>
+      <a href="#manifesto-anchor">Manifesto Watch</a>
       <a href="#also-anchor">All Parties</a>
       <a href="#suggest-anchor">Suggest a row</a>
     </nav>
@@ -103,6 +105,16 @@
       </div>
     </section>
 
+    <!-- MANIFESTO WATCH -->
+    <section class="manifesto-section" id="manifesto-anchor">
+      <div class="section-head">
+        <h2>Manifesto watch</h2>
+        <p>An automated bot checks each party's official policy page every 6 hours and flags when the page content has changed, so you know where to look for the latest additions. It tracks changes only — it doesn't attempt to summarise what changed.</p>
+      </div>
+      <div class="manifesto-grid" id="manifestoGrid"></div>
+      <p class="feed-meta" id="manifestoMeta" role="status" aria-live="polite"></p>
+    </section>
+
     <!-- ALSO ON THE BALLOT -->
     <section class="also-section" id="also-anchor">
       <div class="section-head">
@@ -120,6 +132,7 @@
       </div>
 
       <ol class="news-list" id="newsList"></ol>
+      <p class="feed-meta" id="newsMeta" role="status" aria-live="polite"></p>
 
       <div class="news-links">
         <a href="https://twitter.com/search?q=nz%20election%202026" target="_blank" rel="noopener noreferrer">Live: X/Twitter search →</a>
