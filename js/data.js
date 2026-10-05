@@ -10,7 +10,7 @@
    link using fallbackEmail instead. */
 const SITE_CONFIG = {
   web3formsKey: "",
-  fallbackEmail: "",
+  fallbackEmail: "contact@novanexus.nz",
 };
 
 const PARTIES = [
