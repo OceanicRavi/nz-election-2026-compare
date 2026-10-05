@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nz-election-2026-compare.vercel.app/sitemap.xml

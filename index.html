@@ -1,184 +1,183 @@
 <!DOCTYPE html>
 <html lang="en-NZ">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NZ Election 2026 — Compare the Parties</title>
-  <meta name="description" content="Compare all registered parties contesting the 2026 New Zealand general election across 14 policy domains. Simplified, educational, non-partisan." />
-  <meta name="theme-color" content="#111318" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NZ Election 2026 — Compare the Parties Side by Side</title>
+<meta name="description" content="Compare all 7 major parties contesting the 2026 New Zealand general election across 14 policy domains — tax, housing, health, climate and more — explained simply, with live news and manifesto-change tracking.">
+<link rel="canonical" href="https://nz-election-2026-compare.vercel.app/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#9a4f7a">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 
-  <meta property="og:title" content="NZ Election 2026 — Compare the Parties" />
-  <meta property="og:description" content="Know the parties. Understand the plan. Vote with confidence." />
-  <meta property="og:type" content="website" />
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NZ Compare 2026">
+<meta property="og:title" content="NZ Election 2026 — Compare the Parties Side by Side">
+<meta property="og:description" content="Know the parties. Understand the plan. Vote with confidence. Compare all 7 major NZ parties across 14 policy domains, explained simply.">
+<meta property="og:url" content="https://nz-election-2026-compare.vercel.app/">
+<meta property="og:image" content="https://nz-election-2026-compare.vercel.app/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NZ Election 2026 — Compare the Parties">
+<meta name="twitter:description" content="Know the parties. Understand the plan. Vote with confidence.">
+<meta name="twitter:image" content="https://nz-election-2026-compare.vercel.app/assets/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "NZ Compare 2026",
+  "url": "https://nz-election-2026-compare.vercel.app/",
+  "description": "A non-partisan, educational comparison of the parties contesting the 2026 New Zealand general election.",
+  "inLanguage": "en-NZ"
+}
+</script>
 </head>
 <body>
 
-  <a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" id="top">
-    <div class="header-inner">
-      <a class="brand" href="#top" aria-label="NZ Election 2026 Compare, home">
-        <span class="brand-mark" aria-hidden="true">🥝</span>
-        <span class="brand-text">NZ Compare<span class="brand-year">2026</span></span>
-      </a>
-
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#matrix-anchor">Compare</a>
-        <a href="#leaders-anchor">Leaders</a>
-        <a href="#news-anchor">News</a>
-        <a href="#manifesto-anchor">Manifesto Watch</a>
-        <a href="#also-anchor">All Parties</a>
-        <a href="#suggest-anchor">Suggest</a>
-      </nav>
-
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-      <a href="#matrix-anchor">Compare Now</a>
-      <a href="#leaders-anchor">Leaders</a>
+<div class="hero">
+  <div class="nav">
+    <button class="burger" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">☰</button>
+    <div class="links">
+      <a href="#matrix-anchor">Compare</a>
+      <a href="#leadersStrip">Leaders</a>
       <a href="#news-anchor">News</a>
       <a href="#manifesto-anchor">Manifesto Watch</a>
-      <a href="#also-anchor">All Parties</a>
-      <a href="#suggest-anchor">Suggest a row</a>
-    </nav>
-  </header>
+    </div>
+    <div class="links">
+      <a href="#poll-anchor">Poll</a>
+      <a href="constituency">My Electorate</a>
+      <a href="#suggest-anchor">Suggest</a>
+    </div>
+    <a class="register" href="#matrix-anchor">Compare Now</a>
+  </div>
 
-  <main id="main">
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#matrix-anchor">Compare Now</a>
+    <a href="#leadersStrip">Leaders</a>
+    <a href="#news-anchor">News</a>
+    <a href="#manifesto-anchor">Manifesto Watch</a>
+    <a href="#poll-anchor">Poll</a>
+    <a href="constituency">My Electorate</a>
+    <a href="#suggest-anchor">Suggest a row</a>
+  </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <p class="eyebrow">NZ Election 2026 &middot; Compare</p>
-        <h1>Know the parties.<br />Understand the plan.<br /><span class="accent">Vote with confidence.</span></h1>
-        <p class="hero-sub">A side-by-side look at where every major party stands across 14 policy domains — built for comparison, not persuasion.</p>
+  <div class="brand">
+    <div class="mark">🌿</div>
+    <h2>NZ ELECTION 2026</h2>
+    <span class="tag">C O M P A R E</span>
+  </div>
+  <h1>Know the parties.<br>Understand the plan.<br>Vote with confidence.</h1>
+  <p class="hero-sub">Every policy explained like you're 15 — then the real detail underneath, if you want it.</p>
+  <div class="cta-row">
+    <a href="#matrix-anchor">Compare all 7 parties →</a>
+    <a class="ghost" href="#suggest-anchor">Suggest a row</a>
+  </div>
+  <div class="figures">
+    <div class="figure left">
+      <div class="head" style="background:radial-gradient(circle at 35% 30%,#8fb6da,#5a8fb8)"></div>
+      <div class="bust" style="background:radial-gradient(circle at 35% 20%,#7aa8cf,#3d6e94)"></div>
+      <div class="chip">Christopher Luxon<small>Prime Minister · National</small></div>
+    </div>
+    <div class="figure right">
+      <div class="head" style="background:radial-gradient(circle at 35% 30%,#dd968f,#c1615a)"></div>
+      <div class="bust" style="background:radial-gradient(circle at 35% 20%,#cd7c73,#9e4b44)"></div>
+      <div class="chip">Chris Hipkins<small>Leader of the Opposition · Labour</small></div>
+    </div>
+  </div>
+</div>
 
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#matrix-anchor">Compare all 7 parties →</a>
-          <a class="btn btn-ghost" href="#suggest-anchor">Suggest a row</a>
-        </div>
+<div class="leaders-strip" id="leadersStrip"></div>
 
-        <p class="hero-hint">↔ Scroll sideways for all seven parties &middot; ↓ scroll down for 14 policy domains</p>
-      </div>
+<main id="main">
+  <p class="swipe-hint" id="matrix-anchor">↔ Scroll sideways for all seven parties · ↕ scroll down for 14 policy domains · tap "Explain simply" on any cell</p>
 
-      <div class="hero-leaders" id="leaders-anchor" aria-label="Current leaders">
-        <article class="leader-card">
-          <div class="leader-avatar" style="--ac:#00529F">CL</div>
-          <div class="leader-info">
-            <h3>Christopher Luxon</h3>
-            <p>Prime Minister &middot; National</p>
-          </div>
-        </article>
-        <article class="leader-card">
-          <div class="leader-avatar" style="--ac:#D01C2A">CH</div>
-          <div class="leader-info">
-            <h3>Chris Hipkins</h3>
-            <p>Leader of the Opposition &middot; Labour</p>
-          </div>
-        </article>
-      </div>
-    </section>
+  <div class="matrix-controls" id="partyToggles" role="group" aria-label="Toggle parties shown in the comparison"></div>
+  <div class="matrix-wrap"><div class="matrix" id="matrix"></div></div>
+  <noscript>
+    <div style="background:var(--glass);border-radius:16px;padding:18px 20px;margin-top:10px;">
+      <h2 style="color:var(--ink);">The 7 parties compared on this page</h2>
+      <p><strong>National</strong> (Christopher Luxon) — centre-right: tax relief, fiscal restraint, oil &amp; gas exploration restart.</p>
+      <p><strong>Labour</strong> (Chris Hipkins) — centre-left: public services, investment-property tax, free GP visits and prescriptions.</p>
+      <p><strong>Green Party</strong> (Marama Davidson &amp; Chlöe Swarbrick) — progressive: wealth tax, free public transport, rapid decarbonisation.</p>
+      <p><strong>ACT</strong> (David Seymour) — classical liberal: lower flatter taxes, smaller government, deregulation.</p>
+      <p><strong>NZ First</strong> (Winston Peters) — populist/nationalist: tighter immigration, sovereignty, law and order.</p>
+      <p><strong>Te Pāti Māori</strong> (Ngarewa-Packer &amp; Waititi) — indigenous rights: tino rangatiratanga, Treaty-led policy.</p>
+      <p><strong>Opportunity Party / TOP</strong> (Qiulae Wong) — evidence-based: land value tax, Citizen's Income, 30GW renewables plan.</p>
+      <p>Enable JavaScript to see the full interactive 14-domain comparison, ELI15 explanations, live news, manifesto-change tracking, the leaning poll, and the electorate candidate lookup.</p>
+    </div>
+  </noscript>
 
-    <!-- COMPARISON MATRIX -->
-    <section class="matrix-section" id="matrix-anchor">
-      <div class="section-head">
-        <h2>Compare the parties</h2>
-        <p>Toggle parties on or off, then scroll to browse all 14 policy domains. Summaries are simplified for comparison — always check the party's own manifesto.</p>
-      </div>
+  <section class="block" id="poll-anchor">
+    <h2>Which way are you leaning?</h2>
+    <p class="sub">A casual, anonymous straw poll — not a scientific survey, and nothing like the real election. One vote per browser; change your mind any time.</p>
+    <div class="poll-card">
+      <div class="poll-options" id="pollOptions"></div>
+      <div class="poll-results" id="pollResults"></div>
+      <p class="poll-meta" id="pollMeta"></p>
+      <p class="poll-disclaimer">Anonymous — no name, email or IP is stored, just a random id in your browser so you can't vote twice. Results are visible to everyone who visits this page.</p>
+    </div>
+  </section>
 
-      <div class="matrix-controls" id="partyToggles" role="group" aria-label="Toggle parties shown in the comparison"></div>
+  <section class="block">
+    <h2>Find your electorate's candidates</h2>
+    <p class="sub">See who's standing for each party where you live.</p>
+    <a class="cta-row-link" href="constituency" style="display:inline-block;background:#fff;color:#a3441f;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:22px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.15);">Look up my electorate →</a>
+  </section>
 
-      <div class="matrix-scroll-wrap">
-        <div class="matrix-scroll" id="matrixScroll" tabindex="0" role="region" aria-label="Policy comparison table, scrollable">
-          <table class="matrix-table" id="matrixTable">
-            <thead id="matrixHead"></thead>
-            <tbody id="matrixBody"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+  <section class="block" id="manifesto-anchor">
+    <h2>Manifesto watch</h2>
+    <p class="sub">A bot checks each party's official policy page every 6 hours and flags when it changes, so you know where to look for the latest additions. It tracks <em>that</em> something changed, not what — always read the source.</p>
+    <div class="manifesto-grid" id="manifestoGrid"></div>
+    <p class="feed-meta" id="manifestoMeta"></p>
+  </section>
 
-    <!-- MANIFESTO WATCH -->
-    <section class="manifesto-section" id="manifesto-anchor">
-      <div class="section-head">
-        <h2>Manifesto watch</h2>
-        <p>An automated bot checks each party's official policy page every 6 hours and flags when the page content has changed, so you know where to look for the latest additions. It tracks changes only — it doesn't attempt to summarise what changed.</p>
-      </div>
-      <div class="manifesto-grid" id="manifestoGrid"></div>
-      <p class="feed-meta" id="manifestoMeta" role="status" aria-live="polite"></p>
-    </section>
+  <section class="block" id="also-anchor">
+    <h2>Also on the ballot</h2>
+    <p class="sub">17 parties are registered with the Electoral Commission for 2026 (as at 5 August 2026). Beyond the seven above, these are also contesting — most haven't published detailed policy across every domain, so here's the headline pitch for each.</p>
+    <div class="minor-grid" id="minorGrid"></div>
+  </section>
 
-    <!-- ALSO ON THE BALLOT -->
-    <section class="also-section" id="also-anchor">
-      <div class="section-head">
-        <h2>Also on the ballot</h2>
-        <p>17 parties are registered with the Electoral Commission for 2026. Beyond the seven above, these are also contesting — most haven't published detailed policy across every domain, so here's the headline pitch for each.</p>
-      </div>
-      <div class="also-grid" id="alsoGrid"></div>
-    </section>
+  <section class="block" id="news-anchor">
+    <h2>Developing Movements</h2>
+    <p class="sub">A live news feed, auto-refreshed every 6 hours. This page can't pull from X/Twitter directly — use the link below for real-time social updates.</p>
+    <ol class="news-list" id="newsList"></ol>
+    <p class="feed-meta" id="newsMeta"></p>
+    <div class="live-links">
+      <a href="https://twitter.com/search?q=nz%20election%202026" target="_blank" rel="noopener">Live: X/Twitter search →</a>
+      <a href="https://www.rnz.co.nz/news/politics_election-2026" target="_blank" rel="noopener">RNZ Election 2026 →</a>
+      <a href="https://partymap.co.nz/compare/" target="_blank" rel="noopener">PartyMap policy comparison →</a>
+      <a href="https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_New_Zealand_general_election" target="_blank" rel="noopener">Latest polling →</a>
+    </div>
+  </section>
 
-    <!-- DEVELOPING MOVEMENTS -->
-    <section class="news-section" id="news-anchor">
-      <div class="section-head">
-        <h2>Developing movements</h2>
-        <p>A snapshot of recent campaign news, current as of late September 2026. This page can't pull a live feed directly from X/Twitter or news outlets — use the links below to follow real-time updates yourself.</p>
-      </div>
+  <section class="block" id="suggest-anchor">
+    <h2>Suggest an improvement</h2>
+    <p class="sub">Spot something missing, outdated, or want another policy row added? Let us know.</p>
+    <form id="inquiryForm">
+      <p class="hidden-field"><label>Leave this empty: <input name="botcheck" id="botcheck" tabindex="-1" autocomplete="off"></label></p>
+      <label for="fname">Name</label><input type="text" id="fname" name="name" required>
+      <label for="femail">Email (optional)</label><input type="email" id="femail" name="email">
+      <label for="fmsg">Your suggestion</label><textarea id="fmsg" name="message" required placeholder="e.g. add a Democracy & Elections row, update an analogy, fix a typo..."></textarea>
+      <button type="submit">Send</button>
+      <div class="msg" id="formMsg"></div>
+    </form>
+  </section>
+</main>
 
-      <ol class="news-list" id="newsList"></ol>
-      <p class="feed-meta" id="newsMeta" role="status" aria-live="polite"></p>
+<footer>
+  <p>Leader avatars are illustrated, not photos — policy summaries are simplified for comparison and education. Always check each party's official manifesto before voting. Not affiliated with the Electoral Commission.</p>
+  <p><a href="constituency">Find your electorate's candidates →</a></p>
+</footer>
 
-      <div class="news-links">
-        <a href="https://twitter.com/search?q=nz%20election%202026" target="_blank" rel="noopener noreferrer">Live: X/Twitter search →</a>
-        <a href="https://www.rnz.co.nz/news/politics_election-2026" target="_blank" rel="noopener noreferrer">RNZ Election 2026 →</a>
-        <a href="https://partymap.co.nz/compare/" target="_blank" rel="noopener noreferrer">PartyMap policy comparison →</a>
-        <a href="https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_New_Zealand_general_election" target="_blank" rel="noopener noreferrer">Latest polling →</a>
-      </div>
-    </section>
-
-    <!-- SUGGEST -->
-    <section class="suggest-section" id="suggest-anchor">
-      <div class="section-head">
-        <h2>Suggest an improvement</h2>
-        <p>Spot something missing, outdated, or want another policy row added? Let us know.</p>
-      </div>
-
-      <form class="suggest-form" id="suggestForm" name="suggestion" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="suggestion" />
-        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
-
-        <div class="form-row">
-          <label for="s-name">Name</label>
-          <input id="s-name" name="name" type="text" autocomplete="name" placeholder="Jane Doe" />
-        </div>
-        <div class="form-row">
-          <label for="s-email">Email</label>
-          <input id="s-email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" />
-        </div>
-        <div class="form-row">
-          <label for="s-suggestion">Your suggestion</label>
-          <textarea id="s-suggestion" name="suggestion" rows="4" required placeholder="e.g. Add a 'Disability Support' policy row..."></textarea>
-        </div>
-
-        <button class="btn btn-primary" type="submit">Send suggestion</button>
-        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <p>Leader avatars are illustrated, not photos — policy summaries are simplified for comparison and education. Always check each party's official manifesto before voting. Not affiliated with the Electoral Commission.</p>
-    <p class="footer-meta">&copy; 2026 NZ Compare &middot; Built for civic education, not persuasion.</p>
-  </footer>
-
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Find Your Electorate's Candidates — NZ Election 2026</title>
+<meta name="description" content="Look up which candidates are standing for each party in your New Zealand electorate for the 2026 general election.">
+<link rel="canonical" href="https://nz-election-2026-compare.vercel.app/constituency">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#9a4f7a">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<meta property="og:title" content="Find Your Electorate's Candidates — NZ Election 2026">
+<meta property="og:description" content="Look up which candidates are standing for each party in your electorate.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="hero" style="padding-bottom:30px;">
+  <div class="nav">
+    <a class="burger" href="/" aria-label="Back to home" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">←</a>
+    <div class="links"><a href="/">Compare parties</a><a href="/#news-anchor">News</a></div>
+    <div class="links"><a href="/#poll-anchor">Poll</a><a href="/#suggest-anchor">Suggest</a></div>
+    <a class="register" href="/">Home</a>
+  </div>
+  <div class="brand">
+    <div class="mark">🗳️</div>
+    <h2>NZ ELECTION 2026</h2>
+    <span class="tag">M Y   E L E C T O R A T E</span>
+  </div>
+  <h1>Who's standing where you live?</h1>
+  <p class="hero-sub">Pick your electorate to see which candidates are contesting it for each of the 7 main parties.</p>
+</div>
+
+<main id="main">
+  <section class="block" style="margin-top:20px;">
+    <div class="lookup-card">
+      <label for="electorateSelect" style="display:block;font-weight:700;margin-bottom:8px;">Choose your electorate</label>
+      <select id="electorateSelect">
+        <option value="">— Select an electorate —</option>
+      </select>
+
+      <div id="candidateResult"></div>
+      <p class="lookup-source" id="lookupSource"></p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Not sure which electorate you're in?</h2>
+    <p class="sub">The Electoral Commission's own tool gives the definitive, up-to-date answer by address.</p>
+    <a href="https://vote.nz/enrol-and-check-my-enrolment/check-or-update-enrolment/" target="_blank" rel="noopener" style="display:inline-block;background:#fff;color:#a3441f;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:22px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.15);">Check my enrolment at vote.nz →</a>
+  </section>
+</main>
+
+<footer>
+  <p>Candidate data sourced from Wikipedia's "Candidates in the 2026 New Zealand general election by electorate" and cross-checked where possible. Candidate lists can change until nominations close — always confirm at vote.nz before voting.</p>
+  <p><a href="/">← Back to the full party comparison</a></p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/constituency.js"></script>
+</body>
+</html>
