@@ -28,7 +28,7 @@ data/manifesto-watch.json              Bot-generated — per-party change-detect
 data/manifesto-hashes.json             Bot-internal — content hashes used to detect changes
 scripts/fetch-updates.mjs              The news/manifesto bot (runs on a schedule)
 scripts/make-og-image.py               Regenerates assets/og-image.png if you change the branding
-.github/workflows/update-content.yml   Cron job: runs the bot every 6h, commits changes
+.github/workflows/update-content.yml   Cron job: runs the bot every 2h, commits changes
 assets/                                Favicon + Open Graph social-preview image
 robots.txt / sitemap.xml               SEO
 netlify.toml / vercel.json             Deploy configs (+ security headers)
@@ -132,8 +132,8 @@ automate, from `scripts/fetch-updates.mjs` (dependency-free Node,
 
 ### Enabling the schedule on GitHub
 1. Push this repo to GitHub (it isn't yet — see below).
-2. `.github/workflows/update-content.yml` runs every 6 hours (cron
-   `0 */6 * * *`) automatically once on the default branch.
+2. `.github/workflows/update-content.yml` runs every 2 hours (cron
+   `0 */2 * * *`) automatically once on the default branch.
 3. If the bot's commits fail with a permissions error: **Settings →
    Actions → General → Workflow permissions → Read and write**.
 4. Run it immediately instead of waiting: **Actions → Update election

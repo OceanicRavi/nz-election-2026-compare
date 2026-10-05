@@ -155,7 +155,7 @@
       const data = await res.json();
       if (!data.items || !data.items.length) throw new Error("empty");
       renderNewsItems(data.items, { date: (i) => formatDate(i.date), text: (i) => i.title, link: (i) => i.link, source: (i) => i.source });
-      if (newsMeta) newsMeta.textContent = `Live feed — last checked ${formatDate(data.generatedAt)} (auto-refreshes every 6 hours).`;
+      if (newsMeta) newsMeta.textContent = `Live feed — last checked ${formatDate(data.generatedAt)} (auto-refreshes every 2 hours).`;
     } catch {
       renderNewsItems(NEWS_ITEMS, { date: (i) => i.date, text: (i) => i.text, link: () => "", source: () => "" });
       if (newsMeta) newsMeta.textContent = "Showing a static snapshot — live feed unavailable right now.";
@@ -188,7 +188,7 @@
       const data = await res.json();
       if (!data.parties || !data.parties.length) throw new Error("empty");
       data.parties.forEach((p) => manifestoGrid.appendChild(manifestoCard(p.name, p.url, p.status, p.lastChecked, p.lastChanged)));
-      if (manifestoMeta) manifestoMeta.textContent = `Bot last checked all party pages ${formatDate(data.generatedAt)} (auto-refreshes every 6 hours).`;
+      if (manifestoMeta) manifestoMeta.textContent = `Bot last checked all party pages ${formatDate(data.generatedAt)} (auto-refreshes every 2 hours).`;
     } catch {
       PARTIES.forEach((p) => manifestoGrid.appendChild(manifestoCard(p.name, p.policyUrl || "#", "error", null, null)));
       if (manifestoMeta) manifestoMeta.textContent = "Live change-detection hasn't run yet — see README to enable the GitHub Action.";
