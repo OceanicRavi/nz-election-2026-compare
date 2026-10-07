@@ -1,37 +1,37 @@
 {
   "national": {
     "hash": "557c20523f3ac37d9376600cb71e797427853352093c688acdf31778c0d9577d",
-    "lastChecked": "2026-10-07T08:05:10.354Z",
+    "lastChecked": "2026-10-07T08:11:41.369Z",
     "lastChanged": "2026-10-05T22:11:28.729Z"
   },
   "labour": {
     "hash": "53c2d9f22fd4f7cc6012a288d8ca05731867569b889af79b71f4405a2a49b45e",
-    "lastChecked": "2026-10-07T08:05:10.354Z",
+    "lastChecked": "2026-10-07T08:11:41.369Z",
     "lastChanged": "2026-10-06T23:42:58.342Z"
   },
   "green": {
     "hash": "434582e70e3a165287aa2e620462d68a0413387576b452ab756a9bce9cc10a89",
-    "lastChecked": "2026-10-07T08:05:10.354Z",
+    "lastChecked": "2026-10-07T08:11:41.369Z",
     "lastChanged": "2026-10-07T08:05:10.354Z"
   },
   "act": {
     "hash": "e5c1b09c9780a9ebf22d825232b0c0e678a80e65f9b20363fb050e522f6cbb09",
-    "lastChecked": "2026-10-07T08:05:10.354Z",
+    "lastChecked": "2026-10-07T08:11:41.369Z",
     "lastChanged": "2026-10-05T03:00:35.930Z"
   },
   "nzfirst": {
     "hash": "69a1030ba1b8b7ac700db81a12fe84ab3bce27fab5c603678451a25fba28e409",
-    "lastChecked": "2026-10-07T08:05:10.354Z",
+    "lastChecked": "2026-10-07T08:11:41.369Z",
     "lastChanged": "2026-10-07T08:05:10.354Z"
   },
   "maori": {
     "hash": "57c1b77347a59691c3f0b0c9a94da7685c6da3c8761cc3f823563e9f2a6812b5",
-    "lastChecked": "2026-10-07T08:05:10.354Z",
+    "lastChecked": "2026-10-07T08:11:41.369Z",
     "lastChanged": "2026-10-05T03:00:35.930Z"
   },
   "top": {
     "hash": "34f3d26cff74fcee9fada2e8ef70e764588aa9117dee066dcfc2c6fd908e76a4",
-    "lastChecked": "2026-10-07T08:05:10.354Z",
+    "lastChecked": "2026-10-07T08:11:41.369Z",
     "lastChanged": "2026-10-05T21:16:50.551Z"
   }
 }
