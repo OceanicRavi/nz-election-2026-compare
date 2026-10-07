@@ -282,34 +282,48 @@ const OTHER_PARTIES = [
   { name: "Women's Rights Party", pitch: "Single-issue focus on sex-based rights and protections." },
 ];
 
-/* "Tweets decoded" — we can't pull a live tweet feed (no free, ToS-
-   compliant API exists), so instead these are real, recent campaign
-   social-media moments, explained in plain English. Hand-curated and
-   periodically refreshed — update this array as new moments come up. */
-const TWEETS_DECODED = [
+/* "Campaign moments, decoded" — real statements and flashpoints from
+   the campaign, explained in plain English. We verified directly that
+   X's own embed API (publish.x.com/oembed) still works and is free —
+   the actual blocker is that X no longer allows unauthenticated
+   search/browsing at all, so there's no way to *discover* which tweets
+   exist without a paid API or a logged-in session. Rather than dress
+   up press-conference and interview quotes as fake tweet screenshots,
+   each entry below is labelled with what it actually is (sourceType)
+   and links to the original coverage. Hand-curated, periodically
+   refreshed — update this array as new moments come up. */
+const CAMPAIGN_MOMENTS = [
   {
-    who: "Carlos Cheung — National candidate, Mt Roskill",
+    who: "Carlos Cheung",
+    role: "National candidate, Mt Roskill",
+    sourceType: "Social media post",
     quote: "Our democracy is not a target — there is no place for this dangerous behaviour.",
     context: "Posted after his campaign election hoarding (sign) was deliberately set on fire.",
     explain: "Someone set fire to his campaign sign, which is actually dangerous (fire can spread) as well as illegal. He's saying: however strongly you disagree with a candidate, burning their stuff crosses a line — disagree by voting, not vandalism.",
     link: "https://www.stuff.co.nz/nz-news/361042185/election-2026-catches-fire-candidate-says-vandalism-dangerous-completely-unacceptable",
   },
   {
-    who: "National Party social media team vs. Chöe Swarbrick (Green co-leader)",
-    quote: "[Swarbrick] called it an inaccurate misrepresentation of her party's tax policy and asked for it to be taken down.",
-    context: "National posted a video about the Greens' wealth tax; the Green Party said it misrepresented their actual policy. National declined to remove it.",
-    explain: "This is a classic 'attack ad' fight: one party makes a short, punchy video about a rival's policy, the rival says 'that's not actually what we're proposing, you're exaggerating it to scare people.' When you see a scary clip about another party's policy online, it's worth checking that party's own website before believing it.",
-    link: "https://www.stuff.co.nz/politics",
+    who: "Chlöe Swarbrick",
+    role: "Green Party co-leader",
+    sourceType: "Press statement",
+    quote: "The National Party is trying to hide behind AI slop and take New Zealanders for idiots.",
+    context: "Responding to a National Party attack ad about the Greens' wealth tax that used AI-generated content; National stood by the ad and didn't take it down.",
+    explain: "This is a classic 'attack ad' fight: one party makes a punchy video about a rival's policy, the rival says 'that's not actually what we're proposing, and you didn't even pay a real person to make it.' When you see a scary clip about another party's policy online, it's worth checking that party's own website before believing it.",
+    link: "https://www.rnz.co.nz/news/politics/650807/ai-slop-greens-criticise-national-attack-ad",
   },
   {
-    who: "Christopher Luxon (National) — under-16s social media ban",
+    who: "Seymour & Peters",
+    role: "ACT leader & NZ First leader",
+    sourceType: "News coverage",
     quote: "Seymour and Peters hit back as Luxon moves on under-16s social media ban.",
     context: "National campaigned on banning social media for under-16s; coalition partners ACT and NZ First publicly pushed back on the detail.",
     explain: "Even parties that work together in government don't always agree on everything. National wants a hard age limit (like how you can't buy alcohol under 18); ACT and NZ First have pushed back on the idea, favouring rules of their own instead. It's a preview of what they'd each push for if they win seats together again.",
     link: "https://www.1news.co.nz/2026/08/24/seymour-and-peters-hit-back-as-luxon-moves-on-under-16s-social-media-ban/",
   },
   {
-    who: "Leaders' Debate — Luxon vs Hipkins",
+    who: "Luxon & Hipkins",
+    role: "National leader & Labour leader",
+    sourceType: "TV debate",
     quote: "Neither had opened a convincing lead over the other, with most polls showing Labour and National effectively deadlocked.",
     context: "The first head-to-head TV debate aired 6 October 2026 on TVNZ, moderated by Jack Tame.",
     explain: "Think of this like a job interview watched by the whole country: the two people most likely to be Prime Minister stand on stage and take questions live, with no script. Because the polls have National and Labour almost tied, this debate matters more than usual — a strong or weak performance can actually shift votes.",

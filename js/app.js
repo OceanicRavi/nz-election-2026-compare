@@ -290,31 +290,35 @@
     }
   }
 
-  /* ---------- Tweets / social moments decoded ---------- */
+  /* ---------- Campaign moments decoded ---------- */
   const decodedGrid = document.getElementById("decodedGrid");
-  const X_LOGO_SVG = `<svg class="x-logo" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
+
+  const SOURCE_BADGE_CLASS = {
+    "Social media post": "badge-social",
+    "Press statement": "badge-press",
+    "News coverage": "badge-news",
+    "TV debate": "badge-debate",
+  };
 
   function renderDecoded() {
     if (!decodedGrid) return;
     decodedGrid.innerHTML = "";
-    TWEETS_DECODED.forEach((item) => {
+    CAMPAIGN_MOMENTS.forEach((item) => {
       const card = document.createElement("article");
-      card.className = "card decoded-card";
+      card.className = "card moment-card";
+      const badgeClass = SOURCE_BADGE_CLASS[item.sourceType] || "badge-news";
       card.innerHTML = `
-        <div class="x-post">
-          <div class="x-post-head">
-            ${X_LOGO_SVG}
-            <div class="x-post-who">
-              <div class="x-post-name">${item.who}</div>
-              <div class="x-post-context">${item.context}</div>
-            </div>
+        <div class="moment-head">
+          <span class="moment-badge ${badgeClass}">${item.sourceType}</span>
+          <div class="moment-who">
+            <span class="moment-name">${item.who}</span>
+            <span class="moment-role">${item.role}</span>
           </div>
-          <p class="x-post-quote">“${item.quote}”</p>
         </div>
-        <div class="decoded-body">
-          <p class="decoded-explain"><b>What's actually going on:</b> ${item.explain}</p>
-          <a class="decoded-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Read more →</a>
-        </div>
+        <blockquote class="moment-quote">${item.quote}</blockquote>
+        <p class="moment-context">${item.context}</p>
+        <p class="moment-explain"><b>What's actually going on:</b> ${item.explain}</p>
+        <a class="moment-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Read the original coverage →</a>
       `;
       decodedGrid.appendChild(card);
     });

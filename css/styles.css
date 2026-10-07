@@ -235,24 +235,32 @@ section.block{margin-top:4rem;}
 .polls-note{font-size:.76rem;color:var(--ink-soft);margin-top:.8rem;font-style:italic;}
 
 /* ============================================
-   Tweets decoded
+   Campaign moments decoded
    ============================================ */
-.decoded-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;}
-.decoded-card{padding:0;overflow:hidden;display:flex;flex-direction:column;}
+.decoded-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;}
+.moment-card{padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;}
 
-/* X/Twitter-styled quote block, so it reads as "this is from social media" at a glance */
-.x-post{background:#000;color:#e7e9ea;padding:1rem 1.1rem 1.1rem;}
-.x-post-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
-.x-logo{width:22px;height:22px;flex-shrink:0;}
-.x-post-who{flex:1;min-width:0;}
-.x-post-name{font-weight:700;font-size:.88rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.x-post-context{font-size:.76rem;color:#71767b;}
-.x-post-quote{font-size:.95rem;line-height:1.4;color:#e7e9ea;}
+.moment-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;flex-wrap:wrap;}
+.moment-who{display:flex;flex-direction:column;text-align:right;}
+.moment-name{font-weight:700;font-size:.92rem;}
+.moment-role{font-size:.74rem;color:var(--ink-soft);}
 
-.decoded-body{padding:1rem 1.2rem 1.2rem;}
-.decoded-explain{font-size:.9rem;}
-.decoded-explain b{color:var(--accent);}
-.decoded-link{font-size:.78rem;font-weight:700;color:var(--accent);text-decoration:none;margin-top:.6rem;display:inline-block;}
+.moment-badge{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:.28rem .65rem;border-radius:999px;white-space:nowrap;}
+.badge-social{background:#e3effc;color:#1a5fa8;}
+.badge-press{background:#eae3fc;color:#5b3fa8;}
+.badge-news{background:#fdf0e6;color:var(--accent-deep);}
+.badge-debate{background:#e3fce9;color:#1a8a4a;}
+:root[data-theme="dark"] .badge-social{background:#14304d;color:#9ec6f2;}
+:root[data-theme="dark"] .badge-press{background:#2a1f4d;color:#c7b4f2;}
+:root[data-theme="dark"] .badge-news{background:#3a2414;color:#ffb067;}
+:root[data-theme="dark"] .badge-debate{background:#113321;color:#7fd99f;}
+
+.moment-quote{margin:0;padding-left:.9rem;border-left:3px solid var(--border-strong);font-family:var(--font-display);font-size:1.15rem;font-style:italic;line-height:1.35;color:var(--ink);}
+.moment-context{font-size:.82rem;color:var(--ink-soft);}
+.moment-explain{font-size:.9rem;padding-top:.5rem;border-top:1px solid var(--border);}
+.moment-explain b{color:var(--accent);}
+.moment-link{font-size:.78rem;font-weight:700;color:var(--accent);text-decoration:none;margin-top:.1rem;display:inline-block;}
+.moment-link:hover{text-decoration:underline;}
 
 /* ============================================
    Leaning poll (our own anonymous poll)
