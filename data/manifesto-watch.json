@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-09T13:00:12.167Z",
+  "generatedAt": "2026-10-09T19:23:36.180Z",
   "parties": [
     {
       "id": "national",
       "name": "National",
       "url": "https://www.national.org.nz/plan",
       "status": "unchanged",
-      "lastChecked": "2026-10-09T13:00:08.193Z",
+      "lastChecked": "2026-10-09T19:23:32.790Z",
       "lastChanged": "2026-10-08T00:06:48.171Z"
     },
     {
@@ -14,7 +14,7 @@
       "name": "Labour",
       "url": "https://www.labour.org.nz/our-policies/",
       "status": "unchanged",
-      "lastChecked": "2026-10-09T13:00:08.193Z",
+      "lastChecked": "2026-10-09T19:23:32.790Z",
       "lastChanged": "2026-10-08T00:06:48.171Z"
     },
     {
@@ -22,7 +22,7 @@
       "name": "Green",
       "url": "https://2026-nzgreens.nationbuilder.com/policy",
       "status": "error",
-      "lastChecked": "2026-10-09T13:00:08.193Z",
+      "lastChecked": "2026-10-09T19:23:32.790Z",
       "lastChanged": "2026-10-07T08:05:10.354Z"
     },
     {
@@ -30,7 +30,7 @@
       "name": "ACT",
       "url": "https://www.act.org.nz/policies",
       "status": "unchanged",
-      "lastChecked": "2026-10-09T13:00:08.193Z",
+      "lastChecked": "2026-10-09T19:23:32.790Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
@@ -38,7 +38,7 @@
       "name": "NZ First",
       "url": "https://www.nzfirst.nz/news",
       "status": "error",
-      "lastChecked": "2026-10-09T13:00:08.193Z",
+      "lastChecked": "2026-10-09T19:23:32.790Z",
       "lastChanged": "2026-10-07T08:05:10.354Z"
     },
     {
@@ -46,7 +46,7 @@
       "name": "Te Pāti Māori",
       "url": "https://www.maoriparty.org.nz/policy",
       "status": "error",
-      "lastChecked": "2026-10-09T13:00:08.193Z",
+      "lastChecked": "2026-10-09T19:23:32.790Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
@@ -54,7 +54,7 @@
       "name": "The Opportunity Party",
       "url": "https://www.opportunity.org.nz/policy",
       "status": "error",
-      "lastChecked": "2026-10-09T13:00:08.193Z",
+      "lastChecked": "2026-10-09T19:23:32.790Z",
       "lastChanged": "2026-10-05T21:16:50.551Z"
     }
   ]
