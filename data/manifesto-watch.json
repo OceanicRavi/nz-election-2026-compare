@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-15T16:45:52.241Z",
+  "generatedAt": "2026-10-15T21:12:34.438Z",
   "parties": [
     {
       "id": "national",
       "name": "National",
       "url": "https://www.national.org.nz/plan",
       "status": "unchanged",
-      "lastChecked": "2026-10-15T16:45:48.242Z",
+      "lastChecked": "2026-10-15T21:12:32.232Z",
       "lastChanged": "2026-10-15T04:14:21.984Z"
     },
     {
@@ -14,7 +14,7 @@
       "name": "Labour",
       "url": "https://www.labour.org.nz/our-policies/",
       "status": "unchanged",
-      "lastChecked": "2026-10-15T16:45:48.242Z",
+      "lastChecked": "2026-10-15T21:12:32.232Z",
       "lastChanged": "2026-10-11T23:33:02.133Z"
     },
     {
@@ -22,23 +22,23 @@
       "name": "Green",
       "url": "https://2026-nzgreens.nationbuilder.com/policy",
       "status": "error",
-      "lastChecked": "2026-10-15T16:45:48.242Z",
+      "lastChecked": "2026-10-15T21:12:32.232Z",
       "lastChanged": "2026-10-07T08:05:10.354Z"
     },
     {
       "id": "act",
       "name": "ACT",
       "url": "https://www.act.org.nz/policies",
-      "status": "unchanged",
-      "lastChecked": "2026-10-15T16:45:48.242Z",
-      "lastChanged": "2026-10-05T03:00:35.930Z"
+      "status": "changed",
+      "lastChecked": "2026-10-15T21:12:32.232Z",
+      "lastChanged": "2026-10-15T21:12:32.232Z"
     },
     {
       "id": "nzfirst",
       "name": "NZ First",
       "url": "https://www.nzfirst.nz/news",
       "status": "error",
-      "lastChecked": "2026-10-15T16:45:48.242Z",
+      "lastChecked": "2026-10-15T21:12:32.232Z",
       "lastChanged": "2026-10-07T08:05:10.354Z"
     },
     {
@@ -46,7 +46,7 @@
       "name": "Te Pāti Māori",
       "url": "https://www.maoriparty.org.nz/policy",
       "status": "error",
-      "lastChecked": "2026-10-15T16:45:48.242Z",
+      "lastChecked": "2026-10-15T21:12:32.232Z",
       "lastChanged": "2026-10-05T03:00:35.930Z"
     },
     {
@@ -54,7 +54,7 @@
       "name": "The Opportunity Party",
       "url": "https://www.opportunity.org.nz/policy",
       "status": "error",
-      "lastChecked": "2026-10-15T16:45:48.242Z",
+      "lastChecked": "2026-10-15T21:12:32.232Z",
       "lastChanged": "2026-10-05T21:16:50.551Z"
     }
   ]
