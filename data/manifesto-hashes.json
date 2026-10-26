@@ -1,12 +1,12 @@
 {
   "national": {
     "hash": "106302402cd8267b181bd15f95d79f94c0376ca8844c900a0d67384ea54c96ec",
-    "lastChecked": "2026-10-26T12:41:52.853Z",
+    "lastChecked": "2026-10-26T19:49:46.936Z",
     "lastChanged": "2026-10-26T04:20:27.417Z"
   },
   "labour": {
     "hash": "ac5c80da35a2944b7f5afc92d921d47e4d95f1834c33be22949d3d61de43b79c",
-    "lastChecked": "2026-10-26T12:41:52.853Z",
+    "lastChecked": "2026-10-26T19:49:46.936Z",
     "lastChanged": "2026-10-21T07:24:05.282Z"
   },
   "green": {
@@ -16,7 +16,7 @@
   },
   "act": {
     "hash": "ac7881521bd3cd45c81f3f7193d6751f772b843269d7d6ab9cff31ee9e440152",
-    "lastChecked": "2026-10-26T12:41:52.853Z",
+    "lastChecked": "2026-10-26T19:49:46.936Z",
     "lastChanged": "2026-10-21T23:09:05.647Z"
   },
   "nzfirst": {
