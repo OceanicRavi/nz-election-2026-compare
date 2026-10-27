@@ -111,6 +111,7 @@
           <div class="policy-text">${entry.p}</div>
           <button class="explain-toggle" type="button">Explain simply →</button>
           <div class="analogy-box">${entry.a}</div>
+          <a class="source-link" href="${entry.source || party.policyUrl}" target="_blank" rel="noopener">Source →</a>
         `;
         const btn = td.querySelector(".explain-toggle");
         const box = td.querySelector(".analogy-box");
@@ -122,6 +123,74 @@
       });
       bodyEl.appendChild(row);
     });
+  }
+
+  /* ---------- Mobile comparison view: one party at a time ---------- */
+  const mobileTabsEl = document.getElementById("mobilePartyTabs");
+  const mobileListEl = document.getElementById("mobileDomainList");
+  let mobileActivePartyId = PARTIES[0] && PARTIES[0].id;
+
+  function renderMobileDomainList(partyId) {
+    if (!mobileListEl) return;
+    const party = PARTIES.find((p) => p.id === partyId);
+    if (!party) return;
+
+    const leaders = LEADER_PROFILES.filter((l) => l.partyId === partyId);
+    const leaderHtml = leaders.length
+      ? leaders.map((l) => `
+          <img src="assets/leaders/${l.photo}.jpg" alt="${l.name}" style="--pc:${party.color}">
+          <div><div class="name">${l.name}</div><div class="role">${l.role}</div></div>
+        `).join("")
+      : `<div><div class="name">${party.leader}</div><div class="role">${party.role}</div></div>`;
+
+    const cards = DOMAINS.map((domain) => {
+      const entry = (POLICIES[partyId] && POLICIES[partyId][domain.id]) || { p: "No published position yet.", a: "Not yet available for this party." };
+      return `
+        <div class="mobile-domain-card" style="--pc:${party.color}">
+          <h4>${domain.name}</h4>
+          <span class="domain-desc-mobile">${domain.desc}</span>
+          <p class="policy-text">${entry.p}</p>
+          <button class="explain-toggle" type="button">Explain simply →</button>
+          <div class="analogy-box">${entry.a}</div>
+          <a class="source-link" href="${entry.source || party.policyUrl}" target="_blank" rel="noopener">Source →</a>
+        </div>
+      `;
+    }).join("");
+
+    mobileListEl.innerHTML = `<div class="mobile-leader-strip" style="--pc:${party.color}">${leaderHtml}</div>${cards}`;
+
+    mobileListEl.querySelectorAll(".explain-toggle").forEach((btn) => {
+      const box = btn.nextElementSibling;
+      btn.addEventListener("click", () => {
+        const show = box.classList.toggle("show");
+        btn.textContent = show ? "Hide ↑" : "Explain simply →";
+      });
+    });
+  }
+
+  function renderMobileTabs() {
+    if (!mobileTabsEl) return;
+    mobileTabsEl.innerHTML = "";
+    PARTIES.forEach((party) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "mobile-party-tab" + (party.id === mobileActivePartyId ? " active" : "");
+      btn.style.setProperty("--pc", party.color);
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", String(party.id === mobileActivePartyId));
+      btn.innerHTML = `<img src="${party.logo}" alt="">${party.short}`;
+      btn.addEventListener("click", () => {
+        mobileActivePartyId = party.id;
+        renderMobileTabs();
+        renderMobileDomainList(party.id);
+      });
+      mobileTabsEl.appendChild(btn);
+    });
+  }
+
+  function renderMobileMatrix() {
+    renderMobileTabs();
+    renderMobileDomainList(mobileActivePartyId);
   }
 
   /* ---------- Minor parties ---------- */
@@ -396,7 +465,10 @@
     }
   }
 
-  /* ---------- Suggestion form ---------- */
+  /* ---------- Suggestion form ----------
+     Submits straight to our own /api/feedback (Vercel Blob storage) —
+     no email client, no third-party form service. The site owner reads
+     submissions back via a secret key (see README). */
   const form = document.getElementById("inquiryForm");
   const formMsg = document.getElementById("formMsg");
   if (form) {
@@ -407,38 +479,30 @@
       const name = document.getElementById("fname").value.trim();
       const email = document.getElementById("femail").value.trim();
       const message = document.getElementById("fmsg").value.trim();
+      const submitBtn = form.querySelector('button[type="submit"]');
 
-      if (SITE_CONFIG.web3formsKey) {
-        formMsg.textContent = "Sending…";
-        formMsg.classList.remove("success");
-        try {
-          const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({
-              access_key: SITE_CONFIG.web3formsKey,
-              subject: "NZ Compare 2026 — suggestion",
-              from_name: "NZ Compare 2026",
-              name, email, message,
-            }),
-          });
-          const result = await res.json();
-          if (result.success) {
-            formMsg.textContent = "Thanks — your suggestion has been sent.";
-            formMsg.classList.add("success");
-            form.reset();
-          } else {
-            throw new Error(result.message || "unknown error");
-          }
-        } catch {
-          formMsg.textContent = "Couldn't send automatically. Please try again shortly.";
+      formMsg.textContent = "Sending…";
+      formMsg.classList.remove("success");
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const res = await fetch("/api/feedback", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message, page: location.pathname }),
+        });
+        const result = await res.json();
+        if (result.success) {
+          formMsg.textContent = "Thanks — your suggestion has been recorded. Really appreciate it!";
+          formMsg.classList.add("success");
+          form.reset();
+        } else {
+          throw new Error(result.error || "unknown error");
         }
-      } else if (SITE_CONFIG.fallbackEmail) {
-        const body = encodeURIComponent(`${message}\n\n— ${name} (${email || "no email given"})`);
-        window.location.href = `mailto:${SITE_CONFIG.fallbackEmail}?subject=${encodeURIComponent("NZ Compare 2026 suggestion")}&body=${body}`;
-        formMsg.textContent = "Opening your email client…";
-      } else {
-        formMsg.textContent = "This form isn't wired up to a backend yet — see README (SITE_CONFIG.web3formsKey in js/data.js).";
+      } catch {
+        formMsg.textContent = "Couldn't send right now — please try again in a moment.";
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
     });
   }
@@ -469,6 +533,7 @@
 
   renderToggles();
   renderMatrix();
+  renderMobileMatrix();
   renderMinor();
   renderNews();
   renderManifestoWatch();

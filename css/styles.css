@@ -154,6 +154,29 @@ section.block{margin-top:4rem;}
 .scroll-hint.show{opacity:1;max-height:2rem;}
 .scroll-hint svg{width:14px;height:14px;animation:scrollHintNudge 1.6s ease-in-out infinite;}
 @keyframes scrollHintNudge{ 0%,100%{transform:translateX(0);} 50%{transform:translateX(4px);} }
+
+/* ---------- Mobile comparison view: one party at a time ---------- */
+.mobile-matrix{display:none;}
+@media (max-width:760px){
+  .table-scroll, #matrixScrollHint, #partyToggles{display:none;}
+  .mobile-matrix{display:block;}
+}
+.mobile-party-tabs{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.6rem;margin-bottom:.2rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.mobile-party-tabs::-webkit-scrollbar{display:none;}
+.mobile-party-tab{flex:0 0 auto;display:flex;align-items:center;gap:.4rem;padding:.5rem .9rem;border-radius:999px;border:2px solid var(--border-strong);background:var(--surface);font-weight:800;font-size:.82rem;color:var(--ink-soft);white-space:nowrap;transition:border-color .15s, box-shadow .15s, color .15s;}
+.mobile-party-tab img{height:20px;width:auto;max-width:70px;object-fit:contain;}
+.mobile-party-tab.active{border-color:var(--pc,var(--accent));color:var(--ink);box-shadow:0 0 0 2px color-mix(in srgb, var(--pc,var(--accent)) 25%, transparent), 0 0 14px color-mix(in srgb, var(--pc,var(--accent)) 35%, transparent);}
+
+.mobile-leader-strip{display:flex;align-items:center;gap:.6rem;background:var(--surface-sunken);border-radius:14px;padding:.8rem 1rem;margin:.8rem 0 1.1rem;}
+.mobile-leader-strip img{width:40px;height:40px;max-width:none;border-radius:50%;object-fit:cover;border:2.5px solid var(--pc,#999);flex-shrink:0;}
+.mobile-leader-strip .name{font-weight:700;font-size:.9rem;}
+.mobile-leader-strip .role{font-size:.76rem;color:var(--ink-soft);}
+
+.mobile-domain-card{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--pc,var(--accent));border-radius:14px;padding:1rem 1.1rem;margin-bottom:.8rem;}
+.mobile-domain-card h4{font-size:.98rem;font-family:var(--font-body);font-weight:700;margin-bottom:.15rem;}
+.mobile-domain-card .domain-desc-mobile{font-size:.76rem;color:var(--ink-soft);display:block;margin-bottom:.6rem;}
+.mobile-domain-card .policy-text{font-size:.92rem;margin-bottom:.6rem;}
+
 .matrix-table{border-collapse:separate;border-spacing:0;width:100%;min-width:960px;font-size:.88rem;}
 .matrix-table th,.matrix-table td{padding:.95rem 1.1rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);}
 .matrix-table thead th{position:sticky;top:0;background:var(--ink);color:#fff;z-index:3;border-bottom:none;}
@@ -174,6 +197,8 @@ section.block{margin-top:4rem;}
 .analogy-box{display:none;margin-top:.5rem;padding:.6rem .75rem;background:#fef6ea;border-left:3px solid #e8a33d;border-radius:8px;font-size:.8rem;color:var(--ink-soft);}
 :root[data-theme="dark"] .analogy-box{background:#2a2410;}
 .analogy-box.show{display:block;}
+.source-link{display:inline-flex;align-items:center;gap:.25rem;margin-top:.5rem;font-size:.72rem;font-weight:700;color:var(--ink-soft);opacity:.75;text-decoration:none;}
+.source-link:hover{opacity:1;color:var(--accent);text-decoration:underline;}
 
 /* ============================================
    Cards used across News / Manifesto / Minor / Polls

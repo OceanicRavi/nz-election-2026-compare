@@ -3,7 +3,7 @@
 **Live:** https://nz-election-2026-compare.vercel.app
 
 A comparison of the 7 main parties contesting the 2026 New Zealand
-general election across 22 policy domains — each policy explained
+general election across 23 policy domains — each policy explained
 simply (ELI15 analogies), plus a bot-updated live news feed, real
 published opinion polls with a trend chart, campaign social-media
 moments decoded, a personalised "Find Your Match" tool, an anonymous
@@ -24,11 +24,12 @@ index.html                             Main comparison page (includes embedded F
 find-your-match.html                   Standalone deep-link version of the same tool
 constituency.html                      Electorate candidate lookup page
 css/styles.css                         All styling (editorial theme, responsive)
-js/data.js                             Parties, 18 domains, policies+analogies, leaders, profiles, SITE_CONFIG
+js/data.js                             Parties, 23 domains, policies+analogies, leaders, profiles
 js/app.js                              Renders the matrix, polls, decoder, manifesto watch, leaning poll, form
 js/match.js                            Renders the Find Your Match profile/concern picker (used on both pages)
 js/constituency.js                     Renders the electorate lookup page + interactive map
 api/poll.js                            Vercel serverless function: anonymous poll (GET/POST)
+api/feedback.js                        Vercel serverless function: suggestion form storage (POST/GET)
 data/electorates.json                  Candidate data for all 64 general + 7 Māori electorates
 data/news.json                         Bot-generated — latest filtered election news (RSS)
 data/polls.json                        Manually-refreshed real published opinion polls
@@ -72,7 +73,7 @@ work with **zero extra signup** — both live under the same Vercel
 account already used to deploy.
 
 ### Netlify / GitHub Pages (static parts only)
-Everything except the `/api/poll` endpoint works fine as a plain static
+Everything except the `/api/poll` and `/api/feedback` endpoints works fine as a plain static
 deploy (drag-and-drop to Netlify, or GitHub Pages). The poll will show
 "unavailable in this deployment" there, since those hosts don't run
 Vercel's serverless functions — the rest of the site (comparison
@@ -85,12 +86,14 @@ matrix, news, manifesto watch, electorate lookup) is unaffected.
    in `index.html`). Turn it on with one click: Vercel dashboard →
    this project → **Analytics** tab → **Enable**. Free on the Hobby
    plan, no separate account, no cookie banner needed.
-2. **Suggestion form — Web3Forms.** Go to [web3forms.com](https://web3forms.com),
-   enter an email, and you'll instantly get a free access key (no
-   password/signup flow). Paste it into `SITE_CONFIG.web3formsKey` in
-   `js/data.js`. Until you do, the form falls back to opening the
-   visitor's email client (if you set `SITE_CONFIG.fallbackEmail`) or
-   shows a "not wired up yet" message.
+2. **Suggestion form** — already live, no setup needed. It POSTs to
+   `api/feedback.js`, which stores submissions in the same Vercel Blob
+   store as the poll (not email, not a third-party form service). To
+   read submissions back: `curl "https://<your-domain>/api/feedback?key=<FEEDBACK_READ_KEY>"`
+   — the key is set as an env var on the Vercel project
+   (`vercel env ls` to confirm it exists; the value itself is stored as
+   a secret, so keep your own copy somewhere safe when you first set it
+   with `vercel env add FEEDBACK_READ_KEY production`).
 3. **Poll storage** is already live (Vercel Blob store `nz-election-votes`,
    created and connected via `vercel storage create` / `vercel storage
    connect`) — nothing further to do.

@@ -3,16 +3,6 @@
    simplified comparisons — NOT official party positions. Always check
    each party's own manifesto before voting. */
 
-/* Site-wide config. web3formsKey: get a free key instantly at
-   https://web3forms.com (just enter an email, no password/signup) and
-   paste it here — the suggestion form POSTs directly to their API with
-   no server of our own needed. Leave blank to fall back to a mailto
-   link using fallbackEmail instead. */
-const SITE_CONFIG = {
-  web3formsKey: "",
-  fallbackEmail: "contact@novanexus.nz",
-};
-
 const PARTIES = [
   {
     id: "national",
@@ -100,7 +90,7 @@ const PARTIES = [
   },
 ];
 
-/* 22 policy domains. "desc" is the short sub-label shown under the name. */
+/* 23 policy domains. "desc" is the short sub-label shown under the name. */
 const DOMAINS = [
   { id: "economy", name: "Economy & Tax", desc: "Tax, spending, trade." },
   { id: "housing", name: "Housing", desc: "Supply, rent, ownership." },
@@ -124,6 +114,7 @@ const DOMAINS = [
   { id: "minwage", name: "Minimum Wage", desc: "Wage floor, Fair Pay Agreements." },
   { id: "interestrates", name: "Interest Rates & Reserve Bank", desc: "OCR, RBNZ mandate, mortgage costs." },
   { id: "superannuation", name: "Superannuation & Retirement Age", desc: "NZ Super eligibility, KiwiSaver." },
+  { id: "smallbusiness", name: "Small Business", desc: "Compliance costs, tax thresholds, support." },
 ];
 
 /* POLICIES[partyId][domainId] = { p: policy summary, a: explain-it-simply analogy } */
@@ -151,6 +142,7 @@ const POLICIES = {
     minwage: { p: "Raised the minimum wage by small increments (2% to $23.95 in April 2026); critics note it has trailed inflation for three years running.", a: "Like giving a small pay rise that doesn't quite keep up with the rising cost of the weekly shop." },
     interestrates: { p: "Kept the Reserve Bank's single inflation-only mandate (removed the employment target in 2023) and intends no change.", a: "Like telling the referee to only watch for one type of foul, not two." },
     superannuation: { p: "Luxon says the pension age 'probably' should rise to 67 but won't act without cross-party agreement; status quo for now.", a: "Like agreeing a problem exists but refusing to move first unless everyone else agrees to move too." },
+    smallbusiness: { p: "47-point small-business plan to cut compliance costs; reviewing the compulsory GST registration threshold; a 'Tell Government Once' service via NZBN; fast-tracked minor employment disputes; keeps the Investment Boost tax deduction for new assets.", a: "Like promising to stop making shopkeepers fill out the same form five times, and letting them write off new gear faster." },
   },
   labour: {
     economy: { p: "28% tax on investment-property profit from July 2027, ring-fenced for health.", a: "Like asking anyone who sells a second house at a profit to chip in toward healthcare." },
@@ -175,6 +167,7 @@ const POLICIES = {
     minwage: { p: "Promises to raise the minimum wage in line with inflation and restore Fair Pay Agreements (industry-wide bargaining) within its first 100 days.", a: "Like guaranteeing the wage floor at least keeps pace with rising prices, not falls behind them." },
     interestrates: { p: "Pledges to restore the Reserve Bank's dual mandate — price stability and maximum sustainable employment — reversing the 2023 change.", a: "Like asking the referee to watch for two fouls again, not just one." },
     superannuation: { p: "Campaigning to keep NZ Super eligibility at 65, no changes.", a: "Like refusing to move the finish line at all." },
+    smallbusiness: { p: "Small Business Action Plan: raises the instant asset write-off from $1,000 to $10,000 (turnover under $10m) and the GST registration threshold from $60k to $80k, funded by scrapping Investment Boost; requires big firms to pay small suppliers within 15 days on invoices under $25k.", a: "Like letting small shops write off bigger purchases straight away, worry less about GST paperwork, and finally get paid on time by the big guys." },
   },
   green: {
     economy: { p: "Wealth tax and bigger state role, funding decarbonisation and public housing.", a: "Like asking whoever has the biggest slice of cake to give a bit more." },
@@ -199,6 +192,7 @@ const POLICIES = {
     minwage: { p: "Wants the minimum wage raised to match the Living Wage ($29.90 for 2026/27).", a: "Like setting the wage floor at what it actually costs to get by, not just a legal minimum." },
     interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
     superannuation: { p: "Keep universal Super at 65, funded by taxing wealth rather than restricting who gets it; pension restricted to citizens from 2029.", a: "Like keeping everyone's entitlement the same size, but asking the wealthiest to refill the pot." },
+    smallbusiness: { p: "Keeps the 28% company tax rate for businesses under $30m turnover, raising it to 33% only for larger companies; backs a higher GST registration threshold so more small operators avoid GST paperwork altogether.", a: "Like leaving the corner shop's tax bill alone and only asking the big chains to pay more." },
   },
   act: {
     economy: { p: "Lower, flatter taxes, smaller state, less business regulation.", a: "Like trimming an overgrown hedge so it takes less space, leaving more yard for you." },
@@ -223,6 +217,7 @@ const POLICIES = {
     minwage: { p: "Campaigning on a three-year freeze of the adult minimum wage.", a: "Like holding the wage floor exactly where it is for three years, even as other prices rise." },
     interestrates: { p: "Backed the coalition's 2023 move to a single inflation-only Reserve Bank mandate; no sign of reversing it.", a: "Like preferring the referee focus on one foul only, arguing that's clearer and more effective." },
     superannuation: { p: "Proposes gradually raising the pension age to 67 by 2035 (3 months/year); KiwiSaver stays accessible at 65, with early access for 20+ years in a physical job.", a: "Like slowly moving the finish line back a little each year, while leaving a side door open for people in tough physical jobs." },
+    smallbusiness: { p: "Three-year minimum wage freeze plus a lower 'training wage' (60% of adult minimum) for under-20s in their first six months, framed as easing small-business staffing costs; wants clearer tax deductions for productive tech investment and a Ministry of Regulation to cut red tape.", a: "Like freezing one of the biggest costs on a small business's books and clearing out some of the paperwork jungle around it." },
   },
   nzfirst: {
     economy: { p: "State ownership of banking/energy, protecting domestic industry from overseas buyers.", a: "Like a family keeping the business in-house rather than selling shares to outsiders." },
@@ -247,6 +242,7 @@ const POLICIES = {
     minwage: { p: "Pledges to raise the minimum wage by at least the rate of inflation every year.", a: "Like promising the wage floor never falls behind the rising cost of living, year after year." },
     interestrates: { p: "Peters favours restoring employment to the Reserve Bank's mandate, alongside price stability.", a: "Like asking the referee to watch for jobs lost, not just rising prices." },
     superannuation: { p: "Opposes raising the pension age to 67; protects NZ Super entitlements and eligibility at 65 for citizens.", a: "Like refusing to move the finish line, full stop." },
+    smallbusiness: { p: "Would cut the company tax rate for small businesses (turnover under $30m) from 28% to 20%, at a cost of roughly $1 billion a year.", a: "Like giving every corner shop a straight tax cut and figuring out the bill later." },
   },
   maori: {
     economy: { p: "Taxing wealth, revenue into housing, health, education and whānau support.", a: "Like asking the fullest wallet at the table to cover more of the bill." },
@@ -271,6 +267,7 @@ const POLICIES = {
     minwage: { p: "Supports raising the minimum wage to the Living Wage.", a: "Like setting the wage floor at what it actually costs to get by, not just a legal minimum." },
     interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
     superannuation: { p: "Wants Māori able to access NZ Super 7–10 years earlier (around 55–58), citing lower Māori life expectancy and physically demanding work.", a: "Like moving the finish line closer for runners who started the race already more tired." },
+    smallbusiness: { p: "$4.5bn Oranga Whenua Oranga Tangata Fund to invest in Māori businesses, land and marae; wants 25% of government procurement reserved for 100% Māori-owned businesses; backs a higher GST registration threshold.", a: "Like setting aside a quarter of the government's shopping list specifically for Māori-owned businesses, plus a big investment fund to help them grow." },
   },
   top: {
     economy: { p: "Land value tax (1.75% urban/0.5% rural) funds a flat income tax and Citizen's Income.", a: "Like taxing idle land itself, and mailing everyone a guaranteed weekly allowance instead." },
@@ -295,6 +292,7 @@ const POLICIES = {
     minwage: { p: "Not among its released 'finished' policy chapters yet; its Citizen's Income ($370/week for most adults) is proposed as a separate income floor.", a: "Not yet one of TOP's fully 'finished' policy chapters — though its weekly payment-for-everyone idea works alongside wages." },
     interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
     superannuation: { p: "Proposes shifting NZ Super from pay-as-you-go to a contributory 'KiwiSaver 2.0' system with rising compulsory contributions.", a: "Like switching from paying today's pensions out of today's taxes to everyone building up their own retirement pot instead." },
+    smallbusiness: { p: "Small-business relief sits inside its wider land value tax / Citizen's Income package rather than as standalone policy; backs R&D tax credits for SMEs, though its flagship tax policies aren't locked in as coalition 'bottom lines'.", a: "Like bundling small-business help into one big tax-reform package rather than offering a separate standalone deal — and even that package isn't fully nailed down yet." },
   },
 };
 
@@ -388,7 +386,7 @@ const PROFILES = [
   { id: "renter", label: "Renter", icon: "🏠", suggested: ["housing", "welfare", "employment", "interestrates"] },
   { id: "homeowner", label: "Homeowner", icon: "🏡", suggested: ["housing", "cgt", "interestrates", "climate"] },
   { id: "immigrant", label: "Immigrant / Visa holder", icon: "🌏", suggested: ["immigration", "employment", "housing"] },
-  { id: "business", label: "Business owner", icon: "💼", suggested: ["economy", "employment", "minwage", "interestrates"] },
+  { id: "business", label: "Business owner", icon: "💼", suggested: ["economy", "employment", "minwage", "interestrates", "smallbusiness"] },
   { id: "parent", label: "Parent", icon: "👨‍👩‍👧", suggested: ["education", "health", "welfare", "childpoverty"] },
   { id: "retiree", label: "Retiree", icon: "👵", suggested: ["superannuation", "welfare", "health", "interestrates"] },
   { id: "farmer", label: "Farmer / Rural", icon: "🚜", suggested: ["agriculture", "economy", "climate", "interestrates"] },
