@@ -3,7 +3,7 @@
 **Live:** https://nz-election-2026-compare.vercel.app
 
 A comparison of the 7 main parties contesting the 2026 New Zealand
-general election across 18 policy domains — each policy explained
+general election across 22 policy domains — each policy explained
 simply (ELI15 analogies), plus a bot-updated live news feed, real
 published opinion polls with a trend chart, campaign social-media
 moments decoded, a personalised "Find Your Match" tool, an anonymous

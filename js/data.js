@@ -100,7 +100,7 @@ const PARTIES = [
   },
 ];
 
-/* 18 policy domains. "desc" is the short sub-label shown under the name. */
+/* 22 policy domains. "desc" is the short sub-label shown under the name. */
 const DOMAINS = [
   { id: "economy", name: "Economy & Tax", desc: "Tax, spending, trade." },
   { id: "housing", name: "Housing", desc: "Supply, rent, ownership." },
@@ -120,6 +120,10 @@ const DOMAINS = [
   { id: "localgov", name: "Local Government & Rates", desc: "Councils, rates, water bills." },
   { id: "mentalhealth", name: "Mental Health & Addiction", desc: "Services, waitlists, prevention." },
   { id: "childpoverty", name: "Child Poverty & Family Support", desc: "Incomes, ECE, family hardship." },
+  { id: "cgt", name: "Capital Gains Tax", desc: "Taxing profit on asset sales." },
+  { id: "minwage", name: "Minimum Wage", desc: "Wage floor, Fair Pay Agreements." },
+  { id: "interestrates", name: "Interest Rates & Reserve Bank", desc: "OCR, RBNZ mandate, mortgage costs." },
+  { id: "superannuation", name: "Superannuation & Retirement Age", desc: "NZ Super eligibility, KiwiSaver." },
 ];
 
 /* POLICIES[partyId][domainId] = { p: policy summary, a: explain-it-simply analogy } */
@@ -143,6 +147,10 @@ const POLICIES = {
     localgov: { p: "Proposes capping annual rates rises to 2–4%; water infrastructure costs handled separately under 'Local Water Done Well'.", a: "Like putting a speed limit on how fast your council bill can grow — but the water-pipes bill is separate." },
     mentalhealth: { p: "First government to set formal mental health and addiction targets; faster access, more frontline workers, better crisis response.", a: "Like setting a measurable goal — shorter wait times — and reporting progress against it." },
     childpoverty: { p: "No new targeted income-support payment; leans on economic growth and jobs as the route out of hardship.", a: "Like betting a stronger economy lifts families up, rather than a new direct payment." },
+    cgt: { p: "Opposes a capital gains tax; confirmed August 2026 it will not campaign on any new taxes.", a: "Like refusing to add a new toll gate, betting people prefer the road exactly as it is." },
+    minwage: { p: "Raised the minimum wage by small increments (2% to $23.95 in April 2026); critics note it has trailed inflation for three years running.", a: "Like giving a small pay rise that doesn't quite keep up with the rising cost of the weekly shop." },
+    interestrates: { p: "Kept the Reserve Bank's single inflation-only mandate (removed the employment target in 2023) and intends no change.", a: "Like telling the referee to only watch for one type of foul, not two." },
+    superannuation: { p: "Luxon says the pension age 'probably' should rise to 67 but won't act without cross-party agreement; status quo for now.", a: "Like agreeing a problem exists but refusing to move first unless everyone else agrees to move too." },
   },
   labour: {
     economy: { p: "28% tax on investment-property profit from July 2027, ring-fenced for health.", a: "Like asking anyone who sells a second house at a profit to chip in toward healthcare." },
@@ -163,6 +171,10 @@ const POLICIES = {
     localgov: { p: "No detailed 2026 rates/water policy published; previously pursued pooling water infrastructure regionally in government.", a: "Not a headline topic for this party this campaign." },
     mentalhealth: { p: "Says cost and wait times are the main barriers; wants properly funded, culturally grounded teams with timely access regardless of ability to pay.", a: "Like making sure a full wallet isn't the only way to get seen quickly." },
     childpoverty: { p: "Set the original Child Poverty Reduction targets in law; 2026 platform leans on its health and transport cost-of-living policies.", a: "Like having already set the finish line in law, and now trying other ways to help families reach it." },
+    cgt: { p: "Headline tax policy: a 28% flat capital gains tax on investment and commercial property (not the family home), from a 1 July 2027 valuation date, ring-fenced for health.", a: "Like finally taxing the profit when someone sells a second house, the same way wages already get taxed." },
+    minwage: { p: "Promises to raise the minimum wage in line with inflation and restore Fair Pay Agreements (industry-wide bargaining) within its first 100 days.", a: "Like guaranteeing the wage floor at least keeps pace with rising prices, not falls behind them." },
+    interestrates: { p: "Pledges to restore the Reserve Bank's dual mandate — price stability and maximum sustainable employment — reversing the 2023 change.", a: "Like asking the referee to watch for two fouls again, not just one." },
+    superannuation: { p: "Campaigning to keep NZ Super eligibility at 65, no changes.", a: "Like refusing to move the finish line at all." },
   },
   green: {
     economy: { p: "Wealth tax and bigger state role, funding decarbonisation and public housing.", a: "Like asking whoever has the biggest slice of cake to give a bit more." },
@@ -183,6 +195,10 @@ const POLICIES = {
     localgov: { p: "Not a headline 2026 focus for this party.", a: "Not a headline topic for this party this election." },
     mentalhealth: { p: "Aims to eliminate therapy waiting lists by training and employing many more therapists and psychologists.", a: "Like hiring enough staff that the waitlist disappears instead of just being managed." },
     childpoverty: { p: "Pledges to end child poverty; ending public funding for private for-profit ECE centres by 2028, expanding community/non-profit ECE.", a: "Like redirecting childcare funding away from for-profit businesses and into community-run centres." },
+    cgt: { p: "No dedicated CGT; instead a 2.5% wealth tax on net assets over $10m, a 33% tax on large inheritances/gifts, and removing mortgage-interest deductibility for landlords.", a: "Like skipping the sale-profit tax and instead asking people who already have the most to contribute more, every year." },
+    minwage: { p: "Wants the minimum wage raised to match the Living Wage ($29.90 for 2026/27).", a: "Like setting the wage floor at what it actually costs to get by, not just a legal minimum." },
+    interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
+    superannuation: { p: "Keep universal Super at 65, funded by taxing wealth rather than restricting who gets it; pension restricted to citizens from 2029.", a: "Like keeping everyone's entitlement the same size, but asking the wealthiest to refill the pot." },
   },
   act: {
     economy: { p: "Lower, flatter taxes, smaller state, less business regulation.", a: "Like trimming an overgrown hedge so it takes less space, leaving more yard for you." },
@@ -203,6 +219,10 @@ const POLICIES = {
     localgov: { p: "Backs a rates cap on council spending; favours smaller councils doing less, spending less.", a: "Like putting a strict budget leash on how much councils can charge you." },
     mentalhealth: { p: "No detailed 2026 mental health policy published; broader platform favours patient choice and private provision.", a: "Like preferring to let people pick their own provider rather than one government-run system." },
     childpoverty: { p: "Does not propose using tax changes to target poverty directly; favours growth and work incentives over targeted payments.", a: "Like betting that a bigger economy helps families more than a new welfare payment would." },
+    cgt: { p: "Opposed to a capital gains tax, consistent with its wider low-tax platform.", a: "Like refusing to add any new toll gates to the road, full stop." },
+    minwage: { p: "Campaigning on a three-year freeze of the adult minimum wage.", a: "Like holding the wage floor exactly where it is for three years, even as other prices rise." },
+    interestrates: { p: "Backed the coalition's 2023 move to a single inflation-only Reserve Bank mandate; no sign of reversing it.", a: "Like preferring the referee focus on one foul only, arguing that's clearer and more effective." },
+    superannuation: { p: "Proposes gradually raising the pension age to 67 by 2035 (3 months/year); KiwiSaver stays accessible at 65, with early access for 20+ years in a physical job.", a: "Like slowly moving the finish line back a little each year, while leaving a side door open for people in tough physical jobs." },
   },
   nzfirst: {
     economy: { p: "State ownership of banking/energy, protecting domestic industry from overseas buyers.", a: "Like a family keeping the business in-house rather than selling shares to outsiders." },
@@ -223,6 +243,10 @@ const POLICIES = {
     localgov: { p: "Backs a rates cap on council spending; prioritises ratepayer relief over new council spending.", a: "Like siding with ratepayers whenever councils want to spend or charge more." },
     mentalhealth: { p: "Backs community-led wellbeing initiatives, suicide-prevention programmes like Gumboot Friday, and new mental health response units.", a: "Like funding local, community-run support groups and dedicated crisis-response teams." },
     childpoverty: { p: "Tax-free $5,000-a-year 'Kiwi Kids Grant' for a citizen parent's first three children, for their first three years.", a: "Like a no-strings yearly top-up for new parents, as long as both parent and child are citizens." },
+    cgt: { p: "No specific CGT policy; general 'lower taxes' messaging alongside higher compulsory KiwiSaver contributions.", a: "Talks about cutting costs generally, without a specific plan for taxing sale profits." },
+    minwage: { p: "Pledges to raise the minimum wage by at least the rate of inflation every year.", a: "Like promising the wage floor never falls behind the rising cost of living, year after year." },
+    interestrates: { p: "Peters favours restoring employment to the Reserve Bank's mandate, alongside price stability.", a: "Like asking the referee to watch for jobs lost, not just rising prices." },
+    superannuation: { p: "Opposes raising the pension age to 67; protects NZ Super entitlements and eligibility at 65 for citizens.", a: "Like refusing to move the finish line, full stop." },
   },
   maori: {
     economy: { p: "Taxing wealth, revenue into housing, health, education and whānau support.", a: "Like asking the fullest wallet at the table to cover more of the bill." },
@@ -243,6 +267,10 @@ const POLICIES = {
     localgov: { p: "Not a headline 2026 focus for this party.", a: "Not a headline topic for this party this election." },
     mentalhealth: { p: "Shift toward prevention and whānau wellbeing over crisis response; guarantees kaupapa Māori and gender-affirming mental health care in the public system.", a: "Like treating the whole whānau and culture as part of healing, not just the person in crisis." },
     childpoverty: { p: "$100m community food fund (home gardens, marae māra kai) and up to 8 weeks free food for low earners.", a: "Like funding community gardens and food banks so no child in a low-income whānau goes hungry." },
+    cgt: { p: "No CGT proposed; instead five new taxes — a wealth tax, international profit-transfer tax, land-banking tax, vacant-home tax, and a 5% stamp duty on residential sales (including the family home) — plus the first $30,000 of income tax-free.", a: "Like skipping one new toll gate but adding several others aimed at wealth, empty houses and land-hoarding instead." },
+    minwage: { p: "Supports raising the minimum wage to the Living Wage.", a: "Like setting the wage floor at what it actually costs to get by, not just a legal minimum." },
+    interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
+    superannuation: { p: "Wants Māori able to access NZ Super 7–10 years earlier (around 55–58), citing lower Māori life expectancy and physically demanding work.", a: "Like moving the finish line closer for runners who started the race already more tired." },
   },
   top: {
     economy: { p: "Land value tax (1.75% urban/0.5% rural) funds a flat income tax and Citizen's Income.", a: "Like taxing idle land itself, and mailing everyone a guaranteed weekly allowance instead." },
@@ -263,6 +291,10 @@ const POLICIES = {
     localgov: { p: "Not a headline 2026 focus for this party.", a: "Not a headline topic for this party this election." },
     mentalhealth: { p: "Broadly supportive of the Mental Health Foundation's proposed reforms in its 2026 response.", a: "Backs the expert-recommended fixes rather than proposing its own separate plan." },
     childpoverty: { p: "Not among its released 'finished' policy chapters yet.", a: "Not yet one of TOP's fully 'finished' policy chapters." },
+    cgt: { p: "No CGT; uses a land value tax instead (1.75% urban / 0.5% rural land), deferrable for superannuitants until the property is sold.", a: "Like taxing the land itself every year instead of taxing the profit only when it's sold — but letting retirees delay paying until they sell up." },
+    minwage: { p: "Not among its released 'finished' policy chapters yet; its Citizen's Income ($370/week for most adults) is proposed as a separate income floor.", a: "Not yet one of TOP's fully 'finished' policy chapters — though its weekly payment-for-everyone idea works alongside wages." },
+    interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
+    superannuation: { p: "Proposes shifting NZ Super from pay-as-you-go to a contributory 'KiwiSaver 2.0' system with rising compulsory contributions.", a: "Like switching from paying today's pensions out of today's taxes to everyone building up their own retirement pot instead." },
   },
 };
 
@@ -352,15 +384,15 @@ const LEADER_PROFILES = [
 ];
 
 const PROFILES = [
-  { id: "student", label: "Student", icon: "🎓", suggested: ["education", "welfare", "employment"] },
-  { id: "renter", label: "Renter", icon: "🏠", suggested: ["housing", "welfare", "employment"] },
-  { id: "homeowner", label: "Homeowner", icon: "🏡", suggested: ["housing", "economy", "climate"] },
+  { id: "student", label: "Student", icon: "🎓", suggested: ["education", "welfare", "employment", "minwage"] },
+  { id: "renter", label: "Renter", icon: "🏠", suggested: ["housing", "welfare", "employment", "interestrates"] },
+  { id: "homeowner", label: "Homeowner", icon: "🏡", suggested: ["housing", "cgt", "interestrates", "climate"] },
   { id: "immigrant", label: "Immigrant / Visa holder", icon: "🌏", suggested: ["immigration", "employment", "housing"] },
-  { id: "business", label: "Business owner", icon: "💼", suggested: ["economy", "employment", "energy"] },
-  { id: "parent", label: "Parent", icon: "👨‍👩‍👧", suggested: ["education", "health", "welfare"] },
-  { id: "retiree", label: "Retiree", icon: "👵", suggested: ["welfare", "health", "economy"] },
-  { id: "farmer", label: "Farmer / Rural", icon: "🚜", suggested: ["economy", "climate", "energy"] },
-  { id: "jobseeker", label: "Jobseeker", icon: "🔍", suggested: ["welfare", "employment", "economy"] },
+  { id: "business", label: "Business owner", icon: "💼", suggested: ["economy", "employment", "minwage", "interestrates"] },
+  { id: "parent", label: "Parent", icon: "👨‍👩‍👧", suggested: ["education", "health", "welfare", "childpoverty"] },
+  { id: "retiree", label: "Retiree", icon: "👵", suggested: ["superannuation", "welfare", "health", "interestrates"] },
+  { id: "farmer", label: "Farmer / Rural", icon: "🚜", suggested: ["agriculture", "economy", "climate", "interestrates"] },
+  { id: "jobseeker", label: "Jobseeker", icon: "🔍", suggested: ["welfare", "employment", "minwage"] },
   { id: "other", label: "Just curious", icon: "🧭", suggested: [] },
 ];
 
