@@ -546,6 +546,19 @@
   renderDecoded();
   renderPoll();
 
+  /* ---------- Party deep link (?party=labour) — e.g. for outreach emails ---------- */
+  const deepLinkParty = new URLSearchParams(location.search).get("party");
+  if (deepLinkParty && PARTIES.some((p) => p.id === deepLinkParty)) {
+    state.visible = new Set([deepLinkParty]);
+    mobileActivePartyId = deepLinkParty;
+    renderToggles();
+    renderMatrix();
+    renderMobileMatrix();
+    requestAnimationFrame(() => {
+      document.getElementById("matrix-anchor")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   if (updateMatrixFade) {
     const origRenderMatrix = renderMatrix;
     renderMatrix = function () {
