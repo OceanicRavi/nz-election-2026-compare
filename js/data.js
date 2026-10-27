@@ -90,7 +90,7 @@ const PARTIES = [
   },
 ];
 
-/* 23 policy domains. "desc" is the short sub-label shown under the name. */
+/* 27 policy domains. "desc" is the short sub-label shown under the name. */
 const DOMAINS = [
   { id: "economy", name: "Economy & Tax", desc: "Tax, spending, trade." },
   { id: "housing", name: "Housing", desc: "Supply, rent, ownership." },
@@ -115,6 +115,10 @@ const DOMAINS = [
   { id: "interestrates", name: "Interest Rates & Reserve Bank", desc: "OCR, RBNZ mandate, mortgage costs." },
   { id: "superannuation", name: "Superannuation & Retirement Age", desc: "NZ Super eligibility, KiwiSaver." },
   { id: "smallbusiness", name: "Small Business", desc: "Compliance costs, tax thresholds, support." },
+  { id: "aitech", name: "AI & Tech Sector", desc: "AI regulation, tech investment, digital skills." },
+  { id: "lgbtq", name: "LGBTQ+ Rights", desc: "Conversion therapy ban, self-ID, healthcare access." },
+  { id: "fuelenergy", name: "Fuel Prices & Energy Costs", desc: "Fuel excise, power prices, oil & gas exploration." },
+  { id: "tourism", name: "Tourism", desc: "Visitor levy, infrastructure funding, bed tax." },
 ];
 
 /* POLICIES[partyId][domainId] = { p: policy summary, a: explain-it-simply analogy } */
@@ -143,6 +147,10 @@ const POLICIES = {
     interestrates: { p: "Kept the Reserve Bank's single inflation-only mandate (removed the employment target in 2023) and intends no change.", a: "Like telling the referee to only watch for one type of foul, not two." },
     superannuation: { p: "Luxon says the pension age 'probably' should rise to 67 but won't act without cross-party agreement; status quo for now.", a: "Like agreeing a problem exists but refusing to move first unless everyone else agrees to move too." },
     smallbusiness: { p: "47-point small-business plan to cut compliance costs; reviewing the compulsory GST registration threshold; a 'Tell Government Once' service via NZBN; fast-tracked minor employment disputes; keeps the Investment Boost tax deduction for new assets.", a: "Like promising to stop making shopkeepers fill out the same form five times, and letting them write off new gear faster." },
+    aitech: { p: "No standalone AI policy; leans on its existing AI Strategy and 'Responsible AI Guidance', favouring light-touch rules that keep barriers to AI adoption low.", a: "Like setting a few road rules but mostly letting cars find their own way." },
+    lgbtq: { p: "Luxon has explicitly ruled out repealing the 2022 conversion therapy ban ('we're not overturning that at all'); National also backed the 2021 self-ID law change for birth certificates. No dedicated 2026 rainbow policy published.", a: "Like keeping the current protections in place without promising anything new." },
+    fuelenergy: { p: "As government, scrapped the fuel excise increase scheduled for January 2027, citing a $450m fuel response contingency fund; smaller increases are pushed out to 2028. Not a tax cut — just cancelling a planned rise.", a: "Like calling off a scheduled toll increase instead of actually lowering the toll." },
+    tourism: { p: "Resetting the International Visitor Levy so councils get a direct share (about $385m over four years from mid-2027) plus a $50m-a-year Tourism Priorities Fund for marketing, infrastructure and events — while ruling out any bed tax, a reversal of Luxon's earlier openness to one.", a: "Like redirecting money tourists already pay instead of asking them to pay more." },
   },
   labour: {
     economy: { p: "28% tax on investment-property profit from July 2027, ring-fenced for health.", a: "Like asking anyone who sells a second house at a profit to chip in toward healthcare." },
@@ -168,6 +176,10 @@ const POLICIES = {
     interestrates: { p: "Pledges to restore the Reserve Bank's dual mandate — price stability and maximum sustainable employment — reversing the 2023 change.", a: "Like asking the referee to watch for two fouls again, not just one." },
     superannuation: { p: "Campaigning to keep NZ Super eligibility at 65, no changes.", a: "Like refusing to move the finish line at all." },
     smallbusiness: { p: "Small Business Action Plan: raises the instant asset write-off from $1,000 to $10,000 (turnover under $10m) and the GST registration threshold from $60k to $80k, funded by scrapping Investment Boost; requires big firms to pay small suppliers within 15 days on invoices under $25k.", a: "Like letting small shops write off bigger purchases straight away, worry less about GST paperwork, and finally get paid on time by the big guys." },
+    aitech: { p: "Most detailed AI platform of any party — an 'AI Action Plan' creating an Office of AI and a new online safety regulator, stricter rules on big data centres, stronger copyright protection for creators, and support for small businesses adopting AI.", a: "Like appointing a referee for AI before the game gets too big to control." },
+    lgbtq: { p: "No 2026 rainbow policy published yet; its most recent platform (2023) included adoption/surrogacy law reform, a Rainbow refugee quota, and funding for Rainbow community events and organisations.", a: "Running on an older playbook until new policy drops closer to polling day." },
+    fuelenergy: { p: "Pledges to freeze fuel excise tax at its current level for a full three-year term and not raise GST, arguing households already squeezed by living costs shouldn't face higher pump prices. No detail yet on how a multi-year freeze would be funded.", a: "Like promising the price at the pump won't climb for three years, with the bill for that promise worked out later." },
+    tourism: { p: "No fully published tourism policy. Hipkins said a local bed levy is 'a question for' councils rather than a Labour commitment, which National has seized on as proof Labour secretly backs a bed tax — no verbatim Labour policy confirms either position.", a: "Leaving the door open without walking through it, which both sides are reading as they like." },
   },
   green: {
     economy: { p: "Wealth tax and bigger state role, funding decarbonisation and public housing.", a: "Like asking whoever has the biggest slice of cake to give a bit more." },
@@ -193,6 +205,10 @@ const POLICIES = {
     interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
     superannuation: { p: "Keep universal Super at 65, funded by taxing wealth rather than restricting who gets it; pension restricted to citizens from 2029.", a: "Like keeping everyone's entitlement the same size, but asking the wealthiest to refill the pot." },
     smallbusiness: { p: "Keeps the 28% company tax rate for businesses under $30m turnover, raising it to 33% only for larger companies; backs a higher GST registration threshold so more small operators avoid GST paperwork altogether.", a: "Like leaving the corner shop's tax bill alone and only asking the big chains to pay more." },
+    aitech: { p: "Proposed a one-year moratorium on new AI data centre consents until proper rules exist, plus a 'Safe, Sovereign AI' policy requiring transparency, multiple AI providers for government use, and EU-style labelling and audits.", a: "Like hitting pause on new data centres until there's a rulebook everyone can see." },
+    lgbtq: { p: "The most detailed platform of any party: a dedicated Rainbow Policy proposing a Ministry for Rainbow Communities, adding sexual orientation and gender identity as explicitly protected grounds in the Human Rights Act, banning non-consensual intersex surgery, and resourcing gender-affirming healthcare on informed consent.", a: "Like writing rainbow protections into law instead of leaving them as unwritten custom." },
+    fuelenergy: { p: "Would reinstate the offshore oil and gas exploration ban and cancel permits granted since it reopened in 2025; proposes a state entity to buy power from household and school solar, claiming up to roughly $300 a year off power bills. Argues NZ's fuel tax is already low by OECD standards — the pre-tax price is the real problem.", a: "Like closing the oil tap again and instead paying households for the power they generate themselves." },
+    tourism: { p: "Would let councils set their own local bed levy on visitor accommodation, and adds a 'Taonga Levy' of $14 to $18 onto the existing border charge, split between conservation funding and a Regional Tourism Facilities Fund.", a: "Like adding a small conservation surcharge to every visitor's ticket in, with councils free to add their own local charge too." },
   },
   act: {
     economy: { p: "Lower, flatter taxes, smaller state, less business regulation.", a: "Like trimming an overgrown hedge so it takes less space, leaving more yard for you." },
@@ -218,6 +234,10 @@ const POLICIES = {
     interestrates: { p: "Backed the coalition's 2023 move to a single inflation-only Reserve Bank mandate; no sign of reversing it.", a: "Like preferring the referee focus on one foul only, arguing that's clearer and more effective." },
     superannuation: { p: "Proposes gradually raising the pension age to 67 by 2035 (3 months/year); KiwiSaver stays accessible at 65, with early access for 20+ years in a physical job.", a: "Like slowly moving the finish line back a little each year, while leaving a side door open for people in tough physical jobs." },
     smallbusiness: { p: "Three-year minimum wage freeze plus a lower 'training wage' (60% of adult minimum) for under-20s in their first six months, framed as easing small-business staffing costs; wants clearer tax deductions for productive tech investment and a Ministry of Regulation to cut red tape.", a: "Like freezing one of the biggest costs on a small business's books and clearing out some of the paperwork jungle around it." },
+    aitech: { p: "No standalone tech/AI policy; generally wary of new regulation. Its only public AI-specific stance is wanting accountability for AI-generated election misinformation.", a: "Like leaving the technology alone but promising to crack down hard if it's used to deceive voters." },
+    lgbtq: { p: "No specific rainbow policy; prefers general 'one law for all' framing over group-specific commitments. Voted for the conversion therapy ban at second reading in 2022 after initially opposing it, with Seymour noting the party could still change its vote.", a: "Changed its mind once already and hasn't firmly committed either way for 2026." },
+    fuelenergy: { p: "Wants to reverse the offshore oil and gas exploration ban and get the state out of power generation (scrapping the Lake Onslow scheme), while opposing a break-up of the big power companies in favour of more network competition and fast-tracked offshore wind consenting. No confirmed 2026 fuel-excise-specific policy.", a: "Like reopening the oil tap and betting on more competition to bring power bills down, rather than tinkering with petrol tax directly." },
+    tourism: { p: "Opposes any bed tax outright. Its 'Local Tourism Dividend' would instead pay councils $1 per commercial guest-night from tourism tax revenue the government already collects, not a new charge on visitors.", a: "Like giving councils a slice of the existing pie instead of baking a new one." },
   },
   nzfirst: {
     economy: { p: "State ownership of banking/energy, protecting domestic industry from overseas buyers.", a: "Like a family keeping the business in-house rather than selling shares to outsiders." },
@@ -243,6 +263,10 @@ const POLICIES = {
     interestrates: { p: "Peters favours restoring employment to the Reserve Bank's mandate, alongside price stability.", a: "Like asking the referee to watch for jobs lost, not just rising prices." },
     superannuation: { p: "Opposes raising the pension age to 67; protects NZ Super entitlements and eligibility at 65 for citizens.", a: "Like refusing to move the finish line, full stop." },
     smallbusiness: { p: "Would cut the company tax rate for small businesses (turnover under $30m) from 28% to 20%, at a cost of roughly $1 billion a year.", a: "Like giving every corner shop a straight tax cut and figuring out the bill later." },
+    aitech: { p: "No formal AI policy — scattered statements backing 'limited responsible use' of AI (ruling out deepfakes of politicians), support for businesses adopting AI with staff training, and citing UNESCO's AI principles as its reference point.", a: "Like being cautiously open to the tool but drawing a hard line at faking someone's face." },
+    lgbtq: { p: "Peters said in October 2026 he 'sure hopes' the conversion therapy ban gets overturned, later softening this to being open to reviewing the law rather than a firm repeal pledge — a live, contested 2026 campaign position, not a settled policy.", a: "Like floating a reversal in an interview without yet putting it in writing." },
+    fuelenergy: { p: "Promises a $1 billion state-funded survey for oil, gas and geothermal resources to cut import dependence and ease power prices, plus splitting power companies' generation and retail arms. No confirmed fuel-excise position.", a: "Like paying up front to find more energy at home instead of relying on prices set overseas." },
+    tourism: { p: "Backs a bed levy as already agreed in the Auckland and Queenstown city deals, but insists it must exempt New Zealanders and apply to international visitors only — and has criticised National's alternative plan as reallocating existing money rather than ring-fencing new visitor-levy funds.", a: "Insists on keeping the promise made to councils, not swapping it for a different one." },
   },
   maori: {
     economy: { p: "Taxing wealth, revenue into housing, health, education and whānau support.", a: "Like asking the fullest wallet at the table to cover more of the bill." },
@@ -268,6 +292,10 @@ const POLICIES = {
     interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
     superannuation: { p: "Wants Māori able to access NZ Super 7–10 years earlier (around 55–58), citing lower Māori life expectancy and physically demanding work.", a: "Like moving the finish line closer for runners who started the race already more tired." },
     smallbusiness: { p: "$4.5bn Oranga Whenua Oranga Tangata Fund to invest in Māori businesses, land and marae; wants 25% of government procurement reserved for 100% Māori-owned businesses; backs a higher GST registration threshold.", a: "Like setting aside a quarter of the government's shopping list specifically for Māori-owned businesses, plus a big investment fund to help them grow." },
+    aitech: { p: "No published AI or digital policy — the 2026 campaign focuses on Te Tiriti, housing, hauora, whenua and cost of living instead.", a: "Not a priority they've put on the table this election." },
+    lgbtq: { p: "No published takatāpui/rainbow policy for 2026; co-leader Ngarewa-Packer has acknowledged the party 'may have been remiss' on this and wants the community to help shape future policy.", a: "An admitted gap the party says it wants to fill, not yet a plan." },
+    fuelenergy: { p: "Has repeatedly called for an urgent, temporary suspension of fuel excise tax altogether, arguing households are under severe financial strain, though no costing for the suspension has been published.", a: "Like asking the government to just switch the pump tax off until things ease up." },
+    tourism: { p: "No published tourism policy; the 2026 campaign centres on Te Tiriti, housing, environment, education and employment instead.", a: "Not a priority they've put on the table this election." },
   },
   top: {
     economy: { p: "Land value tax (1.75% urban/0.5% rural) funds a flat income tax and Citizen's Income.", a: "Like taxing idle land itself, and mailing everyone a guaranteed weekly allowance instead." },
@@ -293,6 +321,10 @@ const POLICIES = {
     interestrates: { p: "No detailed 2026 policy published on the Reserve Bank's mandate specifically.", a: "Not a headline topic for this party this campaign." },
     superannuation: { p: "Proposes shifting NZ Super from pay-as-you-go to a contributory 'KiwiSaver 2.0' system with rising compulsory contributions.", a: "Like switching from paying today's pensions out of today's taxes to everyone building up their own retirement pot instead." },
     smallbusiness: { p: "Small-business relief sits inside its wider land value tax / Citizen's Income package rather than as standalone policy; backs R&D tax credits for SMEs, though its flagship tax policies aren't locked in as coalition 'bottom lines'.", a: "Like bundling small-business help into one big tax-reform package rather than offering a separate standalone deal — and even that package isn't fully nailed down yet." },
+    aitech: { p: "No dedicated AI policy, but proposes doubling R&D investment to 3% of GDP with commercialisation and skills support, aimed at making sure AI boosts productivity rather than replacing jobs.", a: "Like investing in retraining the workforce so a new machine adds jobs instead of just removing them." },
+    lgbtq: { p: "No current rainbow policy; its last public position dates to 2020 under the previous leadership, before 2025's rebrand and new leader. 2026 campaign focus is on economic and political reform instead.", a: "The last time they spoke on this was under different leadership entirely." },
+    fuelenergy: { p: "Detailed 'Abundant Energy' policy: reworking the electricity market to reward new renewable generation, targeting 19GW of new capacity by 2050, consolidating NZ's 29 electricity distributors into 8 or fewer, and merging multiple energy regulators into one Ministry of Energy. No specific petrol/fuel-excise policy published yet.", a: "Like redesigning the whole power grid's plumbing rather than adjusting any single tap." },
+    tourism: { p: "No published tourism policy found — nothing on a bed tax, visitor levy, or tourism infrastructure funding.", a: "No position on record yet." },
   },
 };
 

@@ -3,7 +3,7 @@
 **Live:** https://nz-election-2026-compare.vercel.app
 
 A comparison of the 7 main parties contesting the 2026 New Zealand
-general election across 23 policy domains — each policy explained
+general election across 27 policy domains — each policy explained
 simply (ELI15 analogies), plus a bot-updated live news feed, real
 published opinion polls with a trend chart, campaign social-media
 moments decoded, a personalised "Find Your Match" tool, an anonymous
@@ -24,7 +24,7 @@ index.html                             Main comparison page (includes embedded F
 find-your-match.html                   Standalone deep-link version of the same tool
 constituency.html                      Electorate candidate lookup page
 css/styles.css                         All styling (editorial theme, responsive)
-js/data.js                             Parties, 23 domains, policies+analogies, leaders, profiles
+js/data.js                             Parties, 27 domains, policies+analogies, leaders, profiles
 js/app.js                              Renders the matrix, polls, decoder, manifesto watch, leaning poll, form
 js/match.js                            Renders the Find Your Match profile/concern picker (used on both pages)
 js/constituency.js                     Renders the electorate lookup page + interactive map
