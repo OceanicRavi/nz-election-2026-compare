@@ -31,6 +31,14 @@
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function shareUrlFor(profile, domain) {
+    const url = new URL(location.href);
+    url.search = "";
+    url.searchParams.set("profile", profile.id);
+    url.searchParams.set("concern", domain.id);
+    return url.toString();
+  }
+
   function renderProfiles() {
     profileOptions.innerHTML = "";
     PROFILES.forEach((p) => {
@@ -114,10 +122,53 @@
       <div class="match-result-actions">
         <button type="button" class="btn btn-dark" id="matchRedoBtn">↺ Start over</button>
         <a class="btn btn-ghost-light" href="/#matrix-anchor">See the full comparison →</a>
+        <button type="button" class="btn btn-ghost-light" id="matchShareBtn">Share this ↗</button>
       </div>
+      <p class="share-note" id="matchShareNote" style="display:none;"></p>
     `;
     document.getElementById("matchRedoBtn").addEventListener("click", redo);
+
+    const shareBtn = document.getElementById("matchShareBtn");
+    const shareNote = document.getElementById("matchShareNote");
+    shareBtn.addEventListener("click", async () => {
+      const url = shareUrlFor(selectedProfile, domain);
+      const text = `Here's what all 7 NZ parties say about ${domain.name.toLowerCase()} — compare for yourself, no spin:`;
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: "NZ Compare 2026", text, url });
+          return;
+        } catch {
+          /* user cancelled the native share sheet — fall through to copy */
+        }
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        shareNote.textContent = "Link copied — paste it anywhere.";
+      } catch {
+        shareNote.textContent = url;
+      }
+      shareNote.style.display = "block";
+    });
+  }
+
+  function applyDeepLink() {
+    const params = new URLSearchParams(location.search);
+    const profileId = params.get("profile");
+    const concernId = params.get("concern");
+    if (!profileId || !concernId) return false;
+    const profile = PROFILES.find((p) => p.id === profileId);
+    const domain = DOMAINS.find((d) => d.id === concernId);
+    if (!profile || !domain) return false;
+    selectedProfile = profile;
+    selectedConcern = domain;
+    profileStep.style.display = "none";
+    concernStep.style.display = "none";
+    renderResult();
+    return true;
   }
 
   renderProfiles();
+  if (!applyDeepLink()) {
+    /* no shared link in the URL — normal first-step view */
+  }
 })();

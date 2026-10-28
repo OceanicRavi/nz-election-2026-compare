@@ -559,6 +559,23 @@
     });
   }
 
+  /* ---------- Share bar copy-link button ---------- */
+  const copyLinkBtn = document.getElementById("copyLinkBtn");
+  const copyLinkNote = document.getElementById("copyLinkNote");
+  if (copyLinkBtn && copyLinkNote) {
+    copyLinkBtn.addEventListener("click", async () => {
+      const url = "https://easyexplain.org";
+      try {
+        await navigator.clipboard.writeText(url);
+        copyLinkNote.textContent = "Link copied!";
+      } catch {
+        copyLinkNote.textContent = url;
+      }
+      copyLinkNote.style.display = "inline";
+      setTimeout(() => { copyLinkNote.style.display = "none"; }, 3000);
+    });
+  }
+
   if (updateMatrixFade) {
     const origRenderMatrix = renderMatrix;
     renderMatrix = function () {
