@@ -244,7 +244,7 @@ const POLICIES = {
     housing: { p: "No major standalone 2026 housing policy published yet.", a: "Housing hasn't been a headline topic for this party this campaign." },
     health: { p: "Not a headline 2026 focus; backs current coalition health settings.", a: "Health hasn't been a headline topic for this party this campaign." },
     education: { p: "No detailed 2026 education announcements so far.", a: "Education is a smaller item on this party's to-do list this election." },
-    immigration: { p: "Update birthright citizenship rules, widen deportation, reform asylum, lower migration.", a: "Like tightening a party guest list to only those needed for a job." },
+    immigration: { p: "Wants a 'shortage-led' Skilled Work Visa to replace the Accredited Employer scheme, tying entry to occupation, region and demonstrated need rather than an employer's sign-off; would end work visas for most retail jobs, add physical-presence requirements for permanent residents, and put a referendum to the public on capping resident visas at 20,000 a year.", a: "Like only hiring for roles the town actually needs, not whoever a shop decides to sponsor — and asking residents to really live here to keep their place." },
     security: { p: "Strongly supports the coalition's sentencing reforms.", a: "Like fully backing the school's three-strikes policy, no exceptions." },
     climate: { p: "Sceptical of aggressive climate targets if they raise costs; wants a pragmatic approach.", a: "Like securing the country's own energy supply before outside commitments." },
     tiriti: { p: "Opposes 'separatism', backs a referendum on Māori electorates.", a: "Like arguing the house should run on one shared rulebook." },
